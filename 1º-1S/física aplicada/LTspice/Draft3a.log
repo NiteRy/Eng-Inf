@@ -1,0 +1,14 @@
+LTspice 24.1.10 for Windows
+Circuit: C:\Users\Death\OneDrive\Desktop\Eng Inf\1º-1S\física aplicada\LTspice\Draft3a.net
+Start Time: Wed Oct 15 15:50:52 2025
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.872 seconds.
+
+Files loaded:
+C:\Users\Death\OneDrive\Desktop\Eng Inf\1º-1S\física aplicada\LTspice\Draft3a.net
+

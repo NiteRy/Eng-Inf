@@ -1,0 +1,14 @@
+LTspice 24.1.10 for Windows
+Circuit: C:\Users\ssv\OneDrive - FCT NOVA\Documents\LTspice\Draft3.net
+Start Time: Tue Oct  7 21:25:15 2025
+solver = Normal
+Maximum thread count: 8
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.674 seconds.
+
+Files loaded:
+C:\Users\ssv\OneDrive - FCT NOVA\Documents\LTspice\Draft3.net
+

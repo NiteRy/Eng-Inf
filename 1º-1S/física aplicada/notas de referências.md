@@ -13,3 +13,7 @@
 [Livro 2](<Referências de estudo/introdução aos circuitos/ch1.pdf>)
 
 [Livro 3](<Referências de estudo/introdução aos circuitos/ch2.pdf>)
+
+# Aula 3
+
+[Livro 1](<Referências de estudo/Fundamentals of Electric Circuits (2016, McGraw-Hill Education).pdf>) Capítulo 1
