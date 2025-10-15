@@ -25,4 +25,5 @@
 |Produto cartesiano|Multiplicação de 2 conjuntos|A={a,b} B={1,2} AxB={(a,1),(a,2),(b,1),(b,2)}|
 |Relação entre conjuntos|Deriva de um resultado de um produto cartesiano|R={(a,1),(b,2)}|
 |Inverso de uma relação|É o resto da relação dos conjuntos|R-1={(a,2),(b,1)}|
-
+|Divisibilidade (critérios) em inteiros | Sejam a,b números inteiros, pertencentes a Z em que b é diferente de zero Dizemos que b divide a, ou b é divisor de a, se existir um número inteiro k tal que a=b*k Esta divisão designa-se por b\|a|3 \|12 b=3 e a=12 porque 12=3\*4<br>5 \| 25 porque 25=5\*5<br>6 \| 15 falso pois não existe nenhum k inteiro tal que 6\*k=15|
+|Números primos|||

@@ -27,4 +27,5 @@
 # Notas
 
 - 20/10 não há matemática
+- 29/10 não há física aplicada
 - 24/1 há aula suplementar CCG para ajudar nos Full papers
