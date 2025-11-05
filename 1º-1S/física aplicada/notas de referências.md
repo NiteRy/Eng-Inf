@@ -26,7 +26,7 @@
 
 [Livro 5](<Referências de estudo/Electronic-Devices-and-Circuit-Theory-10th/70294155-Electronic-Devices-and-Circuit-Theory-10th-Ed-Boylestad-Chapter-2.pdf>)
 
-[Livro 1](<Referências de estudo/Fisica Aplicada Presentation 15oct.pdf>)
+[Livro 6](<Referências de estudo/Fisica Aplicada Presentation 15oct.pdf>)
 
 # Aula 4
 
@@ -41,3 +41,7 @@
 # Aula 5
 
 [Livro 1](<Referências de estudo/introdução aos circuitos/ch2.pdf>)
+
+[Livro 2](<Referências de estudo/introdução aos circuitos/ch3.pdf>)
+
+[Livro 3](<Referências de estudo/introdução aos circuitos/ch4.pdf>)
