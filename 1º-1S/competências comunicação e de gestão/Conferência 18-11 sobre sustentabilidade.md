@@ -86,6 +86,16 @@
 - ambiente socical
 - saúde e bem estar
 
+# Saúde e Ecologia
+
+As alterações climáticas estão a degradar o planeta, assim como saúde e recursos naturais
+
+Saúde humana - migração, situação financeira, alimentação
+Saúde animal - Degradação genética e desenvolvimento de doenças
+Ambiente - Poluições, perda de recursos
+
+Soluções: analisar as doenças para desenvolver curas, procurar soluções alternativas para determinados recursos
+
 ## Desafios da sustentablidedade emergente
 
 1. O trabalho em regime híbrido ou em casa pode ser bom mas também pode causar problemas de trabalho como falta de controlo da equipa ou distrações entre casa-trabalho
@@ -106,11 +116,3 @@ Soluções: Verificar com frequência os trabalhos, pequenas formações, rodar 
 
 1. Identificar tarefas mais comuns e as equipas que fazem
 2. identificar riscos/problemas e arranjar soluções´
-
-# Saúde e Ecologia
-
-As alterações climáticas estão a degradar o planeta, assim como saúde e recursos naturais
-
-Saúde humana - migração, situação financeira, alimentação
-Saúde animal - Degradação genética e desenvolvimento de doenças
-Ambiente - Poluições, perda de recursos
