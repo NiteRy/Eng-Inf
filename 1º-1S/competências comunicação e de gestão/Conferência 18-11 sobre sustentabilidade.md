@@ -1,118 +1,240 @@
-# Urgência da sustentabilidade climática
+# Urgência da Sustentabilidade Climática
+## Crises Climáticas
 
-## Crises climáticas 
+Aumento dos níveis de CO₂: a concentração crescente de gases de efeito estufa intensifica o aquecimento global.
 
-- Níveis de C02 elevado
-- Falta de recursos
-- Prazos para reduzir poluição
+Escassez e má gestão de recursos: água, minerais e energia tornam-se mais limitados devido ao consumo excessivo e desperdício.
 
-## Planeta em crise
+Prazos críticos para reduzir poluição global: organismos internacionais alertam que a janela para evitar danos irreversíveis está a fechar.
 
-- reduzir emissões
-- reutilizar recursos
-- criar tecnologia de sustentabilidade
+## Planeta em Crise
 
-# Inovação disruptiva
+Redução das emissões: necessidade de diminuir gases nocivos provenientes da indústria, transporte e energia.
 
-1. Criar novos mercados para inovar o mercado
-2. Exemplos: Tesla (automóveis) e airlab (medicina)
-3. Os seus trabalhos conseguiram dominar empresas que dominavam antes
+Reutilização e otimização de recursos: práticas como reciclagem, reparação e uso consciente.
 
-## Dilemas na inovação
+Desenvolvimento de tecnologias sustentáveis: soluções como energias limpas, sistemas eficientes e materiais ecológicos.
 
-- Lições: empresas que dominaram o mercado antes que agora não se conseguem adaptar ao mercado
+# Inovação Disruptiva
+## Conceito Geral
 
-# Diferenças entre inovação e disrupção
+Criação de novos mercados: oferta de produtos ou serviços antes inexistentes.
 
-## tecnologias verdes como disruptores
+Transformação de mercados existentes: redefinição das regras e práticas tradicionais.
 
-- energia solar se tornou mais barata do que carvão
-- veiculos elétricos podem salvar pessoas
-- Otimização energética reduz poluição
+Substituição de empresas tradicionais: empresas inovadoras dominam setores ao trazer novas soluções.
 
-## Economia circular 
+## Exemplos
 
-- Design de produtos para durarem e reciclar, para evitar custos e reduzir emissões
+Tesla: revolucionou a mobilidade ao apostar em veículos elétricos e baterias de alta performance.
 
-# Liderar para disrupção e sustentailidade
+Airlab: inovação aplicada à medicina, trazendo métodos mais eficientes e acessíveis.
 
-- Empoderar colaboradores
-- Alinhamento de objetos
-- Modelo Haier Rendhanheyi
+## Dilemas da Inovação
 
-## Líderes da disrupção atual
+Dificuldade de adaptação: empresas líderes tornam-se rígidas e lentas para mudar.
 
-- Prof sattar bawany: O Professor Sattar Bawany é CEO e Master Executive Coach (CMEC) do Centre for Executive Education (CEE) e do Disruptive Leadership Institute (DLI). Ele possui 35 anos de experiência internacional em gestão de negócios, incluindo 25 anos em coaching executivo, facilitação de grupos, desenvolvimento e treinamento de liderança em empresas globais de consultoria de gestão.
+Resistência interna ao risco: colaboradores e gestores temem falhar ou perder estabilidade.
 
+Falhas na previsão de tendências: incapacidade de identificar mudanças tecnológicas ou sociais emergentes.
 
-- Jeremy gutsche: fundador do TrendHunter. Antes de criar o site, Jeremy construiu um portfólio bilionário para um banco, e hoje mais de 300 marcas confiam em sua expertise, incluindo Victoria's Secret, Sony, Coca-Cola, IBM, Wells Fargo e Hughes Aerospace
+## Inovação # Disrupção
 
-- Amy webb: fundadora e CEO do Future Today Institute. É professora de previsão estratégica na Stern School of Business da Universidade de Nova York, e foi investigadora visitante do Nieman em 2014–15 na Universidade de Harvard
+Inovação: pequenas melhorias em produtos ou processos já existentes.
 
+Disrupção: mudança radical que altera completamente a forma como um mercado funciona.
 
-# Estrategias adicionais e persptivas futuras
+# Tecnologias Verdes como Motores de Disrupção
+## Energias Renováveis
 
-## Construção de ecossistemas de inovação
+Energia solar mais barata que o carvão: custos de produção diminuíram drasticamente nos últimos anos.
 
-- startups
-- investidores
-- cooperações
-- governos
-- universidades
+Aumento da eficiência energética: painéis solares, turbinas eólicas e baterias mais eficientes.
 
-## Aproveitamento da tecnologia
+## Mobilidade Sustentável
 
-- transparência e eficiência
-- Cidades inteligents
+Veículos elétricos: redução de emissões, menor uso de combustíveis fósseis e maior segurança ambiental.
 
-## Apelo para encorajar a disrupção
+## Eficiência Energética
 
-- Abraçar o futuro, não como um perigo
-- Manter a sustentabilidade
-- Inspirar para inovar e evoluir para um futuro
+Redução da poluição: menos desperdício de energia significa menor impacto ambiental.
 
-# Sutentabilidade nas empresas
-- Analisar o mercado, adaptar as necessidades e verificar se a empresa está apta para a inovação
-- Ver se as pessoas estão com problemas no trabalho e adaptar as ferramentas se necessário e aceitá-as que têm incapacidades psicomotoras
-- Investir em tecnologias/benefícios de acordo com as necessidades da empresa e os colaboradores para evitar prejuízos de eficiência de trabalho e saúde física/mental
-- Analisar os prejuízos, ver o porquê deu errado e corrigir para evitar futuros prejuízos
+Otimização de processos: sistemas inteligentes que reduzem consumo e custos.
 
-# Sustentabilidade no trabalho
-- desenvolvimento de competências
-- gestão da estrutura de trabalho
-- segurança financeira
-- equilibrio de trabalho e vida
-- reconhecimento da carreira de trabalho
-- ambiente socical
-- saúde e bem estar
+# Economia Circular
+## Princípios
+
+Durabilidade: produtos feitos para durar mais.
+
+Reparação e reciclagem: facilitar processos para prolongar ciclos de vida dos materiais.
+
+## Objetivos
+
+Redução de custos: menor necessidade de matérias-primas novas.
+
+Diminuição de resíduos: menos lixo e poluição.
+
+Redução de emissões industriais: cadeias produtivas mais limpas.
+
+# Liderança para Disrupção e Sustentabilidade
+## Competências e Práticas
+
+Empoderamento dos colaboradores: dar autonomia e meios para inovar.
+
+Alinhamento estratégico: todos os setores devem trabalhar com os mesmos objetivos sustentáveis.
+
+Flexibilidade organizacional: capacidade de adaptação a mudanças rápidas.
+
+## Modelo de Liderança — Haier Rendanheyi
+
+Autonomia: equipas independentes e responsáveis.
+
+Microempresas internas: unidades pequenas dentro da organização que funcionam quase como startups.
+
+Responsabilização distribuída: cada equipa assume resultados e inovação.
+
+## Líderes Globais da Disrupção
+
+Sattar Bawany: especialista em liderança disruptiva e transformação organizacional.
+
+Jeremy Gutsche: analista de tendências e inovação através do TrendHunter.
+
+Amy Webb: futurista que trabalha com previsão estratégica para orientar empresas e governos.
+
+# Estratégias de Inovação e Perspetivas Futuras
+## Ecossistemas de Inovação
+
+Startups: criam ideias rápidas e soluções arriscadas.
+
+Investidores: financiam ideias inovadoras.
+
+Empresas: colaboram para desenvolver projetos.
+
+Governo: cria políticas de apoio.
+
+Universidades: fornecem investigação e talento.
+
+## Tecnologias Emergentes
+
+Transparência: dados acessíveis e auditáveis.
+
+Digitalização: processos automatizados e menos burocracia.
+
+Cidades inteligentes: gestão eficiente de energia, mobilidade e recursos urbanos.
+
+## Cultura de Disrupção Sustentável
+
+Oportunidade, não ameaça: mentalidade positiva face ao futuro.
+
+Sustentabilidade integrada: decisões que consideram impacto ambiental e social.
+
+Inovação contínua: melhorar sem parar para permanecer competitivo.
+
+# Sustentabilidade nas Empresas
+## Gestão e Adaptação
+
+Análise de mercado: entender necessidades e tendências.
+
+Necessidades dos colaboradores: perceber dificuldades e limitações.
+
+Adaptação de ferramentas: tecnologia que auxilia e reduz barreiras.
+
+## Investimento Sustentável
+
+Tecnologias adequadas: evitar desperdícios e aumentar eficiência.
+
+Benefícios que protegem a saúde: ergonomia, apoio psicológico, bem-estar.
+
+## Avaliação e Correção
+
+Analisar erros e perdas: identificar o que correu mal.
+
+Investigar causas: problemas estruturais, humanos ou tecnológicos.
+
+Corrigir processos: reduzir falhas futuras e aumentar resiliência.
+
+# Sustentabilidade no Trabalho
+## Fatores de Sustentabilidade Laboral
+
+Competências: formação contínua.
+
+Estrutura de trabalho eficiente: processos claros e organizados.
+
+Segurança financeira: salários justos e estabilidade.
+
+Equilíbrio trabalho–vida: horários saudáveis e flexibilidade.
+
+Reconhecimento profissional: valorização do esforço do trabalhador.
+
+Ambiente social saudável: boas relações entre colegas.
+
+Saúde física e mental: prevenção do stress, ergonomia, apoio psicológico.
 
 # Saúde e Ecologia
+## Impactos das Alterações Climáticas
 
-As alterações climáticas estão a degradar o planeta, assim como saúde e recursos naturais
+Degradação ambiental: perda de biodiversidade e habitats.
 
-Saúde humana - migração, situação financeira, alimentação
-Saúde animal - Degradação genética e desenvolvimento de doenças
-Ambiente - Poluições, perda de recursos
+Escassez de recursos naturais: água, solos férteis, espécies.
 
-Soluções: analisar as doenças para desenvolver curas, procurar soluções alternativas para determinados recursos
+## Impacto na Saúde
 
-## Desafios da sustentablidedade emergente
+Humana: migrações, pobreza, insegurança alimentar.
 
-1. O trabalho em regime híbrido ou em casa pode ser bom mas também pode causar problemas de trabalho como falta de controlo da equipa ou distrações entre casa-trabalho
+Animal: novas doenças, extinções e perda genética.
 
-2. Idade e saúde dos trabalhadores (cada vez mais idosos e há falta de rotação de colaboradores mais novos para substituirem)
+Ambiente: poluição atmosférica e hídrica.
 
-### Para resolver a sustentabilidade do trabalho
+## Soluções
 
-1. trabalho de rotina independente
-2. trabalho de rotina coordenado
-3. trabalho de de autonomia avançado
-4. conhecimento de trabalho colaborativo
+Estudo de doenças emergentes: investigação e prevenção.
 
-Riscos: isolamento, monotonia, conflitos de ideias e trabalhos
-Soluções: Verificar com frequência os trabalhos, pequenas formações, rodar entre colegas e trabalhos
+Alternativas sustentáveis: substituição de recursos escassos por opções renováveis.
 
-### Para a sustentabilidade do trabalho remoto
+# Desafios da Sustentabilidade Emergente
+## Trabalho Híbrido e Remoto
+Desafios
 
-1. Identificar tarefas mais comuns e as equipas que fazem
-2. identificar riscos/problemas e arranjar soluções
+Falta de controlo direto
+
+Distrações domésticas
+
+Dificuldade de coordenação entre equipas
+
+## Envelhecimento da Força de Trabalho
+
+Aumento da idade média
+
+Falta de renovação com trabalhadores mais jovens
+
+## Estratégias para a Sustentabilidade do Trabalho
+
+Trabalho de rotina independente: tarefas claras e repetitivas.
+
+Trabalho de rotina coordenado: atividades que exigem sincronização com equipa.
+
+Autonomia avançada: funções que permitem decisões próprias.
+
+Trabalho colaborativo baseado em conhecimento: resolução conjunta de problemas complexos.
+
+### Riscos
+
+Isolamento
+
+Monotonia
+
+Conflitos de ideias
+
+### Soluções
+
+Formação contínua
+
+Rotação de tarefas e equipas
+
+Acompanhamento frequente
+
+## Sustentabilidade do Trabalho Remoto
+
+Identificação das principais tarefas e responsáveis
+
+Identificação de riscos e criação de soluções (tecnológicas e organizacionais)
