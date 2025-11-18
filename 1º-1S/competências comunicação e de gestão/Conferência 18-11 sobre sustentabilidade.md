@@ -115,4 +115,4 @@ Soluções: Verificar com frequência os trabalhos, pequenas formações, rodar 
 ### Para a sustentabilidade do trabalho remoto
 
 1. Identificar tarefas mais comuns e as equipas que fazem
-2. identificar riscos/problemas e arranjar soluções´
+2. identificar riscos/problemas e arranjar soluções
