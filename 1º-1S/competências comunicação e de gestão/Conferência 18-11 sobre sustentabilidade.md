@@ -114,5 +114,3 @@ As alterações climáticas estão a degradar o planeta, assim como saúde e rec
 Saúde humana - migração, situação financeira, alimentação
 Saúde animal - Degradação genética e desenvolvimento de doenças
 Ambiente - Poluições, perda de recursos
-
-Solução: procurar recursos sustentáteis 
