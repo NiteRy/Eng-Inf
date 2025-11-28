@@ -1,92 +1,68 @@
-# TEMA 1 — Técnicas de Comunicação e Apresentação
-📘 Fraleigh & Tuman (2020)
+# Tema Geral: Técnicas de Comunicação e Apresentação
+Livro recomendado:
 
-Speak Up! – An Illustrated Guide to Public Speaking
+Fraleigh & Tuman (2020). Speak Up! An Illustrated Guide to Public Speaking.
 
-Justificação:
-É o único da lista dedicado a comunicação, apresentações, ética comunicacional e uso de ferramentas de apoio.
+Este é o livro mais alinhado com comunicação oral, apresentações, estruturação de mensagens, ética e storytelling.
 
-Capítulos-chave:
+Subtemas + Capítulos Recomendados
+Subtema	Capítulos do Speak Up!
+Comunicação técnica	Cap. 3 – Speaking Ethically and Listening Effectively + Cap. 4 – Analyzing Your Audience
+Estrutura de documentos	Cap. 10 – Organizing the Body of the Speech
+Escrita profissional	Cap. 11 – Outlining Your Speech (estrutura lógica e escrita de discursos)
+Apresentações eficazes	Cap. 12 – Using Presentation Aids + Cap. 13 – Using Language Effectively
+Storytelling técnico	Cap. 9 – Supporting Your Ideas (inclui narrativas e exemplos)
+Comunicação visual (slides)	Cap. 12 – Using Presentation Aids
+IA aplicada à comunicação	Não existe capítulo específico — integrar no Cap. 12 (apoios visuais) e Cap. 15 (adaptação a diferentes contextos).
 
-Cap. 1 – Introdução à comunicação
+# Tema Geral: Inovação, Ideação e Empreendedorismo
+Livro recomendado:
 
-Cap. 2 – Ética
+Barringer & Ireland (2018). Entrepreneurship: Successfully Launching New Ventures.
 
-Cap. 3 – Audiência
+Este é o livro mais completo para inovação, geração de ideias, validação, propriedade intelectual e criação de empresas.
 
-Cap. 10 – Estilo e linguagem
+Subtemas + Capítulos do livro
+Subtema	Capítulos do Entrepreneurship
+Tipos de inovação	Cap. 3 – Feasibility Analysis (oportunidades + inovação) + Cap. 4 – Industry and Competitor Analysis
+Validação de ideias	Cap. 3 – Feasibility Analysis
+Propriedade intelectual	Cap. 12 – Intellectual Property
+Modelo de negócio	Cap. 5 – Developing an Effective Business Model
+Liderança de equipas	Cap. 9 – Building a New-Venture Team
+Oportunidades de mercado	Cap. 2 – Recognizing Opportunities and Trends
+Criação de empresas	Cap. 7 – Preparing the Proper Ethical and Legal Foundation + Cap. 8 – Assessing a New Venture’s Financial Strength
 
-Cap. 12 – Apresentação oral
+# Tema Geral: Gestão, Estruturas, Processos e Governação
+Livro recomendado:
 
-Cap. 13 – Auxiliares visuais (diapositivos)
+Robbins & Coulter (2020). Management (15th edition).
 
-# TEMA 2 — Inovação, Ideação e Empreendedorismo
-📘 Barringer & Ireland (2018)
+É a referência clássica em gestão, processos, estruturas organizacionais, ética e cultura.
 
-Entrepreneurship – Successfully Launching New Ventures
+Subtemas + Capítulos do livro
+Subtema	Capítulos do Management
+Estruturas organizacionais	Cap. 10 – Basic Organizational Design
+Coordenação e controlo	Cap. 14 – Control
+Funções empresariais	Cap. 1 – Management and Organizations (funções do gestor)
+Processo organizacional	Cap. 5 – Foundations of Planning + Cap. 10–11 (estrutura e desenho organizacional)
+Cultura organizacional	Cap. 2 – The Management Environment (inclui cultura)
+Gestão por objetivos (KPIs)	Cap. 6 – Strategic Management (inclui objetivos, métricas e desempenho)
+Ética e responsabilidade	Cap. 3 – Ethics and Social Responsibility
 
-Justificação:
-Cobre inovação, ideação, oportunidades, propriedade intelectual, liderança e criação de negócios.
+# Tema Geral: Estratégia, Planeamento e Business Planning
+Livro recomendado:
 
-Capítulos-chave:
+Marcão & Santos (2025). Business Plans with Artificial Intelligence.
 
-Cap. 2 – Ideação e oportunidades
+É o mais adequado porque cobre frameworks estratégicos, análise de mercado, KPIs, IA aplicada ao planeamento e criação de business plans.
 
-Cap. 3 – Análise de viabilidade
-
-Cap. 4 – Business models
-
-Cap. 8 – Equipas e liderança
-
-Cap. 13 – Propriedade intelectual
-
-# TEMA 3 — Gestão, Estruturas, Processos e Governação
-📘 Robbins & Coulter (2020)
-
-Management
-
-Justificação:
-É o manual de gestão mais completo da lista, cobrindo estruturas, funções, processos, coordenação e controlo.
-
-Capítulos-chave:
-
-Cap. 1 – Introdução à gestão
-
-Cap. 5 – Estruturas organizacionais
-
-Cap. 7 – Recursos humanos
-
-Cap. 8 – Equipas
-
-Cap. 10/12 – Controlo e tomada de decisão
-
-Cap. sobre inovação organizacional (apoio ao tema 3)
-
-# TEMA 4 — Estratégia, Planeamento e Business Planning
-📘 Marcão & Santos (2025)
-
-Business Plans with Artificial Intelligence
-
-Justificação:
-É inteiramente focado em planeamento estratégico, business planning e integração de IA.
-
-Capítulos-chave:
-
-Cap. 1 – O que é um business plan
-
-Cap. 2 – Estrutura do plano
-
-Cap. 3 – Análise de mercado e estratégia
-
-Cap. 4 – Operações e gestão
-
-Cap. 5 – Plano financeiro
-
-Cap. 6 – IA aplicada ao planeamento
-
-Cap. 7 – Casos de estudo
-
-
-Site para referências bibliográficas: [Google académico](https://scholar.google.com/?hl=pt-PT)
-
-Quando se for para citar uma referência, procurem no "Citar" a referência "American Psychological Association (APA)"
+Subtemas + Capítulos recomendados
+Subtema	Capítulos do livro Business Plans with AI
+Análise PESTEL	Cap. 2 – External Environment Analysis
+Análise SWOT/TOWS	Cap. 3 – Strategic Diagnostic Tools
+5 Forças de Porter	Cap. 2 – External Environment Analysis
+Canvas Business Model	Cap. 4 – Business Model Innovation and Design
+KPIs estratégicos	Cap. 6 – Metrics, KPIs and Performance Dashboards
+Planeamento e visão	Cap. 1 – Foundations of Business Planning
+ESG na estratégia	Cap. 7 – Sustainability, ESG and Ethical Considerations in Business Plans
+IA na estratégia	Cap. 8 – Artificial Intelligence for Strategic Planning
