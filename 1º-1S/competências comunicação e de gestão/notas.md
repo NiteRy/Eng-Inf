@@ -37,6 +37,6 @@
 |5 Forças de Porter|[Competitive Strategy](<Livros/Competitive Strategy.pdf>)|Chapters 1–3: The Five Competitive Forces|
 |Business Model Canvas|[Exploring Strategy](<Livros/Exploring Strategy.pdf>)|Part II – Chapter 8: Business Strategy & Business Models|
 |KPIs Estratégicos|[Exploring Strategy](<Livros/Exploring Strategy.pdf>)|Part III – Chapters 15–16: Implementing Strategy, Measuring Performance, Strategic Practice|
-|Planeamento e Visão|[Robbins & Coulter (2020). Management (15th edition)](<Livros/Management1.pdf>)|Chapter 7: Planning + Chapter 8: Strategic Management (Mission, Vision, Goals)|
+|Planeamento e Visão|[Management (15th edition)](<Livros/Management1.pdf>)|Chapter 7: Planning + Chapter 8: Strategic Management (Mission, Vision, Goals)|
 |ESG na Estratégia|[Exploring Strategy](<Livros/Exploring Strategy.pdf>)|Part III – Chapters 11–12: Stakeholders, Ethics, Sustainability, Governance|
 |IA na Estratégia|[Competing in the Age of AI](<Livros/Competing in the Age of AI.pdf>)|Ch. 1: Rethinking the Firm in the Age of AI Ch. 2: AI-Driven Operating Models Ch. 4: Strategy for the AI Era Ch. 7: AI-Transformed Industries|
