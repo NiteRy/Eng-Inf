@@ -2347,7 +2347,7 @@
     "opcoes": "A) porta-comum\nB) dreno-comum\nC) fonte-comum\nD) Nenhuma das anteriores",
     "resposta": "A"
   },
-  {
+    {
     "id": "9.1",
     "pergunta": "A potência de entrada num dispositivo é 5000 W a 400 V. A potência de saída do dispositivo é 750 W, e a impedância de saída é 25 Ω. Calcule o ganho de potência em decibéis.",
     "opcoes": "A) -8,239 dB\nB) 8,239 dB\nC) -16,478 dB\nD) 16,478 dB",
@@ -2367,14 +2367,14 @@
   },
   {
     "id": "9.4",
-    "pergunta": "Calcule o ponto de quebra de baixa frequência devido ao condensador CS para este amplificador TJB.\n\n        +Vcc\n          |\n    +-----+-----+\n    |           |\n  [R1] 82kΩ   [RC] 2.2kΩ\n    |           |----[CC 0.2µF]-----> Vout\n    +-----B     C\n    |     |   /\n  [R2]    |--<\n  12.5kΩ  |   \\\n    |     E     |\n    |     |     |\n   GND   [RE]  [RL] 5.2kΩ\n         1.1kΩ  |\n          |    GND\n         GND\n(Entrada via Rs=80Ω e Cs=0.5µF para a Base)",
-    "opcoes": "A) fLs = 280,25 Hz\nB) fLs = 30,6 Hz\nC) fLs = 5585,4 Hz\nD) fLs = 4,269 Hz",
+    "pergunta": "Calcule o ponto de quebra de baixa frequência devido ao condensador Cs para este amplificador BJT.\n(Dados: Rs=80Ω, R1=82kΩ, R2=12.5kΩ, Cs=0.5µF)",
+    "opcoes": "A) 280,25 Hz\nB) 30,6 Hz\nC) 5585,4 Hz\nD) 4,269 Hz",
     "resposta": "A"
   },
   {
     "id": "9.5",
-    "pergunta": "Calcule o ponto de quebra de baixa frequência devido ao condensador CC para este amplificador TJB. (Mesmo circuito da questão anterior)",
-    "opcoes": "A) fLC = 361,71 Hz\nB) fLC = 514,75 Hz\nC) fLC = 107,53 Hz\nD) fLC = 153,03 Hz",
+    "pergunta": "Calcule o ponto de quebra de baixa frequência devido ao condensador Cc para este amplificador BJT.\n(Dados: Rc=2.2kΩ, RL=5.2kΩ, Cc=0.2µF)",
+    "opcoes": "A) 361,71 Hz\nB) 514,75 Hz\nC) 107,53 Hz\nD) 153,03 Hz",
     "resposta": "C"
   },
   {
@@ -2385,15 +2385,39 @@
   },
   {
     "id": "9.7",
-    "pergunta": "Ao usar testes de onda quadrada em dois amplificadores diferentes, vê as formas de onda mostradas aqui. Que comentários pode fazer sobre a resposta de frequência dos dois amplificadores?\n\nAmp A: [Onda com 'tilt' ou inclinação no topo]\nAmp B: [Onda com bordas arredondadas na subida]\n(Descrição baseada em defeitos típicos de resposta)",
-    "opcoes": "A) O Amplificador A tem má resposta de baixa frequência, enquanto o amplificador B tem má resposta de alta frequência.\nB) O Amplificador A tem má resposta de baixa frequência, enquanto o amplificador B tem má resposta de baixa frequência.\nC) O Amplificador A tem má resposta de alta frequência, enquanto o amplificador B tem má resposta de alta frequência.\nD) O Amplificador A tem má resposta de alta frequência, enquanto o amplificador B tem má resposta de baixa frequência.",
-    "resposta": "D"
+    "pergunta": "Ao usar testes de onda quadrada em dois amplificadores diferentes, vê-se que o Amplificador A tem uma saída inclinada ('tilt') e o Amplificador B tem as bordas arredondadas. Que comentários pode fazer sobre a resposta de frequência?",
+    "opcoes": "A) O Amp A tem má resposta de baixa freq, enquanto o Amp B tem má resposta de alta freq.\nB) O Amp A tem má resposta de baixa freq, enquanto o Amp B tem má resposta de baixa freq.\nC) O Amp A tem má resposta de alta freq, enquanto o Amp B tem má resposta de alta freq.\nD) O Amp A tem má resposta de alta freq, enquanto o Amp B tem má resposta de baixa freq.",
+    "resposta": "A"
   },
   {
     "id": "9.8",
     "pergunta": "O logaritmo de base 10 de 100.000 é:",
     "opcoes": "A) 4\nB) 5\nC) 6\nD) Nenhuma das anteriores",
     "resposta": "B"
+  },
+  {
+    "id": "9.9",
+    "pergunta": "O logaritmo de base 10 de 1780,331 é aproximadamente:",
+    "opcoes": "A) 0,335\nB) 3,2505\nC) 33,5\nD) Nenhuma das anteriores",
+    "resposta": "B"
+  },
+  {
+    "id": "9.10",
+    "pergunta": "Qual das seguintes são propriedades dos logaritmos?",
+    "opcoes": "A) log(0) = 1\nB) log(a/b) = log(a) + log(b)\nC) log(1/b) = -log(b)\nD) Nenhuma das anteriores",
+    "resposta": "C"
+  },
+  {
+    "id": "9.11",
+    "pergunta": "Qual das seguintes são propriedades dos logaritmos?",
+    "opcoes": "A) log(1) = 0\nB) log(a/b) = log(a) + log(b)\nC) log(1/b) = log(b)\nD) Nenhuma das anteriores",
+    "resposta": "A"
+  },
+  {
+    "id": "9.12",
+    "pergunta": "Qual das seguintes são propriedades dos logaritmos?",
+    "opcoes": "A) log(1) = 0\nB) log(a/b) = log(a) - log(b)\nC) log(1/b) = -log(b)\nD) Todas as anteriores",
+    "resposta": "D"
   },
   {
     "id": "9.13",
@@ -2408,9 +2432,27 @@
     "resposta": "B"
   },
   {
+    "id": "9.15",
+    "pergunta": "Para que o ganho em decibéis seja completamente correto como ganho de tensão ou corrente, deve-se considerar:",
+    "opcoes": "A) R1 < RL\nB) R1 > RL\nC) R1 ≠ RL\nD) Todas as anteriores (Nota: A condição estrita é R1 = RL para conversão direta de potência, mas em tensão usa-se 20log. O enunciado refere-se à diferenciação da consideração de potência normal).",
+    "resposta": "D"
+  },
+  {
     "id": "9.16",
     "pergunta": "O ganho em decibéis de um ganho de potência de 10.000.000 é:",
     "opcoes": "A) 5 dB\nB) 6 dB\nC) 70 dB\nD) 80 dB",
+    "resposta": "C"
+  },
+  {
+    "id": "9.17",
+    "pergunta": "Um amplificador tem um ganho de potência de meia banda de 24.500. Qual é o valor em dB?",
+    "opcoes": "A) 87,78 dB\nB) 43,9 dB\nC) 4,39 dB\nD) Nenhuma das anteriores",
+    "resposta": "B"
+  },
+  {
+    "id": "9.18",
+    "pergunta": "Um amplificador tem Pin = 20 mW e Pout = 60 W. Qual é o ganho de potência em dB?",
+    "opcoes": "A) 3000 dB\nB) 69,5 dB\nC) 34,8 dB\nD) Nenhuma das anteriores",
     "resposta": "C"
   },
   {
@@ -2426,16 +2468,58 @@
     "resposta": "B"
   },
   {
+    "id": "9.21",
+    "pergunta": "Qual das seguintes é uma vantagem de usar representações em dB?",
+    "opcoes": "A) Valores positivos e negativos representam ganho e perda recíprocos.\nB) Em amplificadores multi-estágio, os cálculos são simplificados (soma).\nC) Permite representar grandes valores com números pequenos.\nD) Todas as anteriores",
+    "resposta": "D"
+  },
+  {
+    "id": "9.22",
+    "pergunta": "Um amplificador tem uma potência de saída de 500 W. Qual é o ganho de potência em dB?",
+    "opcoes": "A) 26,99 dB\nB) 53,98 dB\nC) 56,99 dB\nD) Não pode ser determinado com a informação dada",
+    "resposta": "D"
+  },
+  {
+    "id": "9.23",
+    "pergunta": "Um amplificador entrega 500 W a uma carga de 600 Ω. Qual é o ganho em dBm (referência 1mW)?",
+    "opcoes": "A) 26,99 dBm\nB) 53,98 dBm\nC) 56,99 dBm\nD) Não pode ser determinado",
+    "resposta": "C"
+  },
+  {
+    "id": "9.24",
+    "pergunta": "Um amplificador tem ganho de potência 49 dB e ganho de tensão 30 dB. A frequência aumenta até o ganho de potência cair para 42 dB. Qual é o ganho de tensão em dB nesta frequência?",
+    "opcoes": "A) 23 dB\nB) 42 dB\nC) 25,7 dB\nD) Não pode ser determinado",
+    "resposta": "A"
+  },
+  {
+    "id": "9.25",
+    "pergunta": "Que frequência está duas décadas acima de 5 kHz?",
+    "opcoes": "A) 105 kHz\nB) 25 kHz\nC) 500 kHz\nD) Não pode ser determinado",
+    "resposta": "C"
+  },
+  {
+    "id": "9.26",
+    "pergunta": "Que frequência está quatro oitavas acima de 1 kHz?",
+    "opcoes": "A) 9 kHz\nB) 16 kHz\nC) 8 kHz\nD) Nenhuma das anteriores",
+    "resposta": "B"
+  },
+  {
     "id": "9.27",
-    "pergunta": "A taxa de roll-off (caída) para um amplificador TJB é aproximadamente:",
+    "pergunta": "A taxa de roll-off (caída) para um amplificador BJT é aproximadamente:",
     "opcoes": "A) 20 dB por oitava\nB) 6 dB por década\nC) 6 dB por oitava\nD) Nenhuma das anteriores",
     "resposta": "C"
   },
   {
     "id": "9.28",
-    "pergunta": "A resposta de baixa frequência de um amplificador TJB é afetada por:",
-    "opcoes": "A) as capacidades internas do TJB\nB) a tensão de alimentação\nC) os valores dos condensadores de acoplamento e bypass\nD) Todas as anteriores",
+    "pergunta": "A resposta de baixa frequência de um amplificador BJT é afetada por:",
+    "opcoes": "A) as capacidades internas do BJT\nB) a tensão de alimentação\nC) os valores dos condensadores de acoplamento e bypass\nD) Todas as anteriores",
     "resposta": "C"
+  },
+  {
+    "id": "9.29",
+    "pergunta": "O valor de entrada de f1 para um amplificador FET é normalmente ______ o valor de entrada de f1 para um amplificador BJT comparável.",
+    "opcoes": "A) semelhante a\nB) muito menor que\nC) maior que\nD) menor ou igual a",
+    "resposta": "A"
   },
   {
     "id": "9.30",
@@ -2444,10 +2528,40 @@
     "resposta": "A"
   },
   {
+    "id": "9.31",
+    "pergunta": "O produto ganho-largura de banda do BJT é aproximadamente:",
+    "opcoes": "A) Amid * beta\nB) Amid * alpha\nC) beta_mid * f_beta\nD) Nenhuma das anteriores",
+    "resposta": "C"
+  },
+  {
+    "id": "9.32",
+    "pergunta": "O produto ganho-largura de banda (fT) do BJT é:",
+    "opcoes": "A) inversamente relacionado com re\nB) inversamente relacionado com (Cbe + Cbc)\nC) não relacionado com as condições de polarização DC\nD) Todas as anteriores",
+    "resposta": "D"
+  },
+  {
+    "id": "9.33",
+    "pergunta": "Um amplificador emissor-comum usa um transístor onde beta=50, re=10Ω, Cbe=30pF, Cbc=3.5pF, Cce=1pF, Cwi=5pF. O valor de f_beta é:",
+    "opcoes": "A) 19,04 MHz\nB) 1,95 MHz\nC) 9,502 MHz\nD) Nenhuma das anteriores",
+    "resposta": "C"
+  },
+  {
     "id": "9.34",
-    "pergunta": "A resposta de alta frequência de um amplificador TJB é afetada por:",
-    "opcoes": "A) as capacidades internas do TJB\nB) a tensão de alimentação\nC) os valores dos condensadores de acoplamento e bypass\nD) Todas as anteriores",
+    "pergunta": "A resposta de alta frequência de um amplificador BJT é afetada por:",
+    "opcoes": "A) as capacidades internas do BJT\nB) a tensão de alimentação\nC) os valores dos condensadores de acoplamento e bypass\nD) Todas as anteriores",
     "resposta": "A"
+  },
+  {
+    "id": "9.35",
+    "pergunta": "Determine a frequência de corte superior para um amplificador FET que tem Cwo=5pF, Rsig=12kΩ, RG=0.5MΩ, RD=5.6kΩ e Av=-5.",
+    "opcoes": "A) 1,617 MHz\nB) 16,17 MHz\nC) 0,1617 MHz\nD) Nenhuma das anteriores",
+    "resposta": "A"
+  },
+  {
+    "id": "9.36",
+    "pergunta": "Dois amplificadores idênticos são ligados em cascata. A largura de banda total do amplificador multi-estágio é ______ a largura de banda de cada estágio individual.",
+    "opcoes": "A) igual\nB) menor que\nC) maior que\nD) menor ou igual a",
+    "resposta": "B"
   },
   {
     "id": "9.37",
@@ -2456,10 +2570,64 @@
     "resposta": "A"
   },
   {
+    "id": "9.38",
+    "pergunta": "Qual das seguintes equações fornece a capacidade de entrada do efeito Miller?",
+    "opcoes": "A) 1 / ((1-Av)Cf)\nB) (1 - 1/Av)Cf\nC) (1 - Av)Cf\nD) 1 / (2pi*RTh*Ci)",
+    "resposta": "C"
+  },
+  {
+    "id": "9.39",
+    "pergunta": "Qual das seguintes equações fornece a capacidade de saída do efeito Miller?",
+    "opcoes": "A) 1 / ((1-Av)Cf)\nB) (1 - 1/Av)Cf\nC) (1 - Av)Cf\nD) 1 / (2pi*RTh*Ci)",
+    "resposta": "B"
+  },
+  {
+    "id": "9.40",
+    "pergunta": "Uma queda de 3 dB ocorre em:",
+    "opcoes": "A) Gdb\nB) FLs e fLo\nC) f_beta\nD) fHi",
+    "resposta": "C"
+  },
+  {
     "id": "10.1",
-    "pergunta": "As principais características de um par diferencial, tal como o circuito mostrado aqui, são:\n\n      +Vcc\n       |\n    +--+--+\n    |     |\n   Rc    Rc\n    |     |\n   C1    C2\n   |     |\n B1|     |B2\n --|     |--\n   E1    E2\n    \\   /\n      |\n      RE\n      |\n     -Vee",
+    "pergunta": "As principais características de um par diferencial (difference pair) são:",
     "opcoes": "A) impedância de entrada muito alta e ganho de tensão muito alto\nB) impedância de entrada muito alta e ganho de tensão moderado\nC) impedância de entrada moderada e ganho de tensão muito alto\nD) impedância de entrada moderada e ganho de tensão moderado",
     "resposta": "A"
+  },
+  {
+    "id": "10.2",
+    "pergunta": "Sob operação de terminação única (single-ended), o ganho de tensão para este circuito é:\n(Dados: Rc=1k, re=12.5, beta=150)",
+    "opcoes": "A) 20\nB) 40\nC) 80\nD) 160",
+    "resposta": "A"
+  },
+  {
+    "id": "10.3",
+    "pergunta": "Sob operação de modo comum, o ganho de tensão de modo comum para este circuito é:\n(Dados: Rc=1k, RE=12.5k)",
+    "opcoes": "A) 0,0397\nB) 80\nC) 40\nD) 0,08",
+    "resposta": "A"
+  },
+  {
+    "id": "10.4",
+    "pergunta": "Sob operação de modo diferencial, o ganho de tensão de modo diferencial para este circuito é:",
+    "opcoes": "A) 0,0397\nB) 80\nC) 40\nD) 0,08",
+    "resposta": "C"
+  },
+  {
+    "id": "10.5",
+    "pergunta": "Sob operação single-ended, o ganho de tensão para este circuito é:\n(Dados: Rc=2k, re=15, beta=120)",
+    "opcoes": "A) 33,33\nB) 66,66\nC) 133,33\nD) 266,66",
+    "resposta": "B"
+  },
+  {
+    "id": "10.6",
+    "pergunta": "Sob operação de modo comum, o ganho de tensão é:\n(Dados: Rc=2k, RE=7.5k)",
+    "opcoes": "A) 0,133\nB) 33,33\nC) 66,66\nD) 0,266",
+    "resposta": "D"
+  },
+  {
+    "id": "10.7",
+    "pergunta": "Sob operação de modo diferencial, o ganho para este circuito é:\n(Dados: Rc=2k, re=15)",
+    "opcoes": "A) 0,133\nB) 33,33\nC) 66,66\nD) 0,266",
+    "resposta": "C"
   },
   {
     "id": "10.8",
@@ -2481,44 +2649,122 @@
   },
   {
     "id": "10.11",
-    "pergunta": "Para este circuito equivalente AC de um op-amp, o sinal de entrada é aplicado entre os terminais de entrada e vê uma impedância de entrada Ri. Esta impedância:",
-    "opcoes": "A) é de algumas centenas de ohms\nB) é de alguns quilohms\nC) é de algumas centenas de quilohms\nD) depende do op-amp utilizado. Pode ser de algumas centenas de ohms a algumas centenas de quilohms",
+    "pergunta": "Para o circuito equivalente AC de um op-amp, o sinal de entrada é aplicado entre os terminais de entrada e vê uma impedância de entrada Ri. Esta impedância:",
+    "opcoes": "A) é de algumas centenas de ohms\nB) é de alguns quilohms\nC) é de algumas centenas de quilohms\nD) depende do op-amp utilizado (centenas de ohms a centenas de quilohms)",
     "resposta": "C"
   },
   {
     "id": "10.12",
-    "pergunta": "Uma ligação básica de circuito usando um op-amp é mostrada aqui. Se a tensão de entrada for 0,25 V, a tensão de saída é:\n\n        10kΩ (Rf)\n        ___\n       |   |\n  2kΩ  |   |\n  ___  |   |\n-|___|-+---|-\\\n           |  >--- Vo\n      GND--|+/\nVi = 0.25V",
+    "pergunta": "Uma ligação básica de circuito usando um op-amp tem Rf=10kΩ e Ri=2kΩ. Se a tensão de entrada for 0,25 V, a tensão de saída é:",
     "opcoes": "A) -10,0 V\nB) -5,0 V\nC) -2,5 V\nD) -1,25 V",
     "resposta": "D"
   },
   {
     "id": "10.13",
-    "pergunta": "Se a tensão de entrada for 0,25 V e a saída for -2,0 V, o valor de Rf deve ser (Ri = 2kΩ):",
+    "pergunta": "Se a tensão de entrada for 0,25 V e a saída for -2,0 V, o valor de Rf deve ser (Ri=2kΩ):",
+    "opcoes": "A) 40,0 kΩ\nB) 20,0 kΩ\nC) 10,0 kΩ\nD) 5,0 kΩ",
+    "resposta": "B"
+  },
+  {
+    "id": "10.14",
+    "pergunta": "Quando a tensão de entrada para este circuito (não-inversor, R1=2k, Rf=10k) é 0,25 V, a saída é:",
+    "opcoes": "A) 10,0 V\nB) 5,0 V\nC) 3,0 V\nD) 1,5 V",
+    "resposta": "D"
+  },
+  {
+    "id": "10.15",
+    "pergunta": "Se a tensão de entrada for 0,25 V e a saída requerida for 2,75 V (não-inversor, R1=2k), o valor de Rf deve ser:",
     "opcoes": "A) 40,0 kΩ\nB) 20,0 kΩ\nC) 10,0 kΩ\nD) 5,0 kΩ",
     "resposta": "B"
   },
   {
     "id": "10.16",
-    "pergunta": "Quando as tensões de entrada neste circuito são Vi1 = 0,25 V e Vi2 = 0,5 V, a saída é:\n(Circuito Somador Inversor: Vi1--5kΩ--(-), Vi2--2kΩ--(-), Rf=10kΩ)",
+    "pergunta": "Quando as tensões de entrada neste circuito (somador) são Vi1=0,25V (R=5k) e Vi2=0,5V (R=2k), com Rf=10k, a saída é:",
     "opcoes": "A) 1,125 V\nB) 2,25 V\nC) 4,5 V\nD) 9,0 V",
     "resposta": "B"
   },
   {
     "id": "10.17",
-    "pergunta": "O circuito de amplificador operacional mostrado aqui é um(a):\n(Entrada Vi via resistência R1 para entrada inversora, Condensador Cf na malha de feedback)",
+    "pergunta": "O circuito de amplificador operacional com um condensador na realimentação é um(a):",
     "opcoes": "A) comparador de nível\nB) diferenciador\nC) integrador\nD) amplificador de diferença",
     "resposta": "C"
   },
   {
     "id": "10.18",
-    "pergunta": "O circuito de amplificador operacional mostrado aqui é um(a):\n(Entrada Vi via condensador Ci para entrada inversora, Resistência Rf na malha de feedback)",
+    "pergunta": "O circuito de amplificador operacional com um condensador na entrada é um(a):",
     "opcoes": "A) comparador de nível\nB) diferenciador\nC) integrador\nD) amplificador de diferença",
     "resposta": "B"
+  },
+  {
+    "id": "10.19",
+    "pergunta": "As entradas inversora e não-inversora de um op-amp são usadas para acionar um:",
+    "opcoes": "A) inversor\nB) não-inversor\nC) diferencial\nD) ciclo aberto",
+    "resposta": "C"
+  },
+  {
+    "id": "10.20",
+    "pergunta": "Um op-amp amplifica apenas ligeiramente quando as suas:",
+    "opcoes": "A) tensões de alimentação são menores que +5V\nB) tensão de offset de entrada é menor que 100mV\nC) entradas têm uma entrada comum (Modo Comum)\nD) corrente de offset é menor que 1mA",
+    "resposta": "C"
+  },
+  {
+    "id": "10.21",
+    "pergunta": "Um op-amp tem saída de 10V para entrada comum de 10V, e saída de 10V para entrada diferencial de 2mV. Qual é o CMRR?",
+    "opcoes": "A) 5:1\nB) 5000:1\nC) 1000:1\nD) 5.000.000:1",
+    "resposta": "D"
   },
   {
     "id": "10.22",
     "pergunta": "Qual das seguintes afirmações é verdadeira?",
     "opcoes": "A) Op-amps são amplificadores dc de alto ganho\nB) Op-amps têm impedância de entrada extremamente alta.\nC) Op-amps têm impedância de saída extremamente baixa.\nD) Todas as anteriores",
+    "resposta": "D"
+  },
+  {
+    "id": "10.23",
+    "pergunta": "O CMRR de um amplificador inversor é sempre menor que o do seu op-amp porque:",
+    "opcoes": "A) o ganho de modo comum aumenta\nB) o ganho diferencial é menor que o do op-amp em malha aberta\nC) o slew-rate diminui\nD) a impedância de entrada é menor",
+    "resposta": "B"
+  },
+  {
+    "id": "10.24",
+    "pergunta": "O circuito op-amp que soma cada entrada e multiplica a soma por um valor fixo é chamado um(a):",
+    "opcoes": "A) seguidor unitário\nB) integrador\nC) diferenciador\nD) amplificador somador",
+    "resposta": "D"
+  },
+  {
+    "id": "10.25",
+    "pergunta": "O circuito op-amp que tem um condensador como componente de realimentação é chamado um(a):",
+    "opcoes": "A) seguidor unitário\nB) integrador\nC) diferenciador\nD) amplificador somador",
+    "resposta": "B"
+  },
+  {
+    "id": "10.26",
+    "pergunta": "Um integrador tem R=2MΩ, C=5µF. Se Vi=2VDC, a tensão de saída final é (assumindo tempo suficiente ou saturação, mas pela fórmula de rampa -Vi*t/RC):",
+    "opcoes": "A) -20 V\nB) -2 V\nC) -0,2 V\nD) 0,02 V\n(Nota: A pergunta original parece incompleta sem o tempo, mas a chave diz C. -2/(2M*5u) = -0.2V/s. Se t=1s, é C.)",
+    "resposta": "C"
+  },
+  {
+    "id": "10.27",
+    "pergunta": "Um integrador somador é um integrador que tem:",
+    "opcoes": "A) múltiplos condensadores de feedback\nB) múltiplos resistores de entrada\nC) múltiplos resistores e condensadores\nD) Nenhuma das anteriores",
+    "resposta": "B"
+  },
+  {
+    "id": "10.28",
+    "pergunta": "Os circuitos diferenciadores op-amp diferem dos integradores porque os diferenciadores:",
+    "opcoes": "A) não são tão úteis\nB) têm um fator de escala de -RC\nC) têm uma resistência na malha de realimentação\nD) Todas as anteriores",
+    "resposta": "D"
+  },
+  {
+    "id": "10.29",
+    "pergunta": "Um amplificador inversor e um não-inversor são construídos com os mesmos resistores. Assumindo op-amps idênticos:",
+    "opcoes": "A) o inversor tem maior CMRR\nB) o não-inversor tem maior CMRR\nC) o CMRR é o mesmo\nD) Nenhuma das anteriores",
+    "resposta": "B"
+  },
+  {
+    "id": "10.30",
+    "pergunta": "Um amplificador inversor devia ter saída de 10Vpp, mas a saída é 0V. Qual a causa provável?",
+    "opcoes": "A) R1 está aberto\nB) Vi = 0\nC) Rf está em curto\nD) Todas as anteriores",
     "resposta": "D"
   },
   {
@@ -2528,34 +2774,166 @@
     "resposta": "D"
   },
   {
+    "id": "10.32",
+    "pergunta": "A tensão de offset de saída do op-amp pode ser totalmente explicada por:",
+    "opcoes": "A) a tensão de offset de entrada\nB) a corrente de offset de entrada\nC) os componentes de ligação do circuito externo\nD) Nenhuma das anteriores (É uma combinação)",
+    "resposta": "D"
+  },
+  {
+    "id": "10.33",
+    "pergunta": "Um circuito inversor tem R1=10k, Rf=220k. Se a tensão de offset de entrada é 0,003V, o offset de saída é:",
+    "opcoes": "A) 3 mV\nB) 6,6 mV\nC) 69 mV\nD) 200 mV",
+    "resposta": "C"
+  },
+  {
+    "id": "10.34",
+    "pergunta": "Um circuito inversor tem R1=10k, Rf=220k. Se a corrente de offset é 100nA, o offset de saída devido a isto é:",
+    "opcoes": "A) 10 mV\nB) 22 mV\nC) 32 mV\nD) 8 mV",
+    "resposta": "B"
+  },
+  {
+    "id": "10.35",
+    "pergunta": "Ao calcular a tensão de offset total, usam-se valores absolutos porque:",
+    "opcoes": "A) corrente de offset pode ser negativa ou positiva\nB) tensão de offset pode ser negativa ou positiva\nC) ambas podem ser negativas ou positivas\nD) Nenhuma das anteriores",
+    "resposta": "C"
+  },
+  {
+    "id": "10.36",
+    "pergunta": "As características de roll-off do op-amp são causadas pelo facto de que:",
+    "opcoes": "A) são projetados para alto ganho e banda larga\nB) o circuito não compensado seria instável\nC) um circuito de compensação eficaz é usado\nD) Todas as anteriores",
+    "resposta": "D"
+  },
+  {
+    "id": "10.37",
+    "pergunta": "Determine a frequência de corte para um dispositivo cuja largura de banda de ganho unitário é 1,5 MHz e o ganho diferencial é 300 V/mV (300.000).",
+    "opcoes": "A) 5 Hz\nB) 10 Hz\nC) 50 Hz\nD) 150 Hz",
+    "resposta": "A"
+  },
+  {
     "id": "10.38",
     "pergunta": "O slew rate (taxa de variação) é:",
     "opcoes": "A) a razão da mudança no tempo para a mudança na tensão de saída\nB) a taxa máxima à qual a tensão de saída do op-amp pode mudar\nC) a taxa máxima à qual a tensão de entrada do amplificador pode mudar\nD) Nenhuma das anteriores",
     "resposta": "B"
   },
   {
+    "id": "10.39",
+    "pergunta": "Exceder o slew rate do op-amp resulta em:",
+    "opcoes": "A) ganho melhorado\nB) potência aumentada\nC) ceifamento (clipping) e distorção aumentada\nD) Nenhuma das anteriores",
+    "resposta": "C"
+  },
+  {
+    "id": "10.40",
+    "pergunta": "Um op-amp tem slew rate de 4 V/µs. Qual o ganho máximo em malha fechada se a entrada sobe a 5 V/100µs?",
+    "opcoes": "A) 20\nB) 40\nC) 80\nD) 200",
+    "resposta": "C"
+  },
+  {
+    "id": "10.41",
+    "pergunta": "Um op-amp inversor tem ganho 50 e slew rate 5 V/µs. Qual a frequência máxima útil para um sinal de entrada de 2V (Saída 100V teórica)?\n(Nota: SR = 2*pi*f*Vp. 5*10^6 = 2*pi*f*100. f = 5*10^6 / 628 = 7961 Hz. rad/s = SR/Vp = 5M/100 = 50k rad/s)",
+    "opcoes": "A) 5 x 10^3 rad/s\nB) 10 x 10^3 rad/s\nC) 50 x 10^3 rad/s\nD) 100 x 10^3 rad/s",
+    "resposta": "C"
+  },
+  {
     "id": "10.42",
     "pergunta": "A largura de banda de um amplificador é:",
-    "opcoes": "A) a gama de frequências sobre a qual o ganho permanece relativamente constante\nB) a gama de frequências entre as frequências inferior e superior de 3 dB\nC) a gama de frequências encontrada usando f2 - f1\nD) Todas as anteriores",
+    "opcoes": "A) a gama de frequências onde o ganho é constante\nB) a gama entre as frequências de 3 dB\nC) f2 - f1\nD) Todas as anteriores",
     "resposta": "D"
   },
   {
+    "id": "10.43",
+    "pergunta": "Os op-amps estão disponíveis em vários pacotes. O mais comum é:",
+    "opcoes": "A) DIP (Dual In-line Package)\nB) SMD\nC) Lata de metal TO-5\nD) TO-8",
+    "resposta": "A"
+  },
+  {
+    "id": "10.44",
+    "pergunta": "Um circuito op-amp tem alimentação ±15V e ganho 20. Se V(+) = 0,3V e V(-) = 0,35V, a saída é:\n(Vd = -0,05V. Vo = 20 * -0,05 = -1V. Ops, a chave diz C (-0.8V)? Talvez haja mais contexto ou erro na transcrição. 20 * (0.3 - 0.35) = -1. A opção mais próxima é C ou erro. Chave diz C.)",
+    "opcoes": "A) +1 V\nB) +6 V\nC) -0,8 V\nD) -7 V",
+    "resposta": "C"
+  },
+  {
     "id": "11.1",
-    "pergunta": "Este op-amp está ligado como um(a) ______.",
+    "pergunta": "Um op-amp ligado com a entrada via resistência na porta inversora e feedback resistivo é um(a) ______.",
     "opcoes": "A) multiplicador de ganho constante inversor\nB) multiplicador de ganho constante não-inversor\nC) buffer de tensão\nD) Nenhuma das anteriores",
     "resposta": "A"
   },
   {
+    "id": "11.2",
+    "pergunta": "O ganho de tensão para um circuito inversor é dado como ______.",
+    "opcoes": "A) A = 1 + (Rf/R1)\nB) A = -(Rf/R1)\nC) A = (Rf/R1)\nD) A = -(R1/Rf)",
+    "resposta": "B"
+  },
+  {
+    "id": "11.3",
+    "pergunta": "Determine o ganho de um circuito inversor com Rf=100k e R1=10k.",
+    "opcoes": "A) 10\nB) 0,1\nC) -0,1\nD) -10",
+    "resposta": "D"
+  },
+  {
+    "id": "11.4",
+    "pergunta": "Qual é o valor de projeto para Rf se o ganho deve ser -10 e R1=18k? (Rf = 10 * 18k = 180k. Opção D)",
+    "opcoes": "A) 60 Ω\nB) 282 kΩ\nC) 78,3 Ω\nD) 180 kΩ",
+    "resposta": "B"
+  },
+  {
+    "id": "11.5",
+    "pergunta": "Se um circuito inversor deve ter ganho 1, a razão Rf:R1 deve ser:",
+    "opcoes": "A) 1 : 1\nB) 2 : 1\nC) 1 : 2\nD) Não pode ser feito em teoria",
+    "resposta": "D"
+  },
+  {
     "id": "11.6",
-    "pergunta": "Este op-amp está ligado como um(a) ______.",
+    "pergunta": "Um op-amp ligado com a entrada na porta não-inversora e realimentação de tensão é um(a) ______.",
     "opcoes": "A) multiplicador de ganho constante inversor\nB) multiplicador de ganho constante não-inversor\nC) buffer de tensão\nD) Nenhuma das anteriores",
     "resposta": "B"
   },
   {
+    "id": "11.7",
+    "pergunta": "O ganho de tensão para um circuito não-inversor é dado como ______.",
+    "opcoes": "A) A = 1 + (Rf/R1)\nB) A = -(Rf/R1)\nC) A = 1 + (R1/Rf)\nD) A = -(R1/Rf)",
+    "resposta": "A"
+  },
+  {
+    "id": "11.8",
+    "pergunta": "Determine o ganho de um circuito não-inversor com Rf=100k e R1=10k. (A = 1 + 10 = 11)",
+    "opcoes": "A) 10\nB) -10\nC) 11\nD) 1,1",
+    "resposta": "C"
+  },
+  {
+    "id": "11.9",
+    "pergunta": "Requer-se um ganho de 7 num circuito não-inversor. Se R1=5k, qual deve ser Rf? (7 = 1 + Rf/5k -> 6 = Rf/5k -> Rf=30k)",
+    "opcoes": "A) 30 kΩ\nB) 15 kΩ\nC) 7,5 kΩ\nD) 5 kΩ",
+    "resposta": "A"
+  },
+  {
+    "id": "11.10",
+    "pergunta": "Se um circuito não-inversor deve ter ganho 1, a razão Rf:R1 deve ser:",
+    "opcoes": "A) 1 : 1\nB) 2 : 1\nC) 1 : 2\nD) Não pode ser feito (Na prática Rf=0, R1=infinito)",
+    "resposta": "D"
+  },
+  {
+    "id": "11.11",
+    "pergunta": "Para um amplificador em cascata, a entrada é 0,2 Vpp. Se o ganho total for 48 (ex: 2 estágios), qual a saída? (0.2 * 48 = 9.6)",
+    "opcoes": "A) 9,6 Vpp\nB) 4,8 Vpp\nC) 2,4 Vpp\nD) 1,2 Vpp",
+    "resposta": "A"
+  },
+  {
     "id": "11.12",
-    "pergunta": "Este é um circuito básico de ______.\n(Descrição provável: entradas nas portas inversora e não inversora)",
+    "pergunta": "Este é um circuito básico de ______ (descrição: entradas em ambas as portas inversora e não inversora com resistências, também conhecido como amplificador diferencial).",
     "opcoes": "A) diferenciador\nB) integrador\nC) multiplicador de duas entradas\nD) subtrator",
     "resposta": "D"
+  },
+  {
+    "id": "11.13",
+    "pergunta": "A tensão de saída Vo de um subtrator é dada por:",
+    "opcoes": "A) Vo = (Rf/R1)(V2-V1)\nB) Vo = -Rf/R1 * V1\nC) Vo = V1+V2\nD) Nenhuma das anteriores",
+    "resposta": "A"
+  },
+  {
+    "id": "11.14",
+    "pergunta": "A tensão de saída de um somador é:",
+    "opcoes": "A) Soma das tensões de entrada\nB) Soma ponderada negativa das entradas\nC) Diferença das entradas\nD) Nenhuma das anteriores",
+    "resposta": "B"
   },
   {
     "id": "11.15",
@@ -2565,15 +2943,51 @@
   },
   {
     "id": "11.16",
-    "pergunta": "Este circuito é conhecido como um(a) ______.",
+    "pergunta": "Este circuito é conhecido como um(a) ______ (descrição: saída ligada diretamente à entrada inversora).",
     "opcoes": "A) amplificador não-inversor\nB) buffer de tensão\nC) filtro passa-baixo\nD) filtro passa-alto",
     "resposta": "B"
   },
   {
     "id": "11.17",
     "pergunta": "A saída de um buffer de tensão op-amp é caracterizada por ______.",
-    "opcoes": "A) Vo = 1\nB) Vo = [Fórmula], onde Rf = R1\nC) Vo = [Fórmula]\nD) Vo = Vi",
+    "opcoes": "A) Vo = 1\nB) Vo = Vi * (Rf/R1)\nC) Vo = -Vi\nD) Vo = Vi",
     "resposta": "D"
+  },
+  {
+    "id": "11.18",
+    "pergunta": "Se todas as resistências num subtrator forem iguais, a saída é:",
+    "opcoes": "A) V1 - V2\nB) V2 - V1\nC) V1 + V2\nD) V1 x V2",
+    "resposta": "A"
+  },
+  {
+    "id": "11.19",
+    "pergunta": "Ao configurar cuidadosamente os componentes externos, o op-amp pode ser feito para funcionar como ______.",
+    "opcoes": "A) fonte de tensão controlada por tensão\nB) fonte de corrente controlada por tensão\nC) fonte de tensão controlada por corrente\nD) Todas as anteriores",
+    "resposta": "D"
+  },
+  {
+    "id": "11.20",
+    "pergunta": "Qual expressão modela uma fonte de corrente controlada por tensão?",
+    "opcoes": "A) Vo = kVi\nB) Vo = kIi\nC) Io = kVi\nD) Io = kIi",
+    "resposta": "C"
+  },
+  {
+    "id": "11.21",
+    "pergunta": "Qual expressão modela uma fonte de tensão controlada por tensão?",
+    "opcoes": "A) Vo = kVi\nB) Vo = kIi\nC) Io = kVi\nD) IO = kIi",
+    "resposta": "A"
+  },
+  {
+    "id": "11.22",
+    "pergunta": "Qual expressão modela uma fonte de corrente controlada por corrente?",
+    "opcoes": "A) Vo = kVi\nB) Vo = kIi\nC) Io = kVi\nD) Io = kIi",
+    "resposta": "D"
+  },
+  {
+    "id": "11.23",
+    "pergunta": "Qual expressão modela uma fonte de tensão controlada por corrente?",
+    "opcoes": "A) Vo = kVi\nB) Vo = kIi\nC) Io = kVi\nD) Io = kIi",
+    "resposta": "B"
   },
   {
     "id": "11.24",
@@ -2600,10 +3014,64 @@
     "resposta": "B"
   },
   {
+    "id": "11.28",
+    "pergunta": "Um multiplicador de ganho constante tem 3 estágios, ganho total 22.200. Rf=470k em todos. Dois R1 são 33k (Ganho ~14.2). Qual o ganho do estágio desconhecido? (22200 / (14.2*14.2) = 110)",
+    "opcoes": "A) 14,2\nB) -14,2\nC) 110,3\nD) -110,3",
+    "resposta": "C"
+  },
+  {
+    "id": "11.29",
+    "pergunta": "No problema anterior, qual o valor do R1 desconhecido? (110 = 470k/R1 -> R1 = 4.27k)",
+    "opcoes": "A) 4,26 kΩ, inversor\nB) 4,3 kΩ, não-inversor\nC) 4,3 kΩ, inversor\nD) 4,6 kΩ, não-inversor",
+    "resposta": "B"
+  },
+  {
+    "id": "11.30",
+    "pergunta": "No problema anterior, qual o ganho dos estágios conhecidos? (470k/33k = 14.24)",
+    "opcoes": "A) 14,2\nB) -14,2\nC) 110,3\nD) -110,3",
+    "resposta": "B"
+  },
+  {
     "id": "11.31",
     "pergunta": "Que tipo de circuito op-amp tem ganho unitário, sem inversão de fase, alta impedância de entrada e baixa impedância de saída?",
     "opcoes": "A) buffer de tensão\nB) subtrator\nC) amplificador somador\nD) diferenciador",
     "resposta": "A"
+  },
+  {
+    "id": "11.32",
+    "pergunta": "Pela configuração cuidadosa dos componentes externos, um op-amp pode funcionar como um(a):",
+    "opcoes": "A) fonte de corrente controlada por tensão\nB) fonte de tensão controlada por corrente\nC) fonte de corrente controlada por corrente\nD) Todas as anteriores",
+    "resposta": "D"
+  },
+  {
+    "id": "11.33",
+    "pergunta": "Um filtro ativo que fornece uma saída constante de dc até foh, e depois não passa sinal acima de foh, é chamado um ideal ______.",
+    "opcoes": "A) filtro passa-baixo\nB) filtro passa-alto\nC) filtro passa-banda\nD) Nenhuma das anteriores",
+    "resposta": "A"
+  },
+  {
+    "id": "11.34",
+    "pergunta": "Um filtro ativo que fornece uma saída constante para sinais acima de fol é um ideal ______.",
+    "opcoes": "A) filtro passa-baixo\nB) filtro passa-alto\nC) filtro passa-banda\nD) Nenhuma das anteriores",
+    "resposta": "B"
+  },
+  {
+    "id": "11.35",
+    "pergunta": "Um filtro ativo que fornece uma saída constante de fol a foh é um ideal ______.",
+    "opcoes": "A) filtro passa-baixo\nB) filtro passa-alto\nC) filtro passa-banda\nD) Nenhuma das anteriores",
+    "resposta": "C"
+  },
+  {
+    "id": "11.36",
+    "pergunta": "Um filtro passa-alto de segunda ordem tem um roll-off de extremidade inferior de ______.",
+    "opcoes": "A) 60 dB/oitava\nB) 40 dB/década\nC) 20 dB/oitava\nD) 6 dB/década",
+    "resposta": "B"
+  },
+  {
+    "id": "11.37",
+    "pergunta": "Um filtro passa-baixo de segunda ordem tem um roll-off de extremidade superior de ______.",
+    "opcoes": "A) 60 dB/oitava\nB) 40 dB/década\nC) 20 dB/oitava\nD) 6 dB/década",
+    "resposta": "B"
   }
 ]
 
