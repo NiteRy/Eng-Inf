@@ -2,7 +2,8 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Quiz de Eletrónica - Boylestad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Eletrónica - Boylestad</title>
     <style>
         :root {
             --primary-color: #007bff;
@@ -11,6 +12,7 @@
             --bg-color: #f4f4f9;
             --card-bg: #ffffff;
             --text-color: #333;
+            --info-bg: #e9ecef; /* Cor para a caixa de motivo */
         }
 
         body {
@@ -27,7 +29,7 @@
 
         .container {
             width: 100%;
-            max-width: 600px; /* Limita a largura em PC, usa 100% em mobile */
+            max-width: 600px;
             background: var(--card-bg);
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -43,20 +45,35 @@
             margin-bottom: 20px;
         }
 
-        /* Estilo para os Circuitos ASCII */
         .question-text {
             font-size: 1.1rem;
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* Reduzi um pouco para dar espaço ao esquema */
             line-height: 1.5;
-            white-space: pre-wrap; /* Preserva quebras de linha */
+            white-space: pre-wrap;
         }
 
-        /* Garante que os desenhos ASCII não partam o layout no telemóvel */
+        /* --- NOVO ESTILO: Caixa do Esquema Elétrico --- */
+        .schematic-box {
+            background-color: #2e2e2e; /* Fundo escuro para contraste estilo terminal */
+            color: #00ff00; /* Texto verde estilo fósforo/terminal */
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace; /* ESSENCIAL para alinhar ASCII */
+            white-space: pre; /* Mantém espaços e quebras de linha */
+            overflow-x: auto; /* Scroll horizontal se o esquema for largo */
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            line-height: 1.2;
+            display: none; /* Escondido por defeito */
+            box-shadow: inset 0 0 10px #000;
+        }
+
         pre {
             background-color: #eee;
             padding: 10px;
             border-radius: 5px;
-            overflow-x: auto; /* Permite scroll lateral se o desenho for largo */
+            overflow-x: auto;
             font-family: 'Courier New', Courier, monospace;
             font-size: 0.9rem;
             border: 1px solid #ccc;
@@ -77,12 +94,17 @@
             cursor: pointer;
             transition: all 0.2s;
             text-align: left;
-            width: 100%; /* Botões largos para toque fácil */
+            width: 100%;
         }
 
-        .option-btn:hover {
+        .option-btn:hover:not(:disabled) {
             background-color: #f0f8ff;
             border-color: var(--primary-color);
+        }
+
+        .option-btn:disabled {
+            cursor: default;
+            opacity: 1;
         }
 
         .option-btn.correct {
@@ -96,6 +118,21 @@
             color: white;
             border-color: var(--error-color);
         }
+
+        /* --- Estilo para a Caixa de Motivo (Aparece ao errar) --- */
+        .explanation-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--info-bg);
+            border-left: 5px solid var(--error-color); /* Borda vermelha para indicar correção */
+            border-radius: 4px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            display: none; /* Escondido por defeito */
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .controls {
             display: flex;
@@ -124,7 +161,6 @@
             font-weight: bold;
         }
 
-        /* Histórico */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -138,34 +174,54 @@
             font-size: 0.9rem;
         }
 
-        /* Ajustes específicos para ecrãs pequenos */
+        /* Área de resultados final */
+        #result-area {
+            display: none;
+            text-align: center;
+        }
+
+        #quiz-area {
+            display: block;
+        }
+
         @media (max-width: 480px) {
             h1 { font-size: 1.2rem; }
             .container { padding: 15px; }
             .option-btn { padding: 12px; font-size: 0.95rem; }
+            .schematic-box { font-size: 0.75rem; } /* Reduz fonte do esquema em mobile */
         }
     </style>
 </head>
-
 <body>
 
     <div class="container">
         <h1>Quiz Eletrónica</h1>
         
-        <div class="score-board">
-            Pergunta: <span id="current-q">1</span> / <span id="total-q">0</span> | 
-            Pontuação: <span id="score">0</span>
+        <div id="quiz-ui">
+            <div class="score-board">
+                Pergunta: <span id="current-q">1</span> / <span id="total-q">20</span> | 
+                Pontuação: <span id="score">0</span>
+            </div>
+
+            <div id="quiz-area">
+                <div id="question-container" class="question-text"></div>
+                
+                <div id="schematic-container" class="schematic-box"></div>
+
+                <div id="options-container" class="options-grid"></div>
+                <div id="explanation-container" class="explanation-box"></div>
+            </div>
+
+            <div class="controls">
+                <button id="next-btn" class="nav-btn" onclick="nextQuestion()" style="display:none; margin-left: auto;">Próxima &rarr;</button>
+            </div>
         </div>
 
-        <div id="quiz-area">
-            <div id="question-container" class="question-text"></div>
-            
-            <div id="options-container" class="options-grid"></div>
-        </div>
-
-        <div class="controls">
-            <button id="prev-btn" class="nav-btn" onclick="prevQuestion()" disabled>Anterior</button>
-            <button id="next-btn" class="nav-btn" onclick="nextQuestion()">Próxima</button>
+        <div id="result-area">
+            <h2>Teste Concluído!</h2>
+            <p style="font-size: 1.2rem;">Pontuação Final: <strong id="final-score">0</strong> / 20</p>
+            <p id="final-percent"></p>
+            <button class="nav-btn" onclick="startNewQuiz()">Novo Teste</button>
         </div>
     </div>
 
@@ -180,13 +236,14 @@
                 </tr>
             </thead>
             <tbody id="history-body">
-                </tbody>
+            </tbody>
         </table>
         <button onclick="clearHistory()" style="margin-top:10px; padding:5px 10px; background:#dc3545; color:white; border:none; border-radius:4px;">Limpar Histórico</button>
     </div>
 
     <script>
 
+      
         const perguntasData = [
   {
     "id": "1.1",
@@ -327,6 +384,7 @@
   {
     "id": "1.18",
     "pergunta": "O modelo linear por segmentos (circuito equivalente) do díodo consiste em:",
+    "esquema":null,
     "opcoes": "A) um condensador de junção, uma bateria, uma pequena resistência e o díodo ideal\nB) uma bateria, uma pequena resistência e o díodo ideal\nC) uma bateria e o díodo ideal\nD) o díodo ideal",
     "resposta": "B",
     "motivo": "O modelo inclui: uma bateria (tensão de joelho), uma resistência (corpo do material) e um díodo ideal."
@@ -4227,104 +4285,173 @@
     "resposta": "B",
     "motivo": "Igual ao anterior: 2ª ordem implica inclinação de 40 dB/década."
   }
-];
+]
 
+        
+
+        const MAX_QUESTIONS = 20; // Define o tamanho do teste
+        let currentQuestions = [];
         let currentQuestionIndex = 0;
         let score = 0;
-        let userAnswers = new Array(perguntasData.length).fill(null); // Guarda as respostas do utilizador
-        let isFinished = false;
+        let isAnswered = false;
 
-        // Inicialização
-        document.getElementById('total-q').innerText = perguntasData.length;
+        // Elementos DOM
+        const quizUi = document.getElementById('quiz-ui');
+        const resultArea = document.getElementById('result-area');
+        const qContainer = document.getElementById('question-container');
+        const schemaContainer = document.getElementById('schematic-container'); // NOVO ELEMENTO
+        const optContainer = document.getElementById('options-container');
+        const expContainer = document.getElementById('explanation-container');
+        const nextBtn = document.getElementById('next-btn');
+        const scoreSpan = document.getElementById('score');
+        const currentQSpan = document.getElementById('current-q');
+
+        // Inicializar
+        document.getElementById('total-q').innerText = MAX_QUESTIONS;
         loadHistory();
-        showQuestion(currentQuestionIndex);
+        startNewQuiz();
+
+        function startNewQuiz() {
+            // Resetar variáveis
+            score = 0;
+            currentQuestionIndex = 0;
+            isAnswered = false;
+            scoreSpan.innerText = "0";
+
+            // Mostrar Quiz, Esconder Resultado
+            quizUi.style.display = 'block';
+            resultArea.style.display = 'none';
+
+            // 1. Baralhar todas as perguntas
+            // Algoritmo Fisher-Yates para misturar o array
+            const shuffled = [...perguntasData];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+
+            // 2. Pegar apenas as primeiras 20 (ou menos, se não houver tantas)
+            const limit = Math.min(shuffled.length, MAX_QUESTIONS);
+            currentQuestions = shuffled.slice(0, limit);
+
+            // 3. Carregar primeira
+            showQuestion(0);
+        }
 
         function showQuestion(index) {
-            const questionData = perguntasData[index];
-            const qContainer = document.getElementById('question-container');
-            const optContainer = document.getElementById('options-container');
+            const questionData = currentQuestions[index];
+            isAnswered = false;
 
-            // Atualiza contadores
-            document.getElementById('current-q').innerText = index + 1;
-            
-            // Lógica para detetar desenhos ASCII
-            // Se a pergunta tiver quebras de linha ou caracteres de desenho, coloca dentro de <pre>
-            if (questionData.pergunta.includes('\n') || questionData.pergunta.includes('|') || questionData.pergunta.includes('+--')) {
-                // Separa o texto introdutório do desenho se possível, ou formata tudo como código
+            // Reset UI da pergunta
+            expContainer.style.display = 'none';
+            expContainer.innerHTML = '';
+            nextBtn.style.display = 'none';
+            currentQSpan.innerText = index + 1;
+
+            // Renderizar Pergunta (suporta ASCII/Código na string da pergunta, embora agora tenhamos caixa própria)
+            if (questionData.pergunta.includes('\n') || questionData.pergunta.includes('|')) {
                 qContainer.innerHTML = `<pre>${questionData.pergunta}</pre>`;
             } else {
                 qContainer.innerText = questionData.pergunta;
             }
 
-            optContainer.innerHTML = '';
+            // --- LÓGICA DO ESQUEMA ELÉTRICO ---
+            // Verifica se o esquema existe e não é nulo/vazio
+            if (questionData.esquema && questionData.esquema.trim() !== "") {
+                schemaContainer.textContent = questionData.esquema; // textContent é seguro para texto puro
+                schemaContainer.style.display = 'block';
+            } else {
+                schemaContainer.style.display = 'none';
+                schemaContainer.textContent = '';
+            }
+            // ----------------------------------
 
-            // Se for Verdadeiro/Falso, normalizamos as opções
-            let opcoes = questionData.opcoes;
-            if (questionData.tipo === 'verdadeiro_falso') {
-                opcoes = ["Verdadeiro", "Falso"];
+            // Renderizar Opções
+            optContainer.innerHTML = '';
+            
+            // Lidar com opções em string ou array
+            let opcoesArray = [];
+            if (typeof questionData.opcoes === 'string') {
+                opcoesArray = questionData.opcoes.split('\n').filter(o => o.trim() !== '');
+            } else {
+                opcoesArray = questionData.opcoes;
             }
 
-            opcoes.forEach(op => {
+            opcoesArray.forEach(op => {
                 const btn = document.createElement('button');
                 btn.innerText = op;
                 btn.classList.add('option-btn');
-                
-                // Se já respondeu a esta pergunta
-                if (userAnswers[index] !== null) {
-                    btn.disabled = true;
-                    if (op === questionData.resposta) {
-                        btn.classList.add('correct');
-                    } else if (op === userAnswers[index]) {
-                        btn.classList.add('wrong');
-                    }
-                } else {
-                    btn.onclick = () => selectOption(btn, op, questionData.resposta);
-                }
-                
+                btn.onclick = () => checkAnswer(btn, op, questionData.resposta, questionData.motivo);
                 optContainer.appendChild(btn);
             });
-
-            // Atualiza estado dos botões de navegação
-            document.getElementById('prev-btn').disabled = index === 0;
-            
-            const nextBtn = document.getElementById('next-btn');
-            if (index === perguntasData.length - 1) {
-                nextBtn.innerText = "Finalizar";
-            } else {
-                nextBtn.innerText = "Próxima";
-            }
         }
 
-        function selectOption(btnElement, selectedOption, correctOption) {
-            // Guarda a resposta
-            userAnswers[currentQuestionIndex] = selectedOption;
+        function checkAnswer(btnElement, selectedOption, correctOption, motivo) {
+            if (isAnswered) return;
+            isAnswered = true;
 
-            // Verifica se acertou
-            const isCorrect = selectedOption === correctOption;
+            // Lógica de Comparação Robusta
+            // Remove espaços e converte para minúsculas
+            const cleanSelected = selectedOption.trim().toLowerCase();
+            const cleanCorrect = correctOption.trim().toLowerCase();
+            
+            let isCorrect = false;
+
+            // 1. Comparação direta (Ex: "Verdadeiro" == "Verdadeiro")
+            if (cleanSelected === cleanCorrect) isCorrect = true;
+            // 2. Início da string (Ex: "A" bate certo com "A) Opção")
+            else if (cleanSelected.startsWith(cleanCorrect + ")") || cleanSelected.startsWith(cleanCorrect + " ")) isCorrect = true;
+            // 3. Palavras-chave booleanas
+            else if (cleanCorrect === "verdadeiro" && cleanSelected.includes("verdadeiro")) isCorrect = true;
+            else if (cleanCorrect === "falso" && cleanSelected.includes("falso")) isCorrect = true;
+
             if (isCorrect) {
+                // Acertou
                 btnElement.classList.add('correct');
                 score++;
-                document.getElementById('score').innerText = score;
+                scoreSpan.innerText = score;
             } else {
+                // Errou
                 btnElement.classList.add('wrong');
-                // Mostra a correta também
-                const buttons = document.getElementById('options-container').children;
+                
+                // Iluminar a correta
+                const buttons = optContainer.children;
                 for (let btn of buttons) {
-                    if (btn.innerText === correctOption) {
-                        btn.classList.add('correct');
-                    }
+                    const btnText = btn.innerText.trim().toLowerCase();
+                    // Usar a mesma lógica para encontrar o botão certo
+                    let btnIsCorrect = false;
+                    if (btnText === cleanCorrect) btnIsCorrect = true;
+                    else if (btnText.startsWith(cleanCorrect + ")") || btnText.startsWith(cleanCorrect + " ")) btnIsCorrect = true;
+                    else if (cleanCorrect === "verdadeiro" && btnText.includes("verdadeiro")) btnIsCorrect = true;
+                    else if (cleanCorrect === "falso" && btnText.includes("falso")) btnIsCorrect = true;
+
+                    if (btnIsCorrect) btn.classList.add('correct');
+                }
+
+                // === AQUI ESTÁ O PEDIDO: ADICIONA MOTIVO APENAS QUANDO ERRO ===
+                if (motivo) {
+                    expContainer.innerHTML = `<strong>Explicação:</strong> ${motivo}`;
+                    expContainer.style.display = 'block';
                 }
             }
 
-            // Bloqueia todos os botões desta pergunta
-            const buttons = document.getElementById('options-container').children;
+            // Mostrar botão próxima (ou ver resultado)
+            if (currentQuestionIndex === currentQuestions.length - 1) {
+                nextBtn.innerText = "Ver Resultados 🏁";
+            } else {
+                nextBtn.innerText = "Próxima Pergunta";
+            }
+            nextBtn.style.display = 'block';
+
+            // Bloquear botões
+            const buttons = optContainer.children;
             for (let btn of buttons) {
                 btn.disabled = true;
             }
         }
 
         function nextQuestion() {
-            if (currentQuestionIndex < perguntasData.length - 1) {
+            if (currentQuestionIndex < currentQuestions.length - 1) {
                 currentQuestionIndex++;
                 showQuestion(currentQuestionIndex);
             } else {
@@ -4332,27 +4459,25 @@
             }
         }
 
-        function prevQuestion() {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-                showQuestion(currentQuestionIndex);
-            }
-        }
-
         function finishQuiz() {
-            if (isFinished) return;
-            isFinished = true;
+            quizUi.style.display = 'none';
+            resultArea.style.display = 'block';
             
-            const percent = Math.round((score / perguntasData.length) * 100);
-            alert(`Quiz terminado!\nPontuação Final: ${score}/${perguntasData.length} (${percent}%)`);
+            const total = currentQuestions.length;
+            const percent = Math.round((score / total) * 100);
             
-            saveHistory(score, perguntasData.length, percent);
+            document.getElementById('final-score').innerText = score;
+            
+            let msg = "";
+            if (percent >= 90) msg = `Excelente! (${percent}%)`;
+            else if (percent >= 70) msg = `Bom trabalho! (${percent}%)`;
+            else if (percent >= 50) msg = `Passou. (${percent}%)`;
+            else msg = `Precisa de estudar mais. (${percent}%)`;
+            
+            document.getElementById('final-percent').innerText = msg;
+
+            saveHistory(score, total, percent);
             loadHistory();
-            
-            // Reiniciar opcional
-            if(confirm("Deseja reiniciar o quiz?")) {
-                location.reload();
-            }
         }
 
         // ==========================================
@@ -4366,36 +4491,32 @@
             };
             let history = JSON.parse(localStorage.getItem('quizHistory')) || [];
             history.unshift(historyItem);
-            if (history.length > 10) history.pop(); // Guarda apenas os últimos 10
+            if (history.length > 5) history.pop();
             localStorage.setItem('quizHistory', JSON.stringify(history));
         }
 
-function loadHistory() {
-    const hist = JSON.parse(localStorage.getItem("quizHistory") || "[]");
-    const tbody = document.getElementById("history");
-    tbody.innerHTML = "";
+        function loadHistory() {
+            const history = JSON.parse(localStorage.getItem('quizHistory')) || [];
+            const tbody = document.getElementById('history-body');
+            tbody.innerHTML = '';
+            
+            if (history.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="3" style="text-align:center">Sem histórico.</td></tr>';
+                return;
+            }
 
-    hist.forEach(h => {
-        tbody.innerHTML += `
-            <tr>
-                <td>${h.data}</td>
-                <td>${h.pontos}/20</td>
-                <td>${h.perc}%</td>
-            </tr>
-        `;
-    });
-}
+            history.forEach(item => {
+                const row = `<tr><td>${item.date}</td><td>${item.score}</td><td>${item.percent}</td></tr>`;
+                tbody.innerHTML += row;
+            });
+        }
 
-function clearHistory() {
-    localStorage.removeItem("quizHistory");
-    loadHistory();
-}
-
-/* ================================
-   START
-================================== */
-initQuiz();
-</script>
-
+        function clearHistory() {
+            if(confirm("Tem a certeza que deseja limpar o histórico?")) {
+                localStorage.removeItem('quizHistory');
+                loadHistory();
+            }
+        }
+    </script>
 </body>
 </html>
