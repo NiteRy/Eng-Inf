@@ -644,6 +644,406 @@
         "resposta": "A) Sinais DC e baixas frequências",
         "motivo": "Permite a passagem de frequências acima da frequência de corte."
     },
+        {
+        "id": "0.51",
+        "pergunta": "Qual é a principal aplicação da configuração de base comum (CB)?",
+        "esquema": null,
+        "opcoes": "A) Amplificadores de áudio de baixa frequência\nB) Amplificadores de alta frequência (RF)\nC) Buffers de tensão\nD) Fontes de corrente",
+        "resposta": "B) Amplificadores de alta frequência (RF)",
+        "motivo": "Devido à sua baixa capacitância de Miller e boa resposta em alta frequência."
+    },
+    {
+        "id": "0.52",
+        "pergunta": "No cálculo da resistência AC ($r_d$), se a corrente $I_D$ aumentar, o que acontece a $r_d$?",
+        "esquema": null,
+        "opcoes": "A) Aumenta\nB) Diminui\nC) Mantém-se constante\nD) Torna-se negativa",
+        "resposta": "B) Diminui",
+        "motivo": "A resistência dinâmica é inversamente proporcional à corrente ($r_d = 26mV / I_D$)."
+    },
+    {
+        "id": "0.53",
+        "pergunta": "Qual é o valor típico do fator de idealidade $n$ na equação de Shockley?",
+        "esquema": null,
+        "opcoes": "A) Entre 1 e 2\nB) Entre 10 e 20\nC) Zero\nD) Infinito",
+        "resposta": "A) Entre 1 e 2",
+        "motivo": "Depende do material e da construção física do díodo."
+    },
+    {
+        "id": "0.54",
+        "pergunta": "O que acontece à tensão de rutura ($V_Z$) num Díodo Zener quando se controla a dopagem?",
+        "esquema": null,
+        "opcoes": "A) Torna-se instável\nB) Torna-se muito estável e previsível\nC) Desaparece\nD) Aumenta com a luz",
+        "resposta": "B) Torna-se muito estável e previsível",
+        "motivo": "O controlo da dopagem permite definir $V_Z$ com precisão para regulação de tensão."
+    },
+    {
+        "id": "0.55",
+        "pergunta": "Para um retificador de onda completa em ponte, qual é o PIV (Peak Inverse Voltage) que cada díodo deve suportar?",
+        "esquema": null,
+        "opcoes": "A) $V_m$ (Tensão de pico da entrada)\nB) $2 V_m$\nC) $0.5 V_m$\nD) $V_{dc}$",
+        "resposta": "A) $V_m$ (Tensão de pico da entrada)",
+        "motivo": "Ao contrário do transformador com tomada central (que exige $2V_m$), na ponte o PIV é apenas $V_m$."
+    },
+    {
+        "id": "0.56",
+        "pergunta": "Qual é a relação de fase entre entrada e saída num amplificador Emissor Comum (CE)?",
+        "esquema": null,
+        "opcoes": "A) 0 graus\nB) 90 graus\nC) 180 graus\nD) 270 graus",
+        "resposta": "C) 180 graus",
+        "motivo": "O sinal de saída é invertido em relação ao de entrada."
+    },
+    {
+        "id": "0.57",
+        "pergunta": "A região de operação onde $I_C$ responde linearmente a variações de $I_B$ chama-se:",
+        "esquema": null,
+        "opcoes": "A) Região de Corte\nB) Região de Saturação\nC) Região Ativa Linear\nD) Região de Breakdown",
+        "resposta": "C) Região Ativa Linear",
+        "motivo": "É a região usada para amplificação sem distorção significativa."
+    },
+    {
+        "id": "0.58",
+        "pergunta": "Qual é a principal vantagem dos filtros ativos com Op-Amps em relação aos passivos?",
+        "esquema": null,
+        "opcoes": "A) Usam indutores grandes\nB) Não requerem alimentação\nC) Eliminam o uso de indutores e fornecem ganho\nD) São mais lentos",
+        "resposta": "C) Eliminam o uso de indutores e fornecem ganho",
+        "motivo": "Permitem criar filtros seletivos usando apenas R e C, com ganho de sinal."
+    },
+    {
+        "id": "0.59",
+        "pergunta": "O que define a tensão de 'Pinch-off' ($V_P$) num JFET?",
+        "esquema": null,
+        "opcoes": "A) A tensão onde o canal se abre totalmente\nB) A tensão de gate que reduz $I_D$ a zero\nC) A tensão máxima de dreno\nD) A tensão de aquecimento",
+        "resposta": "B) A tensão de gate que reduz $I_D$ a zero",
+        "motivo": "Ponto onde a região de depleção fecha o canal completamente."
+    },
+    {
+        "id": "0.60",
+        "pergunta": "Num E-MOSFET, a condução só inicia quando $V_{GS}$ supera:",
+        "esquema": null,
+        "opcoes": "A) 0 V\nB) $V_P$\nC) A tensão de limiar ($V_T$ ou $V_{GS(Th)}$)\nD) -5 V",
+        "resposta": "C) A tensão de limiar ($V_T$ ou $V_{GS(Th)}$)",
+        "motivo": "É necessário induzir um canal antes de haver corrente, pois não existe canal físico inicial."
+    },
+    {
+        "id": "0.61",
+        "pergunta": "Qual é a impedância de entrada ($Z_i$) aproximada de um amplificador não-inversor com Op-Amp?",
+        "esquema": null,
+        "opcoes": "A) $R_1$\nB) $R_f$\nC) Infinita (ou muito alta)\nD) Zero",
+        "resposta": "C) Infinita (ou muito alta)",
+        "motivo": "O sinal é aplicado diretamente à entrada não-inversora do Op-Amp, que tem alta impedância."
+    },
+    {
+        "id": "0.62",
+        "pergunta": "Na análise AC de BJTs, o modelo $r_e$ substitui o transístor por:",
+        "esquema": null,
+        "opcoes": "A) Uma fonte de tensão e um indutor\nB) Um díodo e uma fonte de corrente controlada\nC) Uma resistência ($r_e$) e uma fonte de corrente ($\\beta I_b$)\nD) Um condensador variável",
+        "resposta": "C) Uma resistência ($r_e$) e uma fonte de corrente ($\\beta I_b$)",
+        "motivo": "Representa a resistência dinâmica do emissor e o ganho de corrente."
+    },
+    {
+        "id": "0.63",
+        "pergunta": "Qual é a função do condensador de bypass ($C_E$) num amplificador emissor comum?",
+        "esquema": "Condensador em paralelo com RE",
+        "opcoes": "A) Bloquear DC\nB) Curto-circuitar $R_E$ para sinais AC, aumentando o ganho\nC) Filtrar ruído da fonte\nD) Reduzir a frequência de corte",
+        "resposta": "B) Curto-circuitar $R_E$ para sinais AC, aumentando o ganho",
+        "motivo": "Evita a realimentação negativa em AC, maximizando o ganho de tensão."
+    },
+    {
+        "id": "0.64",
+        "pergunta": "O que acontece se a frequência de um sinal for menor que a frequência de corte ($f_L$) determinada pelos condensadores de acoplamento?",
+        "esquema": null,
+        "opcoes": "A) O ganho aumenta\nB) O ganho diminui (atenuação)\nC) O sinal é retificado\nD) O transístor satura",
+        "resposta": "B) O ganho diminui (atenuação)",
+        "motivo": "A reatância capacitiva torna-se elevada, bloqueando a passagem do sinal."
+    },
+    {
+        "id": "0.65",
+        "pergunta": "Num circuito Darlington, o ganho total de corrente $\\beta_D$ é aproximadamente:",
+        "esquema": null,
+        "opcoes": "A) $\\beta_1 + \\beta_2$\nB) $\\beta_1 / \\beta_2$\nC) $\\beta_1 \\times \\beta_2$\nD) 1",
+        "resposta": "C) $\\beta_1 \\times \\beta_2$",
+        "motivo": "Os ganhos multiplicam-se, resultando num ganho de corrente extremamente elevado."
+    },
+    {
+        "id": "0.66",
+        "pergunta": "Qual o principal parâmetro que limita a velocidade de resposta de um Op-Amp a degraus de tensão?",
+        "esquema": null,
+        "opcoes": "A) Largura de banda\nB) Slew Rate\nC) Ganho de malha aberta\nD) Resistência de entrada",
+        "resposta": "B) Slew Rate",
+        "motivo": "Define a taxa máxima de variação da tensão de saída ($V/\\mu s$)."
+    },
+    {
+        "id": "0.67",
+        "pergunta": "Se um resistor tem as cores Verde, Azul, Vermelho, qual é o seu valor nominal?",
+        "esquema": null,
+        "opcoes": "A) 560 $\\Omega$\nB) 5.6 k$\\Omega$\nC) 56 k$\\Omega$\nD) 560 k$\\Omega$",
+        "resposta": "B) 5.6 k$\\Omega$",
+        "motivo": "Verde (5), Azul (6), Multiplicador Vermelho ($10^2$). $56 \\times 100 = 5600 \\Omega$."
+    },
+    {
+        "id": "0.68",
+        "pergunta": "A configuração 'Cascode' é utilizada principalmente para:",
+        "esquema": null,
+        "opcoes": "A) Aumentar a potência de áudio\nB) Reduzir o efeito Miller e melhorar a resposta em alta frequência\nC) Criar osciladores\nD) Retificar corrente",
+        "resposta": "B) Reduzir o efeito Miller e melhorar a resposta em alta frequência",
+        "motivo": "Combina um estágio CE e um CB para minimizar a capacitância de realimentação."
+    },
+    {
+        "id": "0.69",
+        "pergunta": "O que significa o termo 'Dopagem' em semicondutores?",
+        "esquema": null,
+        "opcoes": "A) Purificar o material\nB) Adicionar impurezas controladas para alterar a condutividade\nC) Aquecer o material\nD) Aplicar tensão externa",
+        "resposta": "B) Adicionar impurezas controladas para alterar a condutividade",
+        "motivo": "Processo fundamental para criar materiais tipo-n e tipo-p."
+    },
+    {
+        "id": "0.70",
+        "pergunta": "Num transístor PNP, a tensão na base deve ser ______ que a do emissor para polarização direta.",
+        "esquema": null,
+        "opcoes": "A) Maior (mais positiva)\nB) Menor (mais negativa)\nC) Igual\nD) O dobro",
+        "resposta": "B) Menor (mais negativa)",
+        "motivo": "Para conduzir, o potencial da base (N) deve ser menor que o do emissor (P)."
+    },
+    {
+        "id": "0.71",
+        "pergunta": "Qual é a unidade da transcondutância ($g_m$)?",
+        "esquema": null,
+        "opcoes": "A) Volts\nB) Ohms\nC) Siemens (S)\nD) Henries",
+        "resposta": "C) Siemens (S)",
+        "motivo": "Representa corrente por unidade de tensão (A/V)."
+    },
+    {
+        "id": "0.72",
+        "pergunta": "A tensão de saída de um Seguidor de Tensão (Buffer) com Op-Amp é:",
+        "esquema": null,
+        "opcoes": "A) $V_{in}$\nB) $-V_{in}$\nC) $2 V_{in}$\nD) Zero",
+        "resposta": "A) $V_{in}$",
+        "motivo": "O ganho é unitário e não há inversão de fase."
+    },
+    {
+        "id": "0.73",
+        "pergunta": "O que é a 'Região de Depleção' numa junção P-N?",
+        "esquema": null,
+        "opcoes": "A) Uma área cheia de portadores livres\nB) Uma região sem portadores de carga móveis (apenas iões fixos)\nC) A camada externa do díodo\nD) O terminal positivo",
+        "resposta": "B) Uma região sem portadores de carga móveis (apenas iões fixos)",
+        "motivo": "Forma-se pela recombinação inicial de portadores na interface."
+    },
+    {
+        "id": "0.74",
+        "pergunta": "Qual a frequência de ondulação na saída de um retificador de meia-onda (entrada 50Hz)?",
+        "esquema": null,
+        "opcoes": "A) 25 Hz\nB) 50 Hz\nC) 100 Hz\nD) 0 Hz",
+        "resposta": "B) 50 Hz",
+        "motivo": "Na meia-onda, a frequência de saída é igual à de entrada."
+    },
+    {
+        "id": "0.75",
+        "pergunta": "Para que serve a análise por Reta de Carga (Load-Line)?",
+        "esquema": null,
+        "opcoes": "A) Para medir a resistência do fio\nB) Para determinar graficamente o Ponto Q de operação\nC) Para calcular a capacitância\nD) Para testar a rutura do componente",
+        "resposta": "B) Para determinar graficamente o Ponto Q de operação",
+        "motivo": "Permite resolver a interação entre a característica não-linear do dispositivo e o circuito linear."
+    },
+    {
+        "id": "0.76",
+        "pergunta": "Num circuito polarizado por divisor de tensão, qual é a vantagem do método exato (Thévenin)?",
+        "esquema": null,
+        "opcoes": "A) É mais rápido\nB) É sempre aplicável, independentemente do valor de $\\beta R_E$\nC) Não precisa de calculadora\nD) Usa menos componentes",
+        "resposta": "B) É sempre aplicável, independentemente do valor de $\\beta R_E$",
+        "motivo": "Não depende da aproximação de impedância rígida."
+    },
+    {
+        "id": "0.77",
+        "pergunta": "O que representa o símbolo $\\mu$ (micro) em eletrónica?",
+        "esquema": null,
+        "opcoes": "A) $10^{-3}$\nB) $10^{-6}$\nC) $10^{-9}$\nD) $10^6$",
+        "resposta": "B) $10^{-6}$",
+        "motivo": "Prefixo padrão para micro (ex: microfarad, microampere)."
+    },
+    {
+        "id": "0.78",
+        "pergunta": "Qual a principal característica de um amplificador ideal em termos de ruído?",
+        "esquema": null,
+        "opcoes": "A) Gera ruído branco\nB) CMRR infinito (rejeição total de ruído comum)\nC) Amplifica o ruído\nD) Tem ganho zero",
+        "resposta": "B) CMRR infinito (rejeição total de ruído comum)",
+        "motivo": "Capacidade de rejeitar interferências presentes em ambas as entradas."
+    },
+    {
+        "id": "0.79",
+        "pergunta": "Em circuitos lógicos digitais, o BJT é frequentemente usado em que modos?",
+        "esquema": null,
+        "opcoes": "A) Ativa e Reversa\nB) Corte e Saturação\nC) Apenas Ativa\nD) Apenas Breakdown",
+        "resposta": "B) Corte e Saturação",
+        "motivo": "Funciona como interruptor: Corte (OFF/0) e Saturação (ON/1)."
+    },
+    {
+        "id": "0.80",
+        "pergunta": "Qual a função do resistor $R_G$ num amplificador JFET de autopolarização?",
+        "esquema": null,
+        "opcoes": "A) Definir a corrente de gate\nB) Fixar o potencial da gate em 0V (terra) permitindo que a gate 'flutue' para AC\nC) Aquecer o circuito\nD) Aumentar $V_{DD}$",
+        "resposta": "B) Fixar o potencial da gate em 0V (terra) permitindo que a gate 'flutue' para AC",
+        "motivo": "Como $I_G=0$, não há queda DC em $R_G$, fixando $V_G=0V$."
+    },
+    {
+        "id": "0.81",
+        "pergunta": "Qual é a relação entre largura de banda e ganho num amplificador operacional?",
+        "esquema": null,
+        "opcoes": "A) São independentes\nB) O produto Ganho-Largura de Banda (GBP) é constante\nC) Se o ganho aumenta, a largura de banda aumenta\nD) A largura de banda é sempre infinita",
+        "resposta": "B) O produto Ganho-Largura de Banda (GBP) é constante",
+        "motivo": "Aumentar o ganho reduz proporcionalmente a frequência de corte superior."
+    },
+    {
+        "id": "0.82",
+        "pergunta": "O que é o 'Joelho' na curva característica do díodo?",
+        "esquema": "Curva I-V do díodo",
+        "opcoes": "A) O ponto de rutura inversa\nB) O ponto onde a condução direta começa a aumentar exponencialmente ($V_K$)\nC) A região de resistência negativa\nD) O ponto de fusão",
+        "resposta": "B) O ponto onde a condução direta começa a aumentar exponencialmente ($V_K$)",
+        "motivo": "Marca a transição para o estado 'ON'."
+    },
+    {
+        "id": "0.83",
+        "pergunta": "Em polarização direta, o LED emite luz devido à:",
+        "esquema": null,
+        "opcoes": "A) Fricção dos eletrões\nB) Recombinação de eletrões e lacunas libertando fotões\nC) Incandescência do filamento\nD) Reação nuclear",
+        "resposta": "B) Recombinação de eletrões e lacunas libertando fotões",
+        "motivo": "A energia libertada na recombinação corresponde ao espectro visível (ou IV/UV) dependendo do gap."
+    },
+    {
+        "id": "0.84",
+        "pergunta": "Qual a equação para $V_{CE}$ na malha de saída de um circuito de polarização fixa?",
+        "esquema": null,
+        "opcoes": "A) $V_{CE} = V_{CC}$\nB) $V_{CE} = V_{CC} - I_C R_C$\nC) $V_{CE} = I_C R_C$\nD) $V_{CE} = 0$",
+        "resposta": "B) $V_{CE} = V_{CC} - I_C R_C$",
+        "motivo": "Aplicação da Lei das Malhas de Kirchhoff na saída."
+    },
+    {
+        "id": "0.85",
+        "pergunta": "Num amplificador somador, se $R_f = R_1 = R_2$, a saída é:",
+        "esquema": null,
+        "opcoes": "A) $V_1 + V_2$\nB) $-(V_1 + V_2)$\nC) $V_1 - V_2$\nD) Zero",
+        "resposta": "B) $-(V_1 + V_2)$",
+        "motivo": "O ganho é unitário para cada entrada, mas invertido."
+    },
+    {
+        "id": "0.86",
+        "pergunta": "A corrente $I_{DSS}$ num JFET ocorre quando:",
+        "esquema": null,
+        "opcoes": "A) $V_{GS} = V_P$\nB) $V_{GS} = 0V$ e $V_{DS} > |V_P|$\nC) A gate está aberta\nD) O dreno está desligado",
+        "resposta": "B) $V_{GS} = 0V$ e $V_{DS} > |V_P|$",
+        "motivo": "É a corrente máxima de saturação com a gate curto-circuitada à fonte."
+    },
+    {
+        "id": "0.87",
+        "pergunta": "Qual o efeito de adicionar um condensador em paralelo com a resistência de fonte ($R_S$) num amplificador FET?",
+        "esquema": null,
+        "opcoes": "A) Reduz o ganho AC\nB) Aumenta o ganho AC (bypass)\nC) Não tem efeito\nD) Bloqueia o sinal",
+        "resposta": "B) Aumenta o ganho AC (bypass)",
+        "motivo": "Elimina a degeneração de fonte em AC, aumentando a transcondutância efetiva do estágio."
+    },
+    {
+        "id": "0.88",
+        "pergunta": "O valor $\\alpha_{dc}$ relaciona-se com as correntes do transístor por:",
+        "esquema": null,
+        "opcoes": "A) $I_C / I_E$\nB) $I_E / I_C$\nC) $I_B / I_E$\nD) $I_C / I_B$",
+        "resposta": "A) $I_C / I_E$",
+        "motivo": "Definição de ganho em base comum."
+    },
+    {
+        "id": "0.89",
+        "pergunta": "Qual a principal desvantagem do Germânio em relação ao Silício?",
+        "esquema": null,
+        "opcoes": "A) Custo\nB) Alta sensibilidade térmica e corrente de fuga elevada\nC) Tensão de joelho muito alta\nD) Difícil de dopar",
+        "resposta": "B) Alta sensibilidade térmica e corrente de fuga elevada",
+        "motivo": "Torna-o menos estável para aplicações gerais, embora útil para detetores de baixa tensão."
+    },
+    {
+        "id": "0.90",
+        "pergunta": "Num gráfico de Bode de amplitude, o eixo vertical é medido em:",
+        "esquema": null,
+        "opcoes": "A) Volts\nB) Amperes\nC) Decibéis (dB)\nD) Hertz",
+        "resposta": "C) Decibéis (dB)",
+        "motivo": "Escala logarítmica usada para representar ganho."
+    },
+    {
+        "id": "0.91",
+        "pergunta": "A equação $I_E = (\beta + 1) I_B$ é válida para:",
+        "esquema": null,
+        "opcoes": "A) Apenas FETs\nB) Qualquer BJT na região ativa\nC) Apenas díodos\nD) Apenas transformadores",
+        "resposta": "B) Qualquer BJT na região ativa",
+        "motivo": "Derivada de $I_E = I_C + I_B$ e $I_C = \\beta I_B$."
+    },
+    {
+        "id": "0.92",
+        "pergunta": "O que é um 'Átomo Aceitador'?",
+        "esquema": null,
+        "opcoes": "A) Um átomo pentavalente\nB) Um átomo trivalente que cria uma lacuna\nC) Um átomo neutro\nD) Um protão",
+        "resposta": "B) Um átomo trivalente que cria uma lacuna",
+        "motivo": "Aceita um eletrão da banda de valência, criando uma lacuna (cria material tipo-p)."
+    },
+    {
+        "id": "0.93",
+        "pergunta": "A tensão térmica $V_T$ depende diretamente de:",
+        "esquema": null,
+        "opcoes": "A) Tensão aplicada\nB) Temperatura absoluta (Kelvin)\nC) Corrente de dreno\nD) Frequência",
+        "resposta": "B) Temperatura absoluta (Kelvin)",
+        "motivo": "$V_T = kT/q$, onde T é a temperatura."
+    },
+    {
+        "id": "0.94",
+        "pergunta": "Num circuito ceifador em paralelo, se o díodo for ideal e estiver orientado para conduzir no ciclo positivo (cátodo na terra), a saída máxima é:",
+        "esquema": null,
+        "opcoes": "A) $V_m$\nB) 0 V (curto-circuito)\nC) $-V_m$\nD) Infinita",
+        "resposta": "B) 0 V (curto-circuito)",
+        "motivo": "O díodo conduz no ciclo positivo, curto-circuitando a saída para a terra (0V)."
+    },
+    {
+        "id": "0.95",
+        "pergunta": "Qual a função de um Buffer (Seguidor de Tensão) entre dois estágios de amplificação?",
+        "esquema": null,
+        "opcoes": "A) Inverter o sinal\nB) Casamento de impedâncias (impedir que o segundo estágio carregue o primeiro)\nC) Aumentar a tensão\nD) Filtrar DC",
+        "resposta": "B) Casamento de impedâncias (impedir que o segundo estágio carregue o primeiro)",
+        "motivo": "Usa a sua alta impedância de entrada e baixa de saída para isolar estágios."
+    },
+    {
+        "id": "0.96",
+        "pergunta": "O que indica a tolerância de um resistor?",
+        "esquema": null,
+        "opcoes": "A) A potência máxima\nB) O desvio máximo percentual do valor real em relação ao nominal\nC) A temperatura máxima\nD) A tensão máxima",
+        "resposta": "B) O desvio máximo percentual do valor real em relação ao nominal",
+        "motivo": "Ex: $\\pm 5\\%$ significa que o valor pode variar 5% para cima ou para baixo."
+    },
+    {
+        "id": "0.97",
+        "pergunta": "Num amplificador Op-Amp Inversor, o ponto de 'Terra Virtual' encontra-se:",
+        "esquema": null,
+        "opcoes": "A) Na saída\nB) Na entrada inversora (-)\nC) Na entrada não-inversora (+)\nD) Na fonte de alimentação",
+        "resposta": "B) Na entrada inversora (-)",
+        "motivo": "Devido ao feedback e ao ganho infinito, a entrada inversora mantém-se ao potencial da não-inversora (que está na terra)."
+    },
+    {
+        "id": "0.98",
+        "pergunta": "A corrente $I_{CO}$ é também conhecida como:",
+        "esquema": null,
+        "opcoes": "A) Corrente de Coletor\nB) Corrente de Fuga ou Saturação Inversa\nC) Corrente de Base\nD) Corrente de Gate",
+        "resposta": "B) Corrente de Fuga ou Saturação Inversa",
+        "motivo": "Corrente minoritária que flui quando a junção está inversamente polarizada."
+    },
+    {
+        "id": "0.99",
+        "pergunta": "Qual a vantagem de uma fonte de alimentação simétrica (+V, -V) para Op-Amps?",
+        "esquema": null,
+        "opcoes": "A) Permite que a saída oscile tanto para valores positivos como negativos em torno de zero\nB) Aumenta o custo\nC) Reduz o ganho\nD) Não tem vantagem",
+        "resposta": "A) Permite que a saída oscile tanto para valores positivos como negativos em torno de zero",
+        "motivo": "Essencial para amplificar sinais AC sem necessidade de condensadores de bloqueio na saída."
+    },
+    {
+        "id": "0.100",
+        "pergunta": "O parâmetro $\\Delta$ (delta) numa fórmula indica:",
+        "esquema": null,
+        "opcoes": "A) Um valor constante\nB) Uma variação ou incremento (ex: $\\Delta I_C$)\nC) Um valor máximo\nD) Um valor mínimo",
+        "resposta": "B) Uma variação ou incremento (ex: $\\Delta I_C$)",
+        "motivo": "Usado para análises de pequenos sinais ou variações."
+    },
   {
     "id": "1.1",
     "pergunta": "Um semicondutor intrínseco é aquele que é tão puro quanto a tecnologia atual permite fabricar.",
