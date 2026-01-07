@@ -245,6 +245,406 @@
 
       
         const perguntasData = [
+              {
+        "id": "0.1",
+        "pergunta": "Qual é a energia necessária para romper uma ligação covalente num cristal de Silício (Si)?",
+        "esquema": null,
+        "opcoes": "A) 0.67 eV\nB) 1.1 eV\nC) 1.41 eV\nD) 0.3 eV",
+        "resposta": "B) 1.1 eV",
+        "motivo": "O Si requer 1.1 eV, enquanto o Ge requer 0.67 eV."
+    },
+    {
+        "id": "0.2",
+        "pergunta": "O que define um material semicondutor intrínseco?",
+        "esquema": null,
+        "opcoes": "A) Altamente dopado\nB) Material na sua forma mais pura\nC) Material com impurezas tipo-n\nD) Um isolador perfeito",
+        "resposta": "B) Material na sua forma mais pura",
+        "motivo": "Intrínseco refere-se a níveis de impureza extremamente baixos."
+    },
+    {
+        "id": "0.3",
+        "pergunta": "Na dopagem tipo-n, o átomo pentavalente é chamado de:",
+        "esquema": null,
+        "opcoes": "A) Aceitador\nB) Doador\nC) Intrínseco\nD) Resistivo",
+        "resposta": "B) Doador",
+        "motivo": "Ele 'doa' um eletrão livre para a banda de condução."
+    },
+    {
+        "id": "0.4",
+        "pergunta": "Num material tipo-p, quais são os portadores minoritários?",
+        "esquema": null,
+        "opcoes": "A) Lacunas\nB) Eletrões\nC) Iões positivos\nD) Fotões",
+        "resposta": "B) Eletrões",
+        "motivo": "No tipo-p, as lacunas são maioritários; eletrões são minoritários gerados termicamente."
+    },
+    {
+        "id": "0.5",
+        "pergunta": "A temperatura de zero absoluto (0 K), um semicondutor intrínseco comporta-se como um:",
+        "esquema": null,
+        "opcoes": "A) Condutor perfeito\nB) Isolador\nC) Supercondutor\nD) Resistor de baixo valor",
+        "resposta": "B) Isolador",
+        "motivo": "Sem energia térmica, não há eletrões na banda de condução."
+    },
+    {
+        "id": "0.6",
+        "pergunta": "O que acontece à largura da região de depleção sob polarização inversa?",
+        "esquema": null,
+        "opcoes": "A) Diminui\nB) Aumenta\nC) Mantém-se igual\nD) Oscila",
+        "resposta": "B) Aumenta",
+        "motivo": "Os portadores são atraídos para longe da junção, alargando a barreira."
+    },
+    {
+        "id": "0.7",
+        "pergunta": "Qual é a tensão de joelho ($V_K$) típica para o Germânio?",
+        "esquema": null,
+        "opcoes": "A) 0.3 V\nB) 0.7 V\nC) 1.2 V\nD) 2.5 V",
+        "resposta": "A) 0.3 V",
+        "motivo": "O Ge tem um $V_K$ menor que o Si (0.7V)."
+    },
+    {
+        "id": "0.8",
+        "pergunta": "A corrente de fuga num díodo inversamente polarizado é causada por:",
+        "esquema": null,
+        "opcoes": "A) Portadores maioritários\nB) Portadores minoritários gerados termicamente\nC) Efeito Zener\nD) Resistência do fio",
+        "resposta": "B) Portadores minoritários gerados termicamente",
+        "motivo": "Apenas os minoritários conseguem atravessar a barreira de potencial inversa."
+    },
+    {
+        "id": "0.9",
+        "pergunta": "Qual é o efeito do aumento da temperatura na corrente de saturação inversa ($I_s$)?",
+        "esquema": null,
+        "opcoes": "A) Diminui\nB) Aumenta\nC) Não altera\nD) Torna-se zero",
+        "resposta": "B) Aumenta",
+        "motivo": "O calor gera mais pares eletrão-lacuna, aumentando a corrente de minoritários."
+    },
+    {
+        "id": "0.10",
+        "pergunta": "A resistência estática ($R_D$) de um díodo na região de condução é:",
+        "esquema": null,
+        "opcoes": "A) Muito alta\nB) Muito baixa\nC) Infinita\nD) Negativa",
+        "resposta": "B) Muito baixa",
+        "motivo": "Após $V_K$, a corrente sobe rapidamente, resultando numa baixa resistência efetiva."
+    },
+    {
+        "id": "0.11",
+        "pergunta": "Qual a tensão DC de saída de um retificador de meia-onda para uma entrada de pico $10V$ (díodo ideal)?",
+        "esquema": null,
+        "opcoes": "A) 3.18 V\nB) 6.36 V\nC) 5 V\nD) 10 V",
+        "resposta": "A) 3.18 V",
+        "motivo": "$V_{dc} = 0.318 \\times V_m = 3.18 V$."
+    },
+    {
+        "id": "0.12",
+        "pergunta": "A frequência de saída de um retificador de onda completa (entrada 60Hz) é:",
+        "esquema": null,
+        "opcoes": "A) 60 Hz\nB) 120 Hz\nC) 30 Hz\nD) 0 Hz",
+        "resposta": "B) 120 Hz",
+        "motivo": "Onda completa duplica a frequência de ondulação ($2 \\times f_{in}$)."
+    },
+    {
+        "id": "0.13",
+        "pergunta": "Um díodo Zener é normalmente utilizado em que região?",
+        "esquema": null,
+        "opcoes": "A) Polarização direta\nB) Rutura inversa (Breakdown)\nC) Corte\nD) Saturação",
+        "resposta": "B) Rutura inversa (Breakdown)",
+        "motivo": "É projetado para manter uma tensão estável nessa região."
+    },
+    {
+        "id": "0.14",
+        "pergunta": "Qual material é comum em LEDs para emissão de luz visível?",
+        "esquema": null,
+        "opcoes": "A) Silício (Si)\nB) Germânio (Ge)\nC) Arsenieto de Gálio (GaAs) e compostos\nD) Cobre",
+        "resposta": "C) Arsenieto de Gálio (GaAs) e compostos",
+        "motivo": "GaAs e GaP permitem recombinação radiativa (fotões) em vez de calor."
+    },
+    {
+        "id": "0.15",
+        "pergunta": "Num circuito ceifador (clipper), o que acontece ao sinal?",
+        "esquema": null,
+        "opcoes": "A) É amplificado\nB) É deslocado em DC\nC) Uma parte da onda é removida (cortada)\nD) A frequência é alterada",
+        "resposta": "C) Uma parte da onda é removida (cortada)",
+        "motivo": "Limita a amplitude do sinal a um valor específico."
+    },
+    {
+        "id": "0.16",
+        "pergunta": "Para um circuito 'Clamp' funcionar, a constante de tempo RC deve ser:",
+        "esquema": null,
+        "opcoes": "A) $\\tau \\ll T$\nB) $\\tau \\gg T$\nC) $\\tau = 0$\nD) Irrelevante",
+        "resposta": "B) $\\tau \\gg T$",
+        "motivo": "Deve ser grande o suficiente para o condensador não descarregar durante o ciclo."
+    },
+    {
+        "id": "0.17",
+        "pergunta": "O transformador com tomada central (center-tap) é usado em:",
+        "esquema": null,
+        "opcoes": "A) Retificador de meia-onda\nB) Retificador de onda completa com 2 díodos\nC) Retificador em ponte\nD) Ceifador",
+        "resposta": "B) Retificador de onda completa com 2 díodos",
+        "motivo": "Permite obter sinais defasados de 180 graus para retificação completa com apenas 2 díodos."
+    },
+    {
+        "id": "0.18",
+        "pergunta": "Um díodo Varactor atua como:",
+        "esquema": null,
+        "opcoes": "A) Um resistor variável\nB) Um condensador variável controlado por tensão\nC) Um indutor\nD) Uma fonte de corrente",
+        "resposta": "B) Um condensador variável controlado por tensão",
+        "motivo": "A capacitância da junção varia com a largura da região de depleção (tensão inversa)."
+    },
+    {
+        "id": "0.19",
+        "pergunta": "O PIV (Peak Inverse Voltage) num retificador de meia-onda deve ser maior que:",
+        "esquema": null,
+        "opcoes": "A) $V_m$ (Tensão de pico)\nB) $V_{dc}$\nC) $0.7V$\nD) $V_{RMS}$",
+        "resposta": "A) $V_m$ (Tensão de pico)",
+        "motivo": "O díodo bloqueia toda a tensão de pico negativa durante o ciclo de não condução."
+    },
+    {
+        "id": "0.20",
+        "pergunta": "Qual a função do condensador num filtro de fonte de alimentação?",
+        "esquema": null,
+        "opcoes": "A) Retificar a tensão\nB) Reduzir a ondulação (ripple) mantendo a tensão DC\nC) Aumentar a frequência\nD) Proteger o díodo",
+        "resposta": "B) Reduzir a ondulação (ripple) mantendo a tensão DC",
+        "motivo": "O condensador armazena carga e fornece corrente quando a tensão retificada cai."
+    },
+    {
+        "id": "0.21",
+        "pergunta": "A região da Base num BJT é fisicamente:",
+        "esquema": null,
+        "opcoes": "A) Muito espessa e fortemente dopada\nB) Muito fina e levemente dopada\nC) Do mesmo tamanho do Coletor\nD) Feita de metal",
+        "resposta": "B) Muito fina e levemente dopada",
+        "motivo": "Para permitir que os portadores atravessem sem recombinação excessiva."
+    },
+    {
+        "id": "0.22",
+        "pergunta": "Num símbolo BJT NPN, a seta:",
+        "esquema": null,
+        "opcoes": "A) Aponta para dentro\nB) Aponta para fora\nC) Não existe\nD) Aponta para a base",
+        "resposta": "B) Aponta para fora",
+        "motivo": "Indica o sentido convencional da corrente de emissor (saindo)."
+    },
+    {
+        "id": "0.23",
+        "pergunta": "A corrente de emissor ($I_E$) é a soma de:",
+        "esquema": null,
+        "opcoes": "A) $I_C + I_B$\nB) $I_C - I_B$\nC) $I_B / \\beta$\nD) $I_C \\times \\alpha$",
+        "resposta": "A) $I_C + I_B$",
+        "motivo": "Lei de Kirchhoff para o transístor."
+    },
+    {
+        "id": "0.24",
+        "pergunta": "O ganho de corrente $\\beta$ (beta) é definido como:",
+        "esquema": null,
+        "opcoes": "A) $I_C / I_E$\nB) $I_C / I_B$\nC) $I_B / I_C$\nD) $I_E / I_C$",
+        "resposta": "B) $I_C / I_B$",
+        "motivo": "Definição fundamental para a configuração de Emissor Comum."
+    },
+    {
+        "id": "0.25",
+        "pergunta": "O valor de $\\alpha$ (alfa) é sempre:",
+        "esquema": null,
+        "opcoes": "A) Maior que 1\nB) Ligeiramente menor que 1\nC) Igual a $\\beta$\nD) Zero",
+        "resposta": "B) Ligeiramente menor que 1",
+        "motivo": "Como $I_C < I_E$, a razão $I_C/I_E$ é < 1 (tipicamente 0.95-0.99)."
+    },
+    {
+        "id": "0.26",
+        "pergunta": "Qual configuração BJT apresenta inversão de fase de 180 graus?",
+        "esquema": null,
+        "opcoes": "A) Base Comum\nB) Coletor Comum\nC) Emissor Comum\nD) Nenhuma",
+        "resposta": "C) Emissor Comum",
+        "motivo": "É a única configuração básica que inverte o sinal de tensão."
+    },
+    {
+        "id": "0.27",
+        "pergunta": "A configuração Coletor Comum é também conhecida como:",
+        "esquema": null,
+        "opcoes": "A) Seguidor de Emissor\nB) Seguidor de Base\nC) Amplificador Diferencial\nD) Darlington",
+        "resposta": "A) Seguidor de Emissor",
+        "motivo": "A tensão de emissor segue a tensão de base."
+    },
+    {
+        "id": "0.28",
+        "pergunta": "Qual configuração é ideal para amplificação de alta frequência (RF)?",
+        "esquema": null,
+        "opcoes": "A) Emissor Comum\nB) Base Comum\nC) Coletor Comum\nD) Darlington",
+        "resposta": "B) Base Comum",
+        "motivo": "Tem baixa capacitância de Miller e boa resposta em frequência."
+    },
+    {
+        "id": "0.29",
+        "pergunta": "Na região de saturação de um BJT:",
+        "esquema": null,
+        "opcoes": "A) $I_C$ é máximo e $V_{CE} \\approx 0V$\nB) $I_C$ é zero\nC) $V_{CE} = V_{CC}$\nD) O transístor queima",
+        "resposta": "A) $I_C$ é máximo e $V_{CE} \\approx 0V$",
+        "motivo": "O transístor atua como um interruptor fechado."
+    },
+    {
+        "id": "0.30",
+        "pergunta": "A impedância de saída de um Seguidor de Emissor é:",
+        "esquema": null,
+        "opcoes": "A) Muito alta\nB) Muito baixa\nC) Infinita\nD) Igual a $R_B$",
+        "resposta": "B) Muito baixa",
+        "motivo": "Característica que o torna um excelente buffer de tensão."
+    },
+    {
+        "id": "0.31",
+        "pergunta": "O principal problema da polarização fixa (base resistor only) é:",
+        "esquema": null,
+        "opcoes": "A) Custo elevado\nB) Dependência forte de $\\beta$ (instabilidade)\nC) Baixo ganho\nD) Ruído excessivo",
+        "resposta": "B) Dependência forte de $\\beta$ (instabilidade)",
+        "motivo": "O ponto Q varia muito com a temperatura ou troca de componente."
+    },
+    {
+        "id": "0.32",
+        "pergunta": "Para o circuito ser estável, o fator de estabilidade S deve ser:",
+        "esquema": null,
+        "opcoes": "A) O mais alto possível\nB) O mais baixo possível\nC) Igual a 100\nD) Negativo",
+        "resposta": "B) O mais baixo possível",
+        "motivo": "S mede a variação de Ic; menor variação significa maior estabilidade."
+    },
+    {
+        "id": "0.33",
+        "pergunta": "A polarização por divisor de tensão torna o ponto Q independente de:",
+        "esquema": null,
+        "opcoes": "A) $V_{CC}$\nB) $\\beta$ (se satisfeita a condição de aproximação)\nC) $R_C$\nD) Temperatura ambiente",
+        "resposta": "B) $\\beta$ (se satisfeita a condição de aproximação)",
+        "motivo": "Fixa a tensão de base externamente pelos resistores."
+    },
+    {
+        "id": "0.34",
+        "pergunta": "O que acontece ao $V_{BE}$ de um transístor com o aumento da temperatura?",
+        "esquema": null,
+        "opcoes": "A) Aumenta 2.5 mV/C\nB) Diminui cerca de 2.5 mV/C\nC) Fica constante\nD) Duplica",
+        "resposta": "B) Diminui cerca de 2.5 mV/C",
+        "motivo": "Coeficiente de temperatura negativo da junção PN."
+    },
+    {
+        "id": "0.35",
+        "pergunta": "Na reta de carga DC, o ponto de corte (cutoff) ocorre quando:",
+        "esquema": null,
+        "opcoes": "A) $I_C = 0$\nB) $V_{CE} = 0$\nC) $I_C = V_{CC}/R_C$\nD) $I_B$ é máximo",
+        "resposta": "A) $I_C = 0$",
+        "motivo": "O transístor está desligado."
+    },
+    {
+        "id": "0.36",
+        "pergunta": "O FET é um dispositivo controlado por:",
+        "esquema": null,
+        "opcoes": "A) Corrente\nB) Tensão\nC) Luz\nD) Calor",
+        "resposta": "B) Tensão",
+        "motivo": "O campo elétrico da tensão de gate controla o canal."
+    },
+    {
+        "id": "0.37",
+        "pergunta": "A impedância de entrada de um FET é comparada à de um BJT:",
+        "esquema": null,
+        "opcoes": "A) Muito menor\nB) Muito maior\nC) Igual\nD) Depende da carga",
+        "resposta": "B) Muito maior",
+        "motivo": "Devido à junção inversa (JFET) ou óxido (MOSFET)."
+    },
+    {
+        "id": "0.38",
+        "pergunta": "O terminal 'Gate' do FET corresponde a qual terminal do BJT?",
+        "esquema": null,
+        "opcoes": "A) Emissor\nB) Coletor\nC) Base\nD) Terra",
+        "resposta": "C) Base",
+        "motivo": "É o terminal de controlo."
+    },
+    {
+        "id": "0.39",
+        "pergunta": "Num D-MOSFET, o modo 'Depleção' significa:",
+        "esquema": null,
+        "opcoes": "A) O canal está inicialmente fechado\nB) O canal conduz e a tensão de gate reduz a condução\nC) O canal precisa de luz para conduzir\nD) Funciona como um Zener",
+        "resposta": "B) O canal conduz e a tensão de gate reduz a condução",
+        "motivo": "Opera reduzindo (depletando) os portadores do canal existente."
+    },
+    {
+        "id": "0.40",
+        "pergunta": "Qual a corrente de Gate ($I_G$) típica num MOSFET?",
+        "esquema": null,
+        "opcoes": "A) 1 mA\nB) 10 uA\nC) Aproximadamente 0 A\nD) 1 A",
+        "resposta": "C) Aproximadamente 0 A",
+        "motivo": "Devido ao isolamento de dióxido de silício."
+    },
+    {
+        "id": "0.41",
+        "pergunta": "A transcondutância $g_m$ é medida em:",
+        "esquema": null,
+        "opcoes": "A) Ohms\nB) Volts\nC) Siemens (ou Mhos)\nD) Watts",
+        "resposta": "C) Siemens (ou Mhos)",
+        "motivo": "É a condutância de transferência (Corrente/Tensão)."
+    },
+    {
+        "id": "0.42",
+        "pergunta": "A equação de Shockley aplica-se a:",
+        "esquema": null,
+        "opcoes": "A) Apenas BJTs\nB) JFETs e D-MOSFETs\nC) E-MOSFETs\nD) Resistores",
+        "resposta": "B) JFETs e D-MOSFETs",
+        "motivo": "Descreve a curva parabólica de transferência destes dispositivos."
+    },
+    {
+        "id": "0.43",
+        "pergunta": "Para autopolarização (self-bias) de um JFET, usa-se:",
+        "esquema": null,
+        "opcoes": "A) Uma bateria na Gate\nB) Um resistor na Fonte ($R_S$)\nC) Um indutor no Dreno\nD) Um díodo Zener",
+        "resposta": "B) Um resistor na Fonte ($R_S$)",
+        "motivo": "A corrente $I_D$ cria uma queda em $R_S$ que polariza inversamente a gate ($V_{GS} = -I_D R_S$)."
+    },
+    {
+        "id": "0.44",
+        "pergunta": "O ganho de tensão de um amplificador Fonte Comum é dado aproximadamente por:",
+        "esquema": null,
+        "opcoes": "A) $-g_m R_D$\nB) $g_m / R_D$\nC) $R_D / g_m$\nD) 1",
+        "resposta": "A) $-g_m R_D$",
+        "motivo": "Produto da transcondutância pela resistência de carga."
+    },
+    {
+        "id": "0.45",
+        "pergunta": "A configuração Porta Comum (Common Gate) tem:",
+        "esquema": null,
+        "opcoes": "A) Alta impedância de entrada\nB) Baixa impedância de entrada\nC) Alto ganho de corrente\nD) Inversão de fase",
+        "resposta": "B) Baixa impedância de entrada",
+        "motivo": "Semelhante à Base Comum no BJT, a entrada é na fonte, resultando em baixa impedância ($1/g_m$)."
+    },
+    {
+        "id": "0.46",
+        "pergunta": "O Efeito Miller afeta principalmente:",
+        "esquema": null,
+        "opcoes": "A) A resposta em baixa frequência\nB) A resposta em alta frequência\nC) A resposta DC\nD) A potência dissipada",
+        "resposta": "B) A resposta em alta frequência",
+        "motivo": "Aumenta a capacitância de entrada efetiva, criando um polo dominante em alta frequência."
+    },
+    {
+        "id": "0.47",
+        "pergunta": "Um Op-Amp ideal tem impedância de entrada:",
+        "esquema": null,
+        "opcoes": "A) Zero\nB) 50 Ohms\nC) Infinita\nD) 1 kOhm",
+        "resposta": "C) Infinita",
+        "motivo": "Não consome corrente dos terminais de entrada."
+    },
+    {
+        "id": "0.48",
+        "pergunta": "O Slew Rate limita:",
+        "esquema": null,
+        "opcoes": "A) O ganho DC\nB) A velocidade de variação da saída (grandes sinais)\nC) O ruído térmico\nD) A tensão de alimentação",
+        "resposta": "B) A velocidade de variação da saída (grandes sinais)",
+        "motivo": "Define a máxima variação de tensão por unidade de tempo ($V/\\mu s$)."
+    },
+    {
+        "id": "0.49",
+        "pergunta": "Num amplificador não-inversor, o ganho é:",
+        "esquema": null,
+        "opcoes": "A) $1 + R_f/R_1$\nB) $-R_f/R_1$\nC) $R_f/R_1$\nD) Infinito",
+        "resposta": "A) $1 + R_f/R_1$",
+        "motivo": "Fórmula padrão derivada da realimentação negativa."
+    },
+    {
+        "id": "0.50",
+        "pergunta": "Um filtro ativo passa-alto bloqueia:",
+        "esquema": null,
+        "opcoes": "A) Sinais DC e baixas frequências\nB) Sinais de alta frequência\nC) Tudo\nD) Nada",
+        "resposta": "A) Sinais DC e baixas frequências",
+        "motivo": "Permite a passagem de frequências acima da frequência de corte."
+    },
   {
     "id": "1.1",
     "pergunta": "Um semicondutor intrínseco é aquele que é tão puro quanto a tecnologia atual permite fabricar.",
