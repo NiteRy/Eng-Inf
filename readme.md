@@ -6,19 +6,24 @@
 
 ![Horario](outros/horario.png)
 
-# Trabalhos / Testes
+# Testes
 
-|Data|Trabalho/Frequência|
+|Data|Frequência|
 |---|---|
-|2/12|Aula Invertida CCG Grupo 1 e 2|
-|7/1|Teste Física Aplicada|
-|12/1|Teste Álgebra Linear|
-|31/1|Entrega Full paper + Article CCG|
+|16-4|Matemática|
+|28-5|Matemática|
+|8-6|Sistemas Digitais|
 
 # Notas
 
-- 20/10 não há matemática
-- 29/10 não há física aplicada
-- 24/1 há aula suplementar CCG para ajudar nos Full papers
+# Aulas Teams
+
+- 16 a 20 de março
+
+- 6 a 10 de abril
+
+- 27 a 30 de abril
+
+![link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NzY1ZTBiMTEtZTI1ZS00MjYzLWFlOWUtODM4ZDMxNDI0NGFl%40thread.v2/0?context=%7b%22Tid%22%3a%22a4d3ed6c-f1fd-469b-836b-d06701f49264%22%2c%22Oid%22%3a%2220359ae6-e935-41ac-baaa-fac74950f954%22%7d)
 
 [Quiz](1º-1S/física%20aplicada/questionario.html)
