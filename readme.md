@@ -13,6 +13,7 @@
 |16-4|Matemática|
 |28-5|Matemática|
 |8-6|Sistemas Digitais|
+|11-6|Algoritmia|
 
 # Aulas Teams
 
