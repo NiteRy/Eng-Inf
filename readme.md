@@ -27,4 +27,6 @@
 
 # Notas
 
+1/6 não há aula de Sistemas Digitais
+
 [Quiz](1º-1S/física%20aplicada/questionario.html)
