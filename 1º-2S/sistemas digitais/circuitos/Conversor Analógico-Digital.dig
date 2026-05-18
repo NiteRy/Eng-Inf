@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes/>
+  <visualElements>
+    <visualElement>
+      <elementName>Comparator</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>cp</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1080" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes>
+        <entry>
+          <string>wideShape</string>
+          <boolean>true</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="1280" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Counter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>ct</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>i</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1080" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Clock</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>clk</string>
+        </entry>
+        <entry>
+          <string>runRealTime</string>
+          <boolean>true</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="840" y="80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Register</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>r</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1080" y="300"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes/>
+      <pos x="940" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>RS_FF_AS</elementName>
+      <elementAttributes/>
+      <pos x="960" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Button</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Btn</string>
+        </entry>
+      </elementAttributes>
+      <pos x="900" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or</elementName>
+      <elementAttributes>
+        <entry>
+          <string>wideShape</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Inputs</string>
+          <int>3</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1180" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>ff</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1020" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>Or</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1260" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>ovflw</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1100" y="80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>And</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1380" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Data</elementName>
+      <elementAttributes/>
+      <pos x="1440" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>Relógio (clk): Fornece os pulsos de sincronismo para todo o sistema.
+
+Botão (Btn): Inicializa o ciclo de conversão, limpando o contador (clr) e definindo o estado inicial do Flip-Flop SR.
+
+Flip-Flop (ff): Atua como o &quot;maestro&quot; das fases. Guarda o estado da Fase 1 (quando está em SET através do botão) e transita para a Fase 2 (quando recebe o RESET vindo do overflow).
+
+Contador (ct): Mede o tempo decorrido em cada fase. Na Fase 1, conta até ao limite para gerar o tempo fixo de integração. Na Fase 2, conta até o comparador validar a igualdade.
+
+Comparador (cp): Monitoriza em tempo real quando o valor do contador (b) atinge o valor de referência ou sinal analógico digitalizado (a/i).
+
+Registo (r): Funciona como a memória de saída (Latch), capturando e congelando o valor exato do contador no instante em que o comparador sinaliza a igualdade (=).</string>
+        </entry>
+      </elementAttributes>
+      <pos x="280" y="-380"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="940" y="160"/>
+      <p2 x="960" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="160"/>
+      <p2 x="1180" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="1360" y="160"/>
+      <p2 x="1380" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="860" y="320"/>
+      <p2 x="1080" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="0"/>
+      <p2 x="1280" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="100"/>
+      <p2 x="960" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="920" y="260"/>
+      <p2 x="1360" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="140"/>
+      <p2 x="940" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1060" y="300"/>
+      <p2 x="1080" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="80"/>
+      <p2 x="1040" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="920" y="80"/>
+      <p2 x="960" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="840" y="80"/>
+      <p2 x="860" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="1040" y="80"/>
+      <p2 x="1100" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="860" y="80"/>
+      <p2 x="900" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="240"/>
+      <p2 x="1180" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="180"/>
+      <p2 x="1180" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="1260" y="180"/>
+      <p2 x="1280" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="60"/>
+      <p2 x="960" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="60"/>
+      <p2 x="1060" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="960" y="220"/>
+      <p2 x="1040" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="1060" y="220"/>
+      <p2 x="1080" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="220"/>
+      <p2 x="1160" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="1080" y="380"/>
+      <p2 x="1160" y="380"/>
+    </wire>
+    <wire>
+      <p1 x="960" y="180"/>
+      <p2 x="960" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="1280" y="0"/>
+      <p2 x="1280" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="0"/>
+      <p2 x="900" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="1060" y="60"/>
+      <p2 x="1060" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="1060" y="220"/>
+      <p2 x="1060" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="1160" y="220"/>
+      <p2 x="1160" y="380"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="20"/>
+      <p2 x="940" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="100"/>
+      <p2 x="940" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="140"/>
+      <p2 x="940" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="1260" y="120"/>
+      <p2 x="1260" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="1360" y="160"/>
+      <p2 x="1360" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="1040" y="80"/>
+      <p2 x="1040" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="180"/>
+      <p2 x="1140" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="920" y="80"/>
+      <p2 x="920" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="1080" y="20"/>
+      <p2 x="1080" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="1080" y="340"/>
+      <p2 x="1080" y="380"/>
+    </wire>
+    <wire>
+      <p1 x="1180" y="200"/>
+      <p2 x="1180" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="860" y="80"/>
+      <p2 x="860" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="180"/>
+      <p2 x="1020" y="340"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>
