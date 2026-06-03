@@ -29,6 +29,6 @@
 
 1/6 não há aula de Sistemas Digitais
 
-[Quiz](1º-1S/física%20aplicada/questionario.html)
+[Quiz fisica](1º-1S/física%20aplicada/questionario.html)
 
-[Quiz](1º-2S/sistemas%20digitais/questionario.html)
+[Quiz sistemas](1º-2S/sistemas%20digitais/questionario.html)
