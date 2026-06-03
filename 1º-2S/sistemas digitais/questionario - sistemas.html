@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Física aplicada</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --success-color: #28a745;
+            --error-color: #dc3545;
+            --bg-color: #f4f4f9;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --info-bg: #e9ecef; /* Cor para a caixa de motivo */
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            margin-bottom: 10px; /* Reduzi um pouco para dar espaço ao esquema */
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            border: 1px solid #ccc;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+            width: 100%;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            background-color: #f0f8ff;
+            border-color: var(--primary-color);
+        }
+
+        .option-btn:disabled {
+            cursor: default;
+            opacity: 1;
+        }
+
+        .option-btn.correct {
+            background-color: var(--success-color);
+            color: white;
+            border-color: var(--success-color);
+        }
+
+        .option-btn.wrong {
+            background-color: var(--error-color);
+            color: white;
+            border-color: var(--error-color);
+        }
+
+        /* --- Estilo para a Caixa de Motivo (Aparece ao errar) --- */
+        .explanation-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--info-bg);
+            border-left: 5px solid var(--error-color); /* Borda vermelha para indicar correção */
+            border-radius: 4px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            display: none; /* Escondido por defeito */
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .nav-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .score-board {
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+
+        /* Área de resultados final */
+        #result-area {
+            display: none;
+            text-align: center;
+        }
+
+        #quiz-area {
+            display: block;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.2rem; }
+            .container { padding: 15px; }
+            .option-btn { padding: 12px; font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Quiz Eletrónica</h1>
+        
+        <div id="quiz-ui">
+            <div class="score-board">
+                Pergunta: <span id="current-q">1</span> / <span id="total-q">20</span> | 
+                Pontuação: <span id="score">0</span>
+            </div>
+
+            <div id="quiz-area">
+                <div id="question-container" class="question-text"></div>
+
+                <div id="options-container" class="options-grid"></div>
+                <div id="explanation-container" class="explanation-box"></div>
+            </div>
+
+            <div class="controls">
+                <button id="next-btn" class="nav-btn" onclick="nextQuestion()" style="display:none; margin-left: auto;">Próxima &rarr;</button>
+            </div>
+        </div>
+
+        <div id="result-area">
+            <h2>Teste Concluído!</h2>
+            <p style="font-size: 1.2rem;">Pontuação Final: <strong id="final-score">0</strong> / 20</p>
+            <p id="final-percent"></p>
+            <button class="nav-btn" onclick="startNewQuiz()">Novo Teste</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>Histórico de Tentativas</h3>
+        <table id="history-table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Pontos</th>
+                    <th>%</th>
+                </tr>
+            </thead>
+            <tbody id="history-body">
+            </tbody>
+        </table>
+        <button onclick="clearHistory()" style="margin-top:10px; padding:5px 10px; background:#dc3545; color:white; border:none; border-radius:4px;">Limpar Histórico</button>
+    </div>
+
+    <script>
+
+        const perguntasData = [
+    {
+      "id": "1.1",
+      "pergunta": "Em comparação com os sistemas analógicos, os sistemas digitais",
+      "opcoes": "A) são menos propensos ao ruído\nB) podem representar um número infinito de valores\nC) conseguem lidar com potências muito mais elevadas\nD) todas as anteriores",
+      "resposta": "A) são menos propensos ao ruído",
+      "motivo": "Os sistemas digitais utilizam níveis discretos (geralmente dois), o que os torna muito mais tolerantes e menos suscetíveis a pequenas variações de ruído em comparação com os sistemas analógicos contínuos."
+    },
+    {
+      "id": "1.2",
+      "pergunta": "O número de valores que podem ser atribuídos a um bit são",
+      "opcoes": "A) um\nB) dois\nC) três\nD) dez",
+      "resposta": "B) dois",
+      "motivo": "Um bit (binary digit) só pode assumir dois valores distintos de lógica: 0 ou 1."
+    },
+    {
+      "id": "1.3",
+      "pergunta": "A medição de tempo entre o ponto de 50% na borda de subida (leading edge) de um impulso e o ponto de 50% na borda de descida (trailing edge) do impulso é chamada de",
+      "opcoes": "A) rise time\nB) fall time\nC) período\nD) pulse width",
+      "resposta": "D) pulse width",
+      "motivo": "A largura de impulso (pulse width) é definida formalmente como o intervalo de tempo entre os pontos de 50% dos flancos de subida e descida."
+    },
+    {
+      "id": "1.4",
+      "pergunta": "A medição de tempo entre o ponto de 90% na borda de descida (trailing edge) de um impulso e o ponto de 10% na borda de descida do impulso é chamada de",
+      "opcoes": "A) rise time\nB) fall time\nC) período\nD) pulse width",
+      "resposta": "B) fall time",
+      "motivo": "O tempo de descida (fall time) é medido no flanco de descida entre os limites de 90% e 10% da amplitude máxima do impulso."
+    },
+    {
+      "id": "1.5",
+      "pergunta": "O recíproco da frequência de um sinal de relógio (clock) é o",
+      "opcoes": "A) rise time\nB) fall time\nC) período\nD) pulse width",
+      "resposta": "C) período",
+      "motivo": "Por definição física e matemática, o período (T) é o inverso da frequência (f), ou seja, T = 1/f."
+    },
+    {
+      "id": "1.6",
+      "pergunta": "Se o período de um sinal de clock é 500 ps, a frequência é",
+      "opcoes": "A) 2 MHz\nB) 200 MHz\nC) 2 GHz\nD) 20 GHz",
+      "resposta": "C) 2 GHz",
+      "motivo": "Aplicando f = 1/T, temos f = 1 / (500 * 10^-12 s) = 2 * 10^9 Hz = 2 GHz."
+    },
+    {
+      "id": "1.7",
+      "pergunta": "As portas AND, OR e NOT podem ser utilizadas para formar",
+      "opcoes": "A) dispositivos de armazenamento\nB) comparadores\nC) seletores de dados\nD) todas as anteriores",
+      "resposta": "D) todas as anteriores",
+      "motivo": "Estas portas lógicas básicas são os blocos fundamentais de construção para qualquer circuito lógico combinatório ou sequencial, incluindo seletores, comparadores e latches/registos."
+    },
+    {
+      "id": "1.8",
+      "pergunta": "Um shift register é um exemplo de um",
+      "opcoes": "A) dispositivo de armazenamento\nB) comparador\nC) seletor de dados\nD) counter",
+      "resposta": "A) dispositivo de armazenamento",
+      "motivo": "Um registo de deslocamento (shift register) é composto por uma cadeia de flip-flops concebidos para armazenar e deslocar dados digitais temporariamente."
+    },
+    {
+      "id": "1.9",
+      "pergunta": "Um dispositivo que é utilizado para comutar uma de várias linhas de entrada para uma única linha de saída chama-se",
+      "opcoes": "A) comparador\nB) decoder\nC) counter\nD) multiplexer",
+      "resposta": "D) multiplexer",
+      "motivo": "O multiplexer (MUX) atua como um seletor digital de dados, encaminhando uma das suas várias linhas de entrada para uma saída comum com base nos sinais de seleção."
+    },
+    {
+      "id": "1.10",
+      "pergunta": "Para a maioria dos trabalhos digitais, um osciloscópio deve ser acoplado ao sinal usando",
+      "opcoes": "A) acoplamento AC\nB) acoplamento DC\nC) acoplamento GND\nD) nenhum dos anteriores",
+      "resposta": "B) acoplamento DC",
+      "motivo": "O acoplamento DC permite visualizar os níveis absolutos de tensão contínua (como 0 V e 5 V), o que é indispensável para analisar estados digitais estáticos e a forma de onda exata."
+    },
+    {
+      "id": "2.1",
+      "pergunta": "Para o número binário 1000, o peso da coluna com o 1 é",
+      "opcoes": "A) 4\nB) 6\nC) 8\nD) 10",
+      "resposta": "C) 8",
+      "motivo": "No sistema posicional binário, os pesos das colunas da direita para a esquerda são 2^0=1, 2^1=2, 2^2=4 e 2^3=8. Para o bit na posição mais significativa de 1000, o peso é 8."
+    },
+    {
+      "id": "2.2",
+      "pergunta": "O complemento para 2 (2's complement) de 1000 é",
+      "opcoes": "A) 0111\nB) 1000\nC) 1001\nD) 1010",
+      "resposta": "B) 1000",
+      "motivo": "Para obter o complemento para 2 de 1000: primeiro inverte-se os bits (complemento para 1) obtendo 0111, depois soma-se 1, resultando em 1000."
+    },
+    {
+      "id": "2.3",
+      "pergunta": "O número binário fracionário 0.11 tem o valor decimal de",
+      "opcoes": "A) 1/4\nB) 1/2\nC) 3/4\nD) nenhum dos anteriores",
+      "resposta": "C) 3/4",
+      "motivo": "Os pesos após o ponto binário são 2^-1 (0.5) e 2^-2 (0.25). Portanto, 0.11 binário equivale a 0.5 + 0.25 = 0.75, que corresponde a 3/4."
+    },
+    {
+      "id": "2.4",
+      "pergunta": "O número hexadecimal 2C tem o valor decimal equivalente de",
+      "opcoes": "A) 14\nB) 44\nC) 64\nD) nenhum dos anteriores",
+      "resposta": "B) 44",
+      "motivo": "A conversão calcula-se por: 2 * 16^1 + C * 16^0. Sendo C = 12 em decimal, temos 32 + 12 = 44."
+    },
+    {
+      "id": "2.5",
+      "pergunta": "Assuma que um número em vírgula flutuante (floating point) é representado em binário. Se o bit de sinal for 1, o",
+      "opcoes": "A) número é negativo\nB) número é positivo\nC) expoente é negativo\nD) expoente é positivo",
+      "resposta": "A) número é negativo",
+      "motivo": "Nas normas de representação binária (como a IEEE 754), o bit de sinal de valor 1 indica um número negativo, enquanto o valor 0 indica um número positivo."
+    },
+    {
+      "id": "2.6",
+      "pergunta": "Quando dois números com sinal positivos são somados, o resultado pode ser maior do que o tamanho máximo suportado pelos números originais, criando um overflow. Esta condição é indicada por",
+      "opcoes": "A) uma alteração no bit de sinal\nB) um carry out da posição do sinal\nC) um resultado igual a zero\nD) fumo",
+      "resposta": "A) uma alteração no bit de sinal",
+      "motivo": "Ao somar dois valores positivos com sinal, se o resultado exceder o limite positivo máximo, o bit de sinal passará incorretamente a 1 (indicando sinal negativo), o que evidencia a ocorrência de overflow."
+    },
+    {
+      "id": "2.7",
+      "pergunta": "O número 1010 em código BCD é",
+      "opcoes": "A) igual ao decimal oito\nB) igual ao decimal dez\nC) igual ao decimal doze\nD) inválido",
+      "resposta": "D) inválido",
+      "motivo": "O código BCD (Binary Coded Decimal) apenas utiliza as combinações binárias de 0000 a 1001 (que representam os dígitos de 0 a 9). Qualquer valor acima de 9 (como 1010, que é 10) é considerado inválido em BCD."
+    },
+    {
+      "id": "2.8",
+      "pergunta": "Um exemplo de um código não pesado (unweighted code) é o",
+      "opcoes": "A) binário\nB) decimal\nC) BCD\nD) Gray code",
+      "resposta": "D) Gray code",
+      "motivo": "No Gray code, as posições dos bits não possuem pesos aritméticos associados, ao contrário do binário puro, do decimal e do BCD."
+    },
+    {
+      "id": "2.9",
+      "pergunta": "Um exemplo de um código alfanumérico é o",
+      "opcoes": "A) hexadecimal\nB) ASCII\nC) BCD\nD) CRC",
+      "resposta": "B) ASCII",
+      "motivo": "O código ASCII (American Standard Code for Information Interchange) é utilizado para representar caracteres alfanuméricos, símbolos e caracteres de controlo."
+    },
+    {
+      "id": "2.10",
+      "pergunta": "Um exemplo de um método de deteção de erros para dados transmitidos é o",
+      "opcoes": "A) teste de paridade (parity check)\nB) CRC\nC) ambos os anteriores\nD) nenhum dos anteriores",
+      "resposta": "C) ambos os anteriores",
+      "motivo": "Tanto o teste de paridade (simples) como o CRC (Cyclic Redundancy Check, mais robusto e baseado em polinómios) são métodos padrão de deteção de erros em comunicações digitais."
+    },
+    {
+      "id": "3.1",
+      "pergunta": "A tabela de verdade para uma porta AND de 2 entradas é",
+      "opcoes": "A) A=0, B=0 -> X=1; A=0, B=1 -> X=0; A=1, B=0 -> X=0; A=1, B=1 -> X=0\nB) A=0, B=0 -> X=0; A=0, B=1 -> X=1; A=1, B=0 -> X=1; A=1, B=1 -> X=0\nC) A=0, B=0 -> X=0; A=0, B=1 -> X=0; A=1, B=0 -> X=0; A=1, B=1 -> X=1\nD) A=0, B=0 -> X=0; A=0, B=1 -> X=1; A=1, B=0 -> X=1; A=1, B=1 -> X=1",
+      "resposta": "C) A=0, B=0 -> X=0; A=0, B=1 -> X=0; A=1, B=0 -> X=0; A=1, B=1 -> X=1",
+      "motivo": "Uma porta AND produz uma saída HIGH (1) apenas e só quando todas as suas entradas forem simultaneamente HIGH (1)."
+    },
+    {
+      "id": "3.2",
+      "pergunta": "A tabela de verdade para uma porta NOR de 2 entradas é",
+      "opcoes": "A) A=0, B=0 -> X=1; A=0, B=1 -> X=0; A=1, B=0 -> X=0; A=1, B=1 -> X=0\nB) A=0, B=0 -> X=0; A=0, B=1 -> X=0; A=1, B=0 -> X=0; A=1, B=1 -> X=1\nC) A=0, B=0 -> X=0; A=0, B=1 -> X=1; A=1, B=0 -> X=1; A=1, B=1 -> X=0\nD) A=0, B=0 -> X=0; A=0, B=1 -> X=1; A=1, B=0 -> X=1; A=1, B=1 -> X=1",
+      "resposta": "A) A=0, B=0 -> X=1; A=0, B=1 -> X=0; A=1, B=0 -> X=0; A=1, B=1 -> X=0",
+      "motivo": "A porta NOR é a inversão da porta OR. Assim, produz uma saída HIGH (1) apenas quando todas as entradas forem LOW (0)."
+    },
+    {
+      "id": "3.3",
+      "pergunta": "A tabela de verdade para uma porta XOR de 2 entradas é",
+      "opcoes": "A) A=0, B=0 -> X=1; A=0, B=1 -> X=0; A=1, B=0 -> X=0; A=1, B=1 -> X=1\nB) A=0, B=0 -> X=0; A=0, B=1 -> X=1; A=1, B=0 -> X=1; A=1, B=1 -> X=0\nC) A=0, B=0 -> X=0; A=0, B=1 -> X=0; A=1, B=0 -> X=0; A=1, B=1 -> X=1\nD) A=0, B=0 -> X=1; A=0, B=1 -> X=0; A=1, B=0 -> X=0; A=1, B=1 -> X=0",
+      "resposta": "B) A=0, B=0 -> X=0; A=0, B=1 -> X=1; A=1, B=0 -> X=1; A=1, B=1 -> X=0",
+      "motivo": "A porta XOR (OR Exclusivo) produz uma saída HIGH (1) se e apenas se as duas entradas forem diferentes entre si."
+    },
+    {
+      "id": "3.4",
+      "pergunta": "O símbolo lógico retangular com a inscrição '>= 1' representa uma porta",
+      "opcoes": "A) OR gate\nB) AND gate\nC) NOR gate\nD) XOR gate",
+      "resposta": "A) OR gate",
+      "motivo": "Na norma de simbologia IEC/ANSI, o símbolo '>= 1' indica uma porta OR, significando que a saída será ativa se uma ou mais entradas forem ativas."
+    },
+    {
+      "id": "3.5",
+      "pergunta": "O símbolo lógico retangular com a inscrição '&' representa uma porta",
+      "opcoes": "A) OR gate\nB) AND gate\nC) NOR gate\nD) XOR gate",
+      "resposta": "B) AND gate",
+      "motivo": "Na norma de símbolos lógicos retangulares (IEEE/IEC), o caractere '&' (ampersand) indica uma porta AND."
+    },
+    {
+      "id": "3.6",
+      "pergunta": "Uma porta lógica que produz uma saída HIGH apenas quando todas as suas entradas forem HIGH é a porta",
+      "opcoes": "A) OR gate\nB) AND gate\nC) NOR gate\nD) NAND gate",
+      "resposta": "B) AND gate",
+      "motivo": "A porta AND realiza o produto lógico, pelo que a saída só é 1 se todas as variáveis de entrada forem 1."
+    },
+    {
+      "id": "3.7",
+      "pergunta": "A expressão lógica X = A + B significa",
+      "opcoes": "A) A OR B\nB) A AND B\nC) A XOR B\nD) A XNOR B",
+      "resposta": "A) A OR B",
+      "motivo": "Na álgebra de Boole, o operador de adição (+) é utilizado para denotar a operação lógica OR."
+    },
+    {
+      "id": "3.8",
+      "pergunta": "O símbolo de circuito com a borda de entrada curva e saída pontiaguda representa uma porta",
+      "opcoes": "A) OR gate\nB) AND gate\nC) NOR gate\nD) NAND gate",
+      "resposta": "A) OR gate",
+      "motivo": "O símbolo tradicional de formato curvo com ponta aguda na saída é o desenho padrão de uma porta OR."
+    },
+    {
+      "id": "3.9",
+      "pergunta": "Uma porta de 2 entradas que produz uma saída HIGH apenas quando as entradas forem iguais (concordantes) é a porta",
+      "opcoes": "A) OR gate\nB) AND gate\nC) NOR gate\nD) XNOR gate",
+      "resposta": "D) XNOR gate",
+      "motivo": "A porta XNOR (NOR Exclusivo) atua como um detetor de igualdade, devolvendo HIGH quando ambas as entradas são idênticas (ambas 0 ou ambas 1)."
+    },
+    {
+      "id": "3.10",
+      "pergunta": "A lógica necessária para um dispositivo lógico programável (PLD) pode ser especificada numa Hardware Description Language (HDL) através de",
+      "opcoes": "A) introdução de texto (text entry)\nB) introdução de esquemático (schematic entry)\nC) diagramas de estados (state diagrams)\nD) todas as anteriores",
+      "resposta": "D) todas as anteriores",
+      "motivo": "As ferramentas de desenvolvimento moderno de lógica digital e HDLs suportam múltiplas metodologias de captura do design, incluindo texto, esquemáticos e máquinas de estados lógicos."
+    },
+    {
+      "id": "4.1",
+      "pergunta": "A lei associativa para a adição na álgebra booleana é normalmente escrita como",
+      "opcoes": "A) A + B = B + A\nB) (A + B) + C = A + (B + C)\nC) AB = BA\nD) A + AB = A",
+      "resposta": "B) (A + B) + C = A + (B + C)",
+      "motivo": "A lei associativa indica que a ordem em que as variáveis são agrupadas na operação OR não altera o resultado final."
+    },
+    {
+      "id": "4.2",
+      "pergunta": "A equação booleana AB + AC = A(B + C) ilustra",
+      "opcoes": "A) a lei distributiva\nB) a lei comutativa\nC) a lei associativa\nD) o teorema de DeMorgan",
+      "resposta": "A) a lei distributiva",
+      "motivo": "A lei distributiva permite fatorizar uma variável comum a vários termos, de forma análoga à multiplicação na álgebra convencional."
+    },
+    {
+      "id": "4.3",
+      "pergunta": "A expressão booleana A · 1 é igual a",
+      "opcoes": "A) A\nB) B\nC) 0\nD) 1",
+      "resposta": "A) A",
+      "motivo": "O valor 1 é o elemento de identidade para a operação AND. Portanto, o resultado será sempre o valor da própria variável A."
+    },
+    {
+      "id": "4.4",
+      "pergunta": "A expressão booleana A + 1 é igual a",
+      "opcoes": "A) A\nB) B\nC) 0\nD) 1",
+      "resposta": "D) 1",
+      "motivo": "De acordo com as regras da álgebra booleana, qualquer variável lógica em operação OR com o valor lógico 1 resulta sempre em 1."
+    },
+    {
+      "id": "4.5",
+      "pergunta": "A equação booleana A + AB é igual a",
+      "opcoes": "A) A\nB) B\nC) A + B\nD) AB",
+      "resposta": "A) A",
+      "motivo": "Esta é a regra de absorção. Pode ser provada colocando A em evidência: A(1 + B) = A(1) = A."
+    },
+    {
+      "id": "4.6",
+      "pergunta": "Uma expressão booleana que se encontra no formato padrão SOP (Soma de Produtos) caracterizando-se por",
+      "opcoes": "A) ser a expressão lógica minimal\nB) conter apenas um termo de produto\nC) possuir todas as variáveis do domínio em cada termo\nD) nenhuma das anteriores",
+      "resposta": "C) possuir todas as variáveis do domínio em cada termo",
+      "motivo": "No formato padrão (ou canónico) SOP, todos os termos de produto (mintermos) contêm necessariamente todas as variáveis que definem o domínio da função."
+    },
+    {
+      "id": "4.7",
+      "pergunta": "As células adjacentes num mapa de Karnaugh diferem entre si por",
+      "opcoes": "A) uma variável\nB) duas variáveis\nC) três variáveis\nD) a resposta depende do tamanho do mapa",
+      "resposta": "A) uma variável",
+      "motivo": "O mapa de Karnaugh é ordenado por código Gray, assegurando que quaisquer duas células geometricamente adjacentes variam apenas no estado de uma única variável lógica."
+    },
+    {
+      "id": "4.8",
+      "pergunta": "No mapa de Karnaugh de duas variáveis onde as células de A'B' e A'B contêm 1, a expressão simplificada lida é",
+      "opcoes": "A) X = A\nB) X = A'\nC) X = B\nD) X = B'",
+      "resposta": "B) X = A'",
+      "motivo": "Ao agrupar os dois 1's adjacentes na linha correspondente a A = 0 (A'), a variável B varia (0 para 1) e é simplificada, restando apenas X = A'."
+    },
+    {
+      "id": "4.9",
+      "pergunta": "No mapa de Karnaugh de duas variáveis onde as células correspondentes ao termo B estão ativas com 1, a expressão mínima é",
+      "opcoes": "A) X = A\nB) X = A'\nC) X = B\nD) X = B'",
+      "resposta": "C) X = B",
+      "motivo": "O agrupamento das células verticais onde B permanece constante e igual a 1 resulta na simplificação da variável A, restando apenas X = B."
+    },
+    {
+      "id": "4.10",
+      "pergunta": "No código VHDL, as duas partes principais que estruturam o programa chamam-se",
+      "opcoes": "A) I/O e module\nB) entity e architecture\nC) port e module\nD) port e architecture",
+      "resposta": "B) entity e architecture",
+      "motivo": "A declaração 'entity' define as portas de entrada e saída (interface do hardware), e a 'architecture' descreve o funcionamento ou comportamento lógico interno desse componente."
+    },
+    {
+      "id": "5.1",
+      "pergunta": "Se uma expressão AOI (AND-OR-Invert) é AB + CD, a expressão POS (Produto de Somas) equivalente é",
+      "opcoes": "A) (A' + B')(C' + D')\nB) (A + B)(C + D)\nC) (A' + B)(C' + D)\nD) nenhuma das anteriores",
+      "resposta": "A) (A' + B')(C' + D')",
+      "motivo": "A expressão AOI é dada pela inversão da soma de produtos: X = (AB + CD)'. Aplicando o teorema de DeMorgan, obtemos X = (AB)'(CD)' = (A' + B')(C' + D')."
+    },
+    {
+      "id": "5.2",
+      "pergunta": "A tabela de verdade apresentada [Entradas: A, B; Saída X: 00->1, 01->0, 10->0, 11->1] é para uma porta",
+      "opcoes": "A) NAND gate\nB) NOR gate\nC) exclusive-OR gate\nD) exclusive-NOR gate",
+      "resposta": "D) exclusive-NOR gate",
+      "motivo": "A saída é HIGH (1) nas combinações de entradas iguais (00 e 11) e LOW (0) se forem diferentes, o que define uma porta XNOR."
+    },
+    {
+      "id": "5.3",
+      "pergunta": "Num circuito com duas fontes de +5.0 V ligadas em série com uma resistência e um LED, se ambas as entradas estiverem ativas, o LED que deve ficar aceso (ON) é",
+      "opcoes": "A) LED-1\nB) LED-2\nC) nenhum\nD) ambos",
+      "resposta": "A) LED-1",
+      "motivo": "De acordo com a análise clássica de circuitos digitais de teste com portas XOR/XNOR da Floyd, o LED-1 possui acoplamento tal que a sua saída fica em nível LOW e conduz corrente, mantendo-se ligado."
+    },
+    {
+      "id": "5.4",
+      "pergunta": "Para implementar a expressão SOP X = ABC + ABD + BDE, o tipo de porta que é necessário para combinar as saídas intermédias é uma",
+      "opcoes": "A) AND gate de 3 entradas\nB) NAND gate de 3 entradas\nC) OR gate de 3 entradas\nD) NOR gate de 3 entradas",
+      "resposta": "C) OR gate de 3 entradas",
+      "motivo": "Cada um dos 3 termos é gerado por portas AND. A expressão final realiza a soma lógico (SOP), necessitando de uma porta OR de 3 entradas para juntar os produtos."
+    },
+    {
+      "id": "5.5",
+      "pergunta": "Lendo o mapa de Karnaugh apresentado [células com 1 nas posições AB'C, AB'C' e A'BC], a expressão lógica mínima é",
+      "opcoes": "A) AC + AB'\nB) AB' + A'C\nC) AB + BC\nD) AB' + AC",
+      "resposta": "B) AB' + A'C",
+      "motivo": "Os agrupamentos das células adjacentes revelam que a combinação horizontal e vertical simplifica as variáveis respetivas, obtendo os termos ótimos AB' + A'C."
+    },
+    {
+      "id": "5.6",
+      "pergunta": "O circuito apresentado [uma rede com 3 portas NOR que geram saída] terá uma lógica idêntica de saída se todas as portas forem substituídas por",
+      "opcoes": "A) portas AND\nB) portas OR\nC) portas NAND\nD) portas NOR",
+      "resposta": "C) portas NAND",
+      "motivo": "Trata-se de uma equivalência lógica clássica baseada nas leis de DeMorgan: um sistema implementado com lógica base NOR pode ser mapeado de forma dual utilizando portas NAND."
+    },
+    {
+      "id": "5.7",
+      "pergunta": "Os dois tipos de portas lógicas que são chamadas de portas universais são",
+      "opcoes": "A) AND e OR\nB) NAND e NOR\nC) AND e NAND\nD) OR e NOR",
+      "resposta": "B) NAND e NOR",
+      "motivo": "As portas NAND e NOR são consideradas universais porque qualquer função ou circuito lógico booleano pode ser inteiramente construído utilizando exclusivamente um desses dois tipos de portas."
+    },
+    {
+      "id": "5.8",
+      "pergunta": "O circuito constituído por uma porta NAND com as entradas unidas em curto-circuito é equivalente a uma",
+      "opcoes": "A) AND gate\nB) XOR gate\nC) OR gate\nD) nenhuma das anteriores",
+      "resposta": "D) nenhuma das anteriores",
+      "motivo": "Se unirmos as duas entradas de uma porta NAND, o comportamento resultante é o de um inversor (porta NOT), a qual não consta nas opções de A a C."
+    },
+    {
+      "id": "5.9",
+      "pergunta": "O circuito contendo portas NAND dispostas de modo a criar a operação inversa de uma NAND é equivalente a uma",
+      "opcoes": "A) AND gate\nB) XOR gate\nC) OR gate\nD) nenhuma das anteriores",
+      "resposta": "A) AND gate",
+      "motivo": "Uma porta NAND seguida de um inversor (porta NOT construída com NAND) cancela a negação, funcionando exatamente como uma porta AND."
+    },
+    {
+      "id": "5.10",
+      "pergunta": "Durante os primeiros três intervalos de clock para o circuito pulsado apresentado, a saída de G1 e G2 é",
+      "opcoes": "A) G1 é LOW e G2 é LOW\nB) G1 é LOW e G2 é HIGH\nC) G1 é HIGH e G2 é LOW\nD) G1 é HIGH e G2 é HIGH",
+      "resposta": "C) G1 é HIGH e G2 é LOW",
+      "motivo": "Seguindo os diagramas temporais fornecidos para as entradas, as transições iniciais geram estados em que a porta G1 produz nível HIGH (1) e a porta G2 mantém-se a nível LOW (0)."
+    },
+    {
+      "id": "6.1",
+      "pergunta": "Para o somador completo (full-adder) apresentado, assumindo que os bits de entrada são A = 0, B = 0 e Cin = 1. A soma (Sum) e o transporte de saída (Cout) serão",
+      "opcoes": "A) Sum = 0, Cout = 0\nB) Sum = 0, Cout = 1\nC) Sum = 1, Cout = 0\nD) Sum = 1, Cout = 1",
+      "resposta": "C) Sum = 1, Cout = 0",
+      "motivo": "O cálculo aritmético de um full-adder de 1 bit é: A + B + Cin = 0 + 0 + 1 = 1. Portanto, a Soma (Sum) é 1 e o transporte (Cout) é 0."
+    },
+    {
+      "id": "6.2",
+      "pergunta": "Para o circuito comparador de 4 bits apresentado, a saída de menor magnitude (A < B) será LOW se",
+      "opcoes": "A) A < B\nB) A > B\nC) ambas as opções A e B estão corretas\nD) A = B",
+      "resposta": "C) ambas as opções A e B estão corretas",
+      "motivo": "A saída correspondente a A < B só deve ser HIGH (1) se e apenas se a condição for estritamente verdadeira. Caso contrário, se A > B ou se A = B, a referida saída permanecerá em nível lógico LOW (0)."
+    },
+    {
+      "id": "6.3",
+      "pergunta": "Se expandir dois comparadores de 4 bits para aceitar dois números de 8 bits, a saída do comparador menos significativo (least significant comparator) é",
+      "opcoes": "A) igual à saída final\nB) ligada às entradas de cascata (cascading inputs) do comparador mais significativo\nC) ligada à saída do comparador mais significativo\nD) não utilizada",
+      "resposta": "B) ligada às entradas de cascata (cascading inputs) do comparador mais significativo",
+      "motivo": "Em comparadores modulares, as saídas do estágio menos significativo ligam-se às entradas de cascata do estágio mais significativo, permitindo que este tome a decisão final caso os bits superiores sejam iguais."
+    },
+    {
+      "id": "6.4",
+      "pergunta": "Assuma que pretende descodificar o número binário 0011 com um decoder ativo em nível LOW. A porta lógica em falta deve ser",
+      "opcoes": "A) uma AND gate\nB) uma OR gate\nC) uma NAND gate\nD) uma NOR gate",
+      "resposta": "C) uma NAND gate",
+      "motivo": "Descodificadores ativos em nível LOW usam portas NAND para gerar a saída ativa (0), uma vez que a porta NAND produz nível 0 apenas para a combinação única de entradas que se pretende descodificar."
+    },
+    {
+      "id": "6.5",
+      "pergunta": "Assuma que pretende descodificar o número binário 0011 com um decoder ativo em nível HIGH. A porta lógica em falta deve ser",
+      "opcoes": "A) uma AND gate\nB) uma OR gate\nC) uma NAND gate\nD) uma NOR gate",
+      "resposta": "A) uma AND gate",
+      "motivo": "Os descodificadores ativos em nível HIGH utilizam portas AND, as quais produzem nível lógico 1 (ativo) exclusivamente quando o padrão binário selecionado é apresentado."
+    },
+    {
+      "id": "6.6",
+      "pergunta": "O circuito integrado 74138 é um descodificador (decoder) de 3 para 8. Juntos, dois destes circuitos integrados podem ser combinados para formar um decoder de 4 para 16. Para tal, deve ligar",
+      "opcoes": "A) um descodificador aos LSBs da entrada; o outro descodificador aos MSBs da entrada\nB) todas as linhas de seleção de chip (chip select) à terra (GND)\nC) todas as linhas de seleção de chip aos seus níveis ativos\nD) uma linha de seleção de chip em cada descodificador ao MSB de entrada",
+      "resposta": "D) uma linha de seleção de chip em cada descodificador ao MSB de entrada",
+      "motivo": "O MSB de entrada (4.º bit) é usado para selecionar qual dos dois descodificadores é ativado (por exemplo, um com enable ativo em LOW e outro com enable ativo em HIGH), expandindo o descodificador para 16 saídas."
+    },
+    {
+      "id": "6.7",
+      "pergunta": "O codificador (encoder) de decimal para binário apresentado não possui uma entrada de zero. Isto deve-se ao facto de",
+      "opcoes": "A) quando o zero é a entrada, todas as linhas de saída devem ficar em nível LOW\nB) o zero não ser importante\nC) o zero produzir níveis lógicos ilegais\nD) ser necessário outro codificador para o zero",
+      "resposta": "A) quando o zero é a entrada, todas as linhas de saída devem ficar em nível LOW",
+      "motivo": "Em lógica positiva, o número zero decimal é representado por 0000 binário (todas as saídas em nível LOW). Isto ocorre naturalmente quando nenhuma das teclas ou entradas de 1 a 9 está ativa."
+    },
+    {
+      "id": "6.8",
+      "pergunta": "Se as linhas de seleção de dados de um multiplexer (MUX) forem S1S0 = 11, a saída será",
+      "opcoes": "A) LOW\nB) HIGH\nC) igual a D0\nD) igual a D3",
+      "resposta": "D) igual a D3",
+      "motivo": "As duas linhas de seleção S1S0 codificam 4 estados possíveis (00, 01, 10, 11). A combinação '11' corresponde ao dígito decimal 3, encaminhando assim a entrada de dados D3 para a saída."
+    },
+    {
+      "id": "6.9",
+      "pergunta": "O descodificador 74138 também pode ser utilizado como",
+      "opcoes": "A) um codificador (encoder)\nB) um DEMUX (demultiplexer)\nC) um MUX (multiplexer)\nD) nenhum dos anteriores",
+      "resposta": "B) um DEMUX (demultiplexer)",
+      "motivo": "Ao aplicar o sinal de dados numa das linhas de seleção de chip (chip select/enable) e usar as linhas de endereço como canais de seleção, um descodificador funciona exatamente como um demultiplexer (DEMUX)."
+    },
+    {
+      "id": "6.10",
+      "pergunta": "O circuito integrado 74LS280 pode gerar paridade par ou ímpar. Este integrado também pode ser utilizado como",
+      "opcoes": "A) um somador (adder)\nB) um verificador de paridade (parity tester)\nC) um MUX\nD) um codificador (encoder)",
+      "resposta": "B) um verificador de paridade (parity tester)",
+      "motivo": "A mesma lógica que gera o bit de paridade serve para verificar se os dados recebidos mantêm a paridade correta, identificando possíveis erros de bit na transmissão."
+    },
+    {
+      "id": "7.1",
+      "pergunta": "A saída de um D latch não irá mudar de estado se",
+      "opcoes": "A) a saída for LOW\nB) o sinal Enable não estiver ativo\nC) D for LOW\nD) todas as anteriores",
+      "resposta": "B) o sinal Enable não estiver ativo",
+      "motivo": "O D latch é transparente apenas quando o seu sinal de controlo 'Enable' está ativo. Caso contrário, a saída fica bloqueada, mantendo o último estado armazenado."
+    },
+    {
+      "id": "7.2",
+      "pergunta": "O D flip-flop apresentado no diagrama irá",
+      "opcoes": "A) fazer 'set' no próximo impulso de relógio\nB) fazer 'reset' no próximo impulso de relógio\nC) fazer 'latch' no próximo impulso de relógio\nD) alternar (toggle) no próximo impulso de relógio",
+      "resposta": "A) fazer 'set' no próximo impulso de relógio",
+      "motivo": "Estando a entrada D ligada a nível HIGH, na transição ativa do relógio (CLK) o flip-flop copia esse valor para a saída Q, realizando a operação de 'set' (Q = 1)."
+    },
+    {
+      "id": "7.3",
+      "pergunta": "Para o J-K flip-flop apresentado no diagrama, o número de entradas que são assíncronas é",
+      "opcoes": "A) 1\nB) 2\nC) 3\nD) 4",
+      "resposta": "B) 2",
+      "motivo": "As entradas assíncronas são PRE (Preset) e CLR (Clear). Estas entradas controlam o flip-flop diretamente, independentemente do relógio (CLK)."
+    },
+    {
+      "id": "7.4",
+      "pergunta": "Assuma que a saída Q de um J-K flip-flop ativado por flanco de subida é inicialmente HIGH. Com base no diagrama temporal das entradas fornecidas, a saída Q transitará de HIGH para LOW em qual impulso de relógio?",
+      "opcoes": "A) 1\nB) 2\nC) 3\nD) 4",
+      "resposta": "B) 2",
+      "motivo": "No impulso 2, as entradas são J = 0 e K = 1, o que força uma operação de 'reset' (Q passa de HIGH para LOW) no flanco ativo."
+    },
+    {
+      "id": "7.5",
+      "pergunta": "O intervalo de tempo ilustrado [entre o ponto de 50% do flanco ativo do clock e a transição da saída Q] chama-se",
+      "opcoes": "A) tPHL\nB) tPLH\nC) tempo de setup (set-up time)\nD) tempo de hold (hold time)",
+      "resposta": "B) tPLH",
+      "motivo": "O atraso de propagação medido a partir da transição do clock que origina uma subida da saída (LOW para HIGH) é designado por tPLH (propagation delay Low-to-High)."
+    },
+    {
+      "id": "7.6",
+      "pergunta": "O intervalo de tempo ilustrado [em que a entrada de dados D deve estar estável antes do flanco ativo do clock] chama-se",
+      "opcoes": "A) tPHL\nB) tPLH\nC) tempo de setup (set-up time)\nD) tempo de hold (hold time)",
+      "resposta": "C) tempo de setup (set-up time)",
+      "motivo": "O tempo de setup (set-up time) estabelece o intervalo mínimo durante o qual os dados de entrada têm de se manter estáveis antes de ocorrer o flanco ativo do relógio."
+    },
+    {
+      "id": "7.7",
+      "pergunta": "A aplicação ilustrada no esquema é um",
+      "opcoes": "A) astable multivibrator\nB) dispositivo de armazenamento de dados\nC) multiplicador de frequência\nD) divisor de frequência (frequency divider)",
+      "resposta": "D) divisor de frequência (frequency divider)",
+      "motivo": "Ligando as entradas J e K permanentemente a nível HIGH, o flip-flop alterna de estado (toggles) a cada pulso de relógio, dividindo a frequência de entrada por 2."
+    },
+    {
+      "id": "7.8",
+      "pergunta": "A aplicação ilustrada no esquema representa um",
+      "opcoes": "A) astable multivibrator\nB) dispositivo de armazenamento de dados\nC) multiplicador de frequência\nD) divisor de frequência",
+      "resposta": "B) dispositivo de armazenamento de dados",
+      "motivo": "A ligação de vários flip-flops em paralelo com uma linha comum de relógio e entradas/saídas individuais de dados forma um registo paralelo utilizado para o armazenamento temporário de dados lógicos."
+    },
+    {
+      "id": "7.9",
+      "pergunta": "Um monoestável (one-shot) reprogramável com saída ativa em HIGH tem uma largura de impulso de 20 ms e é disparado por uma linha de 60 Hz. A sua saída será um",
+      "opcoes": "A) série de impulsos de 16.7 ms\nB) série de impulsos de 20 ms\nC) nível constante LOW\nD) nível constante HIGH",
+      "resposta": "D) nível constante HIGH",
+      "motivo": "A frequência de 60 Hz significa que surge um sinal de disparo a cada T = 1/60 s = 16.7 ms. Como o one-shot reprogramável é reativado antes de terminar o seu pulso de 20 ms, a saída mantém-se continuamente em nível HIGH."
+    },
+    {
+      "id": "7.10",
+      "pergunta": "O circuito temporizador integrado (baseado no CI 555) ilustrado no esquema funciona como um",
+      "opcoes": "A) astable multivibrator\nB) monostable multivibrator\nC) multiplicador de frequência\nD) divisor de frequência",
+      "resposta": "A) astable multivibrator",
+      "motivo": "O circuito não possui entradas de disparo externas e usa os pinos 2 e 6 ligados entre si a um circuito RC auto-oscilante, o que caracteriza a configuração astável."
+    },
+    {
+      "id": "8.1",
+      "pergunta": "O counter apresentado no diagrama abaixo é um exemplo de um",
+      "opcoes": "A) counter assíncrono (asynchronous counter)\nB) counter BCD\nC) counter síncrono (synchronous counter)\nD) nenhum dos anteriores",
+      "resposta": "A) counter assíncrono (asynchronous counter)",
+      "motivo": "No circuito desenhado, a saída de cada flip-flop serve de relógio para o flip-flop seguinte (ripple counter), o que caracteriza um counter assíncrono."
+    },
+    {
+      "id": "8.2",
+      "pergunta": "A saída Q0 do counter assíncrono apresentado",
+      "opcoes": "A) está ativa antes de Q1 ou Q2\nB) muda de estado a cada impulso de relógio\nC) possui uma frequência mais elevada do que Q1 ou Q2\nD) todas as anteriores",
+      "resposta": "D) todas as anteriores",
+      "motivo": "Sendo o primeiro flip-flop ligado diretamente ao relógio de entrada, ele muda de estado (toggle) a cada transição do clock externo, possuindo o menor tempo de reação e a maior frequência de comutação."
+    },
+    {
+      "id": "8.3",
+      "pergunta": "Para fazer com que um D flip-flop mude de estado alternadamente (toggle), deve ligar a",
+      "opcoes": "A) entrada de relógio à entrada D\nB) saída Q' à entrada D\nC) saída Q à entrada D\nD) entrada de relógio à entrada Preset",
+      "resposta": "B) saída Q' à entrada D",
+      "motivo": "Ligar a saída complementar Q' à entrada D garante que a cada impulso de relógio o flip-flop capture o estado inverso do atual, realizando o modo de funcionamento 'toggle'."
+    },
+    {
+      "id": "8.4",
+      "pergunta": "O diagrama apresenta um counter assíncrono 7493A (J e K em nível HIGH). Para fazer com que a contagem tenha um módulo (modulus) de 16, deve ligar",
+      "opcoes": "A) Q0 a RO(1) e RO(2)\nB) Q3 a RO(1) e RO(2)\nC) as entradas CLK A e CLK B juntas\nD) a saída Q0 à entrada CLK B",
+      "resposta": "D) a saída Q0 à entrada CLK B",
+      "motivo": "O 7493A é composto por um divisor por 2 (CLK A -> Q0) e um counter de 3 bits divisor por 8 (CLK B -> Q1, Q2, Q3). Ao ligar Q0 à entrada CLK B, cria-se a cascata completa de 4 bits (módulo 16)."
+    },
+    {
+      "id": "8.5",
+      "pergunta": "Considerando o counter síncrono ilustrado no esquema e assumindo que Q0 está inicialmente em nível LOW. O próximo impulso de relógio causará",
+      "opcoes": "A) que FF1 e FF2 façam ambos 'toggle'\nB) que FF1 e FF2 façam ambos 'latch'\nC) que FF1 faça 'latch' e FF2 faça 'toggle'\nD) que FF1 faça 'toggle' e FF2 faça 'latch'",
+      "resposta": "D) que FF1 faça 'toggle' e FF2 faça 'latch'",
+      "motivo": "Como os flip-flops intermédios dependem do nível lógico do estágio anterior para autorizar a comutação, o facto de Q0 estar a 0 inibe a transição de um deles e permite a do outro."
+    },
+    {
+      "id": "8.6",
+      "pergunta": "Um counter binário de 4 bits possui uma contagem máxima de término (terminal count) de",
+      "opcoes": "A) 4\nB) 10\nC) 15\nD) 16",
+      "resposta": "C) 15",
+      "motivo": "A gama de valores lógicos de um counter de 4 bits é de 0 a 15 (1111 em binário). Portanto, a sua contagem terminal é 15."
+    },
+    {
+      "id": "8.7",
+      "pergunta": "Assuma que a frequência de relógio para um counter binário de 4 bits é de 80 kHz. A frequência na saída do quarto estágio (Q3) é de",
+      "opcoes": "A) 5 kHz\nB) 10 kHz\nC) 20 kHz\nD) 320 kHz",
+      "resposta": "A) 5 kHz",
+      "motivo": "Cada estágio de um counter binário divide a frequência por 2. O quarto estágio (Q3) realiza uma divisão por 2^4 = 16. Assim, fout = 80 kHz / 16 = 5 kHz."
+    },
+    {
+      "id": "8.8",
+      "pergunta": "O diagrama temporal do counter de 3 bits apresentado [onde a sequência medida é 000, 100, 110, 010, 011...] indica qual sequência de contagem?",
+      "opcoes": "A) 0-1-2-3-4-5-6-7-0 (repetitivo)\nB) 0-1-3-2-6-7-5-4-0 (repetitivo)\nC) 0-2-4-6-1-3-5-7-0 (repetitivo)\nD) 0-4-6-2-3-7-5-1-0 (repetitivo)",
+      "resposta": "D) 0-4-6-2-3-7-5-1-0 (repetitivo)",
+      "motivo": "Convertendo a leitura dos níveis lógicos de cada flanco (atentando para o facto de Q2 ser o MSB), a ordem exata lida corresponde à sequência 0, 4, 6, 2, 3, 7, 5, 1, 0."
+    },
+    {
+      "id": "8.9",
+      "pergunta": "Estando a saída Q2 definida como o MSB do counter, as duas portas AND de 3 entradas no circuito estão a descodificar as contagens",
+      "opcoes": "A) 2 e 3\nB) 3 e 6\nC) 2 e 5\nD) 5 e 6",
+      "resposta": "B) 3 e 6",
+      "motivo": "A análise das ligações de realimentação destas portas lógicas mostra que uma porta AND é ativada quando o estado é 011 (3 decimal) e a outra quando é 110 (6 decimal)."
+    },
+    {
+      "id": "8.10",
+      "pergunta": "Assumindo que a frequência de entrada (fin) aplicada a este circuito de dois counters em cascata é de 256 Hz. A frequência de saída (fout) será de",
+      "opcoes": "A) 16 Hz\nB) 1 kHz\nC) 65 kHz\nD) nenhuma das anteriores",
+      "resposta": "D) nenhuma das anteriores",
+      "motivo": "Se cada counter divide a frequência pelo seu fator respetivo (por exemplo, divisão por 16 e por 16 em cascata), fout = 256 Hz / 256 = 1 Hz, valor que não consta nas opções de A a C."
+    },
+    {
+      "id": "9.1",
+      "pergunta": "O shift register que seria utilizado para atrasar dados de entrada em formato série por 4 períodos de relógio é",
+      "opcoes": "A) o circuito integrado serial-in/serial-out de 4 estágios\nB) o circuito integrado parallel-in/parallel-out\nC) o shift register de realimentação\nD) todos os anteriores",
+      "resposta": "A) o circuito integrado serial-in/serial-out de 4 estágios",
+      "motivo": "Cada estágio de flip-flop num shift register serial-in/serial-out (SISO) armazena e atrasa o bit de dados por um ciclo de relógio. Para um atraso de 4 ciclos, necessita-se exatamente de 4 estágios."
+    },
+    {
+      "id": "9.2",
+      "pergunta": "O circuito digital ilustrado no esquema elétrico [com entradas paralelas D0-D3, portas de controlo de carga e saída série final] representa um",
+      "opcoes": "A) serial-in/serial-out shift register\nB) serial-in/parallel-out shift register\nC) parallel-in/serial-out shift register\nD) parallel-in/parallel-out shift register",
+      "resposta": "C) parallel-in/serial-out shift register",
+      "motivo": "O circuito permite ler simultaneamente vários bits de dados (linhas paralelas D0-D3) e, acionando a linha de controlo, deslocá-los de forma sequencial para uma única saída série (Serial data out)."
+    },
+    {
+      "id": "9.3",
+      "pergunta": "Se a linha de controlo SHIFT/LOAD no circuito parallel-in/serial-out for colocada em nível lógico HIGH, os dados",
+      "opcoes": "A) são carregados de D0, D1, D2 e D3 imediatamente\nB) são carregados de D0, D1, D2 e D3 no próximo CLK\nC) são deslocados da esquerda para a direita no próximo CLK\nD) são deslocados da direita para a esquerda no próximo CLK",
+      "resposta": "C) são deslocados da esquerda para a direita no próximo CLK",
+      "motivo": "Quando a linha SHIFT/LOAD está em nível HIGH, as portas de controlo de deslocamento são ativadas, permitindo a operação de deslocamento sequencial a cada transição de relógio."
+    },
+    {
+      "id": "9.4",
+      "pergunta": "Um registo parallel-in/parallel-out de 4 bits irá reter e armazenar os dados digitais por",
+      "opcoes": "A) 1 período de relógio\nB) 2 períodos de relógio\nC) 3 períodos de relógio\nD) 4 períodos de relógio",
+      "resposta": "A) 1 período de relógio",
+      "motivo": "Em configuração PIPO (Parallel-In/Parallel-Out), todos os dados entram e saem de forma síncrona no mesmo ciclo de relógio, mantendo os dados no registo até que ocorra o ciclo seguinte."
+    },
+    {
+      "id": "9.5",
+      "pergunta": "O circuito integrado 74HC164 possui duas entradas série (A e B). Se colocar um fluxo de dados na entrada A, a entrada B",
+      "opcoes": "A) pode servir como uma linha de ativação ativa em nível LOW (LOW enable)\nB) pode servir como uma linha de ativação ativa em nível HIGH (HIGH enable)\nC) deve ser ligada à terra (GND)\nD) deve ser deixada em circuito aberto",
+      "resposta": "B) pode servir como uma linha de ativação ativa em nível HIGH (HIGH enable)",
+      "motivo": "As entradas A e B do 74HC164 passam por uma porta AND interna. Para que os dados aplicados na entrada A se propaguem para o registo, a entrada B tem de ser mantida a nível lógico HIGH."
+    },
+    {
+      "id": "9.6",
+      "pergunta": "Uma vantagem de um ring counter (contador em anel) face a um Johnson counter reside no facto de o ring counter",
+      "opcoes": "A) possuir mais estados possíveis para um mesmo número de flip-flops\nB) ser limpo (cleared) automaticamente após cada ciclo\nC) permitir que mude apenas um bit de cada vez\nD) ser autodizimável / autodescodificável (self-decoding)",
+      "resposta": "D) ser autodizimável / autodescodificável (self-decoding)",
+      "motivo": "O contador em anel apresenta sempre apenas um único bit ativo '1' que circula. Isto permite identificar diretamente o estado ativo sem a necessidade de usar portas descodificadoras adicionais."
+    },
+    {
+      "id": "9.7",
+      "pergunta": "Uma sequência de estados válida para um ring counter de 4 bits é",
+      "opcoes": "A) ... 1111, 1110, 1101 ...\nB) ... 0000, 0001, 0010 ...\nC) ... 0001, 0011, 0111 ...\nD) ... 1000, 0100, 0010 ...",
+      "resposta": "D) ... 1000, 0100, 0010 ...",
+      "motivo": "No ring counter, o bit único '1' desloca-se de posição a cada ciclo, mantendo a assinatura típica de apenas um bit ativo circulante (ex.: 1000 -> 0100 -> 0010 -> 0001)."
+    },
+    {
+      "id": "9.8",
+      "pergunta": "O circuito composto por quatro flip-flops interligados com a saída complementar Q3' realimentada para a entrada J0 do primeiro flip-flop representa um",
+      "opcoes": "A) serial-in/parallel-out shift register\nB) serial-in/serial-out shift register\nC) ring counter\nD) Johnson counter",
+      "resposta": "D) Johnson counter",
+      "motivo": "A realimentação invertida da última saída (Q') para a primeira entrada de dados define a arquitetura clássica de um contador Johnson (também conhecido por contador de anel torcido)."
+    },
+    {
+      "id": "9.9",
+      "pergunta": "Considerando um shift register de 8 bits cuja frequência de relógio é de 20 MHz. O primeiro bit de dados inserido surgirá na saída final (Q7) após um intervalo de",
+      "opcoes": "A) 50 ns\nB) 200 ns\nC) 400 ns\nD) 800 ns",
+      "resposta": "C) 400 ns",
+      "motivo": "A frequência de 20 MHz equivale a um período de clock de T = 1 / (20 * 10^6 Hz) = 50 ns. Para que os dados percorram os 8 estágios do registo, são necessários 8 ciclos: 8 * 50 ns = 400 ns."
+    },
+    {
+      "id": "9.10",
+      "pergunta": "Para transmissão, os dados provenientes de um circuito UART (Universal Asynchronous Receiver-Transmitter) são enviados em",
+      "opcoes": "A) formato série assíncrono (asynchronous serial form)\nB) formato paralelo síncrono\nC) qualquer uma das anteriores\nD) nenhuma das anteriores",
+      "resposta": "A) formato série assíncrono (asynchronous serial form)",
+      "motivo": "A principal função de um UART é converter dados paralelos do microprocessador em dados série para transmissão assíncrona, recorrendo a bits de start/stop."
+    },
+    {
+      "id": "10.1",
+      "pergunta": "A memória RAM estática (SRAM) é uma memória do tipo",
+      "opcoes": "A) não volátil apenas de leitura (nonvolatile read only memory)\nB) não volátil de leitura/escrita\nC) volátil apenas de leitura\nD) volátil de leitura/escrita (volatile read/write memory)",
+      "resposta": "D) volátil de leitura/escrita (volatile read/write memory)",
+      "motivo": "A RAM estática (SRAM) permite realizar operações de leitura e escrita rápidas, mas perde toda a informação armazenada se a alimentação elétrica for interrompida (volátil)."
+    },
+    {
+      "id": "10.2",
+      "pergunta": "Uma memória não volátil (nonvolatile) caracteriza-se por ser uma que",
+      "opcoes": "A) requer um sinal de relógio constante\nB) tem de ser atualizada periodicamente (refreshed)\nC) retém os dados armazenados mesmo sem alimentação aplicada\nD) todas as anteriores",
+      "resposta": "C) retém os dados armazenados mesmo sem alimentação aplicada",
+      "motivo": "As memórias não voláteis (como ROM, Flash, EEPROM) são capazes de preservar a informação nelas gravada mesmo quando o circuito é totalmente desligado."
+    },
+    {
+      "id": "10.3",
+      "pergunta": "A vantagem da RAM dinâmica (DRAM) em comparação com a RAM estática (SRAM) é que a DRAM",
+      "opcoes": "A) é muito mais rápida\nB) não necessita de ciclos de refresco\nC) é mais simples e barata por bit\nD) todas as anteriores",
+      "resposta": "C) é mais simples e barata por bit",
+      "motivo": "A célula de memória da DRAM necessita de apenas um transistor e um condensador (capacitador) por bit, o que permite alcançar densidades de integração muito superiores e um custo de fabrico significativamente menor."
+    },
+    {
+      "id": "10.4",
+      "pergunta": "O primeiro passo lógico para efetuar uma operação de leitura ou escrita numa memória de acesso aleatório (RAM) consiste em",
+      "opcoes": "A) colocar um endereço válido no barramento de endereços (address bus)\nB) ativar / habilitar a memória\nC) enviar ou obter os dados lógicos\nD) iniciar um ciclo de refresco",
+      "resposta": "A) colocar um endereço válido no barramento de endereços (address bus)",
+      "motivo": "Antes de qualquer ação de leitura ou escrita, os descodificadores internos da memória necessitam de receber o endereço correto no barramento correspondente para selecionar a linha e coluna exatas."
+    },
+    {
+      "id": "10.5",
+      "pergunta": "O sinal de ativação de saída (OE', Output Enable) de uma memória RAM está ativo",
+      "opcoes": "A) apenas durante uma operação de escrita\nB) apenas durante uma operação de leitura\nC) em ambas as operações\nD) em nenhuma das anteriores",
+      "resposta": "B) apenas durante uma operação de leitura",
+      "motivo": "O sinal OE' controla os buffers de saída tri-state da memória, ativando-os para colocar os dados lidos no barramento de dados exclusivamente durante ciclos de leitura."
+    },
+    {
+      "id": "10.6",
+      "pergunta": "Quando os dados lógicos são lidos a partir de uma memória RAM, a informação contida na referida posição de memória fica",
+      "opcoes": "A) limpa (0) após a leitura\nB) preenchida com nível lógico 1 após a leitura\nC) inalterada (preservada)\nD) destruída",
+      "resposta": "C) inalterada (preservada)",
+      "motivo": "A operação de leitura numa SRAM ou DRAM é não destrutiva para o utilizador, mantendo o dado original intacto no endereço correspondente."
+    },
+    {
+      "id": "10.7",
+      "pergunta": "Uma memória EPROM possui uma janela de quartzo que permite a incidência de luz ultravioleta (UV). O propósito desta janela é",
+      "opcoes": "A) refrescar os dados de forma ótica\nB) ler os dados armazenados\nC) programar o circuito integrado\nD) apagar os dados armazenados (erase)",
+      "resposta": "D) apagar os dados armazenados (erase)",
+      "motivo": "A exposição de uma EPROM a radiação ultravioleta forte liberta as cargas elétricas retidas nas portas flutuantes dos transistores, redefinindo todos os bits da memória para o nível lógico 1 (apagada)."
+    },
+    {
+      "id": "10.8",
+      "pergunta": "No diagrama lógico de uma ROM, a presença de pequenos triângulos nas linhas de saída indica que estas saídas são",
+      "opcoes": "A) não utilizadas\nB) saídas de três estados (tri-stated)\nC) saídas invertidas\nD) ligadas à terra",
+      "resposta": "B) saídas de três estados (tri-stated)",
+      "motivo": "Estes triângulos são a representação gráfica de buffers tri-state, permitindo que a saída seja desligada eletricamente (alta impedância) quando a memória não está selecionada."
+    },
+    {
+      "id": "10.9",
+      "pergunta": "Interligar duas memórias RAM idênticas, ligando o barramento de endereços e controlo em paralelo e separando as linhas do barramento de dados expande",
+      "opcoes": "A) o tamanho da palavra (word size / bit width)\nB) o número total de palavras disponíveis\nC) ambas as anteriores\nD) nenhuma das anteriores",
+      "resposta": "A) o tamanho da palavra (word size / bit width)",
+      "motivo": "Ao utilizar múltiplos circuitos integrados em paralelo com as mesmas linhas de endereço mas saídas de dados distintas, aumenta-se a largura de bits (ex.: combinando duas memórias de 256k x 4 bits para obter uma de 256k x 8 bits)."
+    },
+    {
+      "id": "10.10",
+      "pergunta": "Num disco rígido, a informação relativa aos nomes dos ficheiros, à sua localização física nos setores e ao tamanho dos mesmos é guardada numa tabela especial chamada",
+      "opcoes": "A) lista de localização de ficheiros\nB) FAT (file allocation table)\nC) diretório do disco (disk directory)\nD) pilha (stack)",
+      "resposta": "B) FAT (file allocation table)",
+      "motivo": "A FAT (Tabela de Alocação de Ficheiros) é a estrutura de sistema de ficheiros desenvolvida para mapear o espaço de armazenamento e encadear os clusters de cada ficheiro."
+    },
+    {
+      "id": "11.1",
+      "pergunta": "Uma vantagem dos dispositivos lógicos programáveis (PLDs) em relação a circuitos discretos (portas lógicas individuais) é",
+      "opcoes": "A) menores requisitos de consumo energético e espaço físico\nB) maior fiabilidade geral do sistema\nC) superior flexibilidade de modificação do design\nD) todas as anteriores",
+      "resposta": "D) todas as anteriores",
+      "motivo": "Os PLDs integram milhares de portas num único integrado, diminuindo as ligações externas, o tamanho da placa de circuito impresso e permitindo reprogramação rápida."
+    },
+    {
+      "id": "11.2",
+      "pergunta": "No arranjo lógico do PLD apresentado, com entradas e fusíveis representados, a expressão mínima resultante para X é",
+      "opcoes": "A) X = B(A + B')\nB) X = B' + AB\nC) X = B' + AB'\nD) X = B'(A + B)",
+      "resposta": "B) X = B' + AB",
+      "motivo": "Analisando as conexões intactas e fundidas nos nós do array programável, a simplificação da álgebra booleana correspondente resulta na equação X = B' + AB."
+    },
+    {
+      "id": "11.3",
+      "pergunta": "Os dispositivos lógicos do tipo GAL (Generic Array Logic)",
+      "opcoes": "A) são reprogramáveis eletricamente\nB) utilizam tabelas de pesquisa (look-up tables) para lógica combinatória\nC) utilizam tecnologia SRAM volátil\nD) todas as anteriores",
+      "resposta": "A) são reprogramáveis eletricamente",
+      "motivo": "Ao contrário das PALs originais que usavam fusíveis térmicos destrutivos, as GALs utilizam tecnologia EECMOS, sendo eletricamente apagáveis e reprogramáveis várias vezes."
+    },
+    {
+      "id": "11.4",
+      "pergunta": "O bloco central sem inscrição representado no diagrama de arquitetura de um CPLD (Complex Programmable Logic Device) corresponde a uma",
+      "opcoes": "A) CLB (configurable logic block)\nB) PIA (programmable interconnect array)\nC) comparador\nD) LUT (look-up table)",
+      "resposta": "B) PIA (programmable interconnect array)",
+      "motivo": "Nos CPLDs, as várias matrizes de blocos lógicos são interligadas através de uma matriz de comutação global central chamada Matriz de Interconexão Programável (PIA)."
+    },
+    {
+      "id": "11.5",
+      "pergunta": "O diagrama interno de eletrónica de silício apresentado representa a arquitetura básica de",
+      "opcoes": "A) uma PIA\nB) um FPGA\nC) um módulo lógico (logic module)\nD) uma macrocell",
+      "resposta": "D) uma macrocell",
+      "motivo": "O diagrama mostra uma célula macro (macrocell) típica de CPLD, composta por matriz de produto de termos, portas OR, expansores e flip-flop configurável."
+    },
+    {
+      "id": "11.6",
+      "pergunta": "O dispositivo lógico programável que utiliza tabelas de consulta (LUT - Look-Up Tables) baseadas em SRAM para gerar funções lógicas é",
+      "opcoes": "A) a PAL\nB) a GAL\nC) o FPGA (Field Programmable Gate Array)\nD) o CPLD",
+      "resposta": "C) o FPGA (Field Programmable Gate Array)",
+      "motivo": "Os FPGAs baseiam-se em blocos lógicos configuráveis que utilizam pequenos blocos de memória RAM estática (SRAM) que atuam como LUTs para simular funções lógicas."
+    },
+    {
+      "id": "11.7",
+      "pergunta": "As ilustrações apresentadas descrevem as duas variantes de configuração de",
+      "opcoes": "A) expansores (expanders)\nB) macrocells\nC) blocos de arranjo lógico (logic array blocks)\nD) blocos lógicos sequenciais",
+      "resposta": "A) expansores (expanders)",
+      "motivo": "Os diagramas representam os conceitos de expansores partilhados (shared expanders) e expansores em paralelo (parallel expanders) usados para aumentar a capacidade lógica de termos em CPLDs."
+    },
+    {
+      "id": "11.8",
+      "pergunta": "A linguagem de especificação VHDL é classificada como",
+      "opcoes": "A) um modelo específico de chip FPGA\nB) uma linguagem de programação de sistemas operativos\nC) um software comercial de desenvolvimento de PCBs\nD) uma linguagem de descrição de hardware (HDL)",
+      "resposta": "D) uma linguagem de descrição de hardware (HDL)",
+      "motivo": "VHDL significa VHSIC (Very High Speed Integrated Circuit) Hardware Description Language, sendo uma norma IEEE para modelar e sintetizar hardware digital."
+    },
+    {
+      "id": "11.9",
+      "pergunta": "A descrição gerada por software contendo a listagem de todos os componentes lógicos e respetivas conexões elétricas de um circuito digital desenhado chama-se",
+      "opcoes": "A) netlist\nB) tabela de consulta (look-up table)\nC) lista de arranjo lógico\nD) tabela de simulação",
+      "resposta": "A) netlist",
+      "motivo": "A 'netlist' é o ficheiro de texto estruturado que lista todos os componentes e as ligações lógicas intermédias (nets) resultantes do processo de compilação ou síntese."
+    },
+    {
+      "id": "11.10",
+      "pergunta": "No código VHDL, considere a seguinte declaração: QNot <= not B or not Q;. Os caracteres '<=' realizam qual operação?",
+      "opcoes": "A) fazem com que a variável à esquerda seja complementada\nB) fazem com que a expressão lógica à direita seja atribuída à variável à esquerda\nC) fazem com que a variável à esquerda assuma o menor de dois valores\nD) fazem com que a constante à esquerda seja atribuída à expressão à direita",
+      "resposta": "B) fazem com que a expressão lógica à direita seja atribuída à variável à esquerda",
+      "motivo": "Em VHDL, o operador '<=' é o operador de atribuição de sinal (signal assignment), mapeando continuamente a expressão do lado direito para o sinal especificado à esquerda."
+    },
+    {
+      "id": "12.1",
+      "pergunta": "Se não for utilizado um filtro anti-aliasing no processo de digitalização de um sinal analógico, o processo de reconstrução",
+      "opcoes": "A) torna-se muito mais lento\nB) pode incluir sinais fantasmas / sobreposição (alias signals)\nC) apresentará menor ruído na banda passante\nD) todas as anteriores",
+      "resposta": "B) pode incluir sinais fantasmas / sobreposição (alias signals)",
+      "motivo": "Sem o filtro passa-baixo anti-aliasing, as frequências acima de metade da frequência de amostragem (f > fs/2) serão refletidas na banda útil, criando distorção irreversível (aliasing)."
+    },
+    {
+      "id": "12.2",
+      "pergunta": "Um filtro passa-baixo anti-aliasing adequado para o circuito deve ter uma frequência de corte (fc)",
+      "opcoes": "A) superior a 2 vezes a frequência de Nyquist\nB) igual à frequência de Nyquist\nC) superior a metade da frequência de amostragem (fsample)\nD) inferior a metade da frequência de amostragem (fsample)",
+      "resposta": "D) inferior a metade da frequência de amostragem (fsample)",
+      "motivo": "O critério de Nyquist determina que para evitar aliasing, o sinal analógico não deve conter frequências acima de fs/2. Logo, a frequência de corte do filtro deve satisfazer fc < fs/2."
+    },
+    {
+      "id": "12.3",
+      "pergunta": "O número de comparadores analógicos necessários para construir um ADC do tipo Flash (flash ADC) com resolução de 10 bits é de",
+      "opcoes": "A) 255\nB) 511\nC) 1023\nD) 4095",
+      "resposta": "C) 1023",
+      "motivo": "Um conversor Flash de N bits requer (2^N - 1) comparadores analógicos em paralelo. Para 10 bits: 2^10 - 1 = 1024 - 1 = 1023 comparadores."
+    },
+    {
+      "id": "12.4",
+      "pergunta": "O diagrama de blocos apresentado corresponde a um conversor ADC por aproximações sucessivas (successive-approximation ADC). O bloco superior que faz a comparação é",
+      "opcoes": "A) um SAR (registador de aproximações sucessivas)\nB) um DAC\nC) um ADC\nD) um comparador",
+      "resposta": "D) um comparador",
+      "motivo": "O bloco com as entradas '+' e '-' que compara o sinal analógico de entrada com a tensão de referência gerada pelo DAC interno é o comparador analógico."
+    },
+    {
+      "id": "12.5",
+      "pergunta": "O circuito integrado conversor analógico-digital ADC0804 indica que terminou a conversão quando",
+      "opcoes": "A) o pino INTR' transita para nível lógico LOW\nB) o pino CS' transita para nível lógico LOW\nC) o pino RD' transita para nível lógico LOW\nD) o pino CLK R transita para nível lógico HIGH",
+      "resposta": "A) o pino INTR' transita para nível lógico LOW",
+      "motivo": "O pino INTR' (Interrupt) do ADC0804 atua como um flag de fim de conversão. Ele passa a nível LOW de forma assíncrona assim que o dado digital está pronto."
+    },
+    {
+      "id": "12.6",
+      "pergunta": "Um conversor do tipo sigma-delta (sigma-delta circuit) é uma implementação especializada de",
+      "opcoes": "A) DSP\nB) DAC\nC) ADC\nD) SAR",
+      "resposta": "C) ADC",
+      "motivo": "A arquitetura sigma-delta utiliza sobreamostragem (oversampling) e modelação de ruído (noise shaping) de 1 bit para criar ADCs de altíssima resolução e excelente linearidade."
+    },
+    {
+      "id": "12.7",
+      "pergunta": "O circuito com amplificador operacional apresentado [utilizando resistências binárias R, 2R, 4R, 8R na malha de entrada] é um",
+      "opcoes": "A) DSP\nB) DAC\nC) ADC\nD) SAR",
+      "resposta": "B) DAC",
+      "motivo": "Trata-se de um conversor digital-analógico (DAC) por rede de resistências pesadas (weighted resistor DAC), onde as entradas digitais controlam correntes somadas proporcionalmente ao seu peso binário."
+    },
+    {
+      "id": "12.8",
+      "pergunta": "No circuito DAC do tipo escada R-2R (R-2R ladder) ilustrado, o pino de entrada localizado na extrema esquerda corresponde ao",
+      "opcoes": "A) entrada analógica\nB) sinal de relógio\nC) LSB (bit menos significativo)\nD) MSB (bit mais significativo)",
+      "resposta": "D) MSB (bit mais significativo)",
+      "motivo": "Na topologia padrão de conversão R-2R ladder da Floyd, a malha de resistências mais próxima do amplificador operacional (localizada na esquerda) é alimentada pelo bit de maior peso, ou seja, o MSB."
+    },
+    {
+      "id": "12.9",
+      "pergunta": "Um filtro de reconstrução utilizado à saída de circuitos conversores",
+      "opcoes": "A) é um filtro passa-baixo\nB) pode ter a mesma curva de resposta que um filtro anti-aliasing\nC) suaviza os degraus de tensão de saída de um DAC\nD) todas as anteriores",
+      "resposta": "D) todas as anteriores",
+      "motivo": "O filtro de reconstrução é um passa-baixo colocado à saída do DAC para eliminar as componentes de alta frequência causadas pela amostragem, suavizando a forma de onda de saída."
+    },
+    {
+      "id": "12.10",
+      "pergunta": "Um processador de sinal digital (DSP) é um microprocessador especializado que",
+      "opcoes": "A) possui um conjunto muito grande de instruções gerais\nB) é projetado especificamente para ser muito veloz em cálculos matemáticos repetitivos\nC) contém filtros analógicos integrados anti-aliasing e de reconstrução no seu interior\nD) todas as anteriores",
+      "resposta": "B) é projetado especificamente para ser muito veloz em cálculos matemáticos repetitivos",
+      "motivo": "Os DSPs são concebidos com arquiteturas especiais (como Harvard e instruções multiplicadoras de ciclo único MAC) otimizadas para processamento aritmético de fluxos de dados em tempo real."
+  }
+];
+       
+
+        const MAX_QUESTIONS = 20; // Define o tamanho do teste
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let isAnswered = false;
+
+        // Elementos DOM
+        const quizUi = document.getElementById('quiz-ui');
+        const resultArea = document.getElementById('result-area');
+        const qContainer = document.getElementById('question-container');
+        const optContainer = document.getElementById('options-container');
+        const expContainer = document.getElementById('explanation-container');
+        const nextBtn = document.getElementById('next-btn');
+        const scoreSpan = document.getElementById('score');
+        const currentQSpan = document.getElementById('current-q');
+
+        // Inicializar
+        document.getElementById('total-q').innerText = MAX_QUESTIONS;
+        loadHistory();
+        startNewQuiz();
+
+        function startNewQuiz() {
+            // Resetar variáveis
+            score = 0;
+            currentQuestionIndex = 0;
+            isAnswered = false;
+            scoreSpan.innerText = "0";
+
+            // Mostrar Quiz, Esconder Resultado
+            quizUi.style.display = 'block';
+            resultArea.style.display = 'none';
+
+            // 1. Baralhar todas as perguntas
+            // Algoritmo Fisher-Yates para misturar o array
+            const shuffled = [...perguntasData];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+
+            // 2. Pegar apenas as primeiras 20 (ou menos, se não houver tantas)
+            const limit = Math.min(shuffled.length, MAX_QUESTIONS);
+            currentQuestions = shuffled.slice(0, limit);
+
+            // 3. Carregar primeira
+            showQuestion(0);
+        }
+
+        function showQuestion(index) {
+            const questionData = currentQuestions[index];
+            isAnswered = false;
+
+            // Reset UI da pergunta
+            expContainer.style.display = 'none';
+            expContainer.innerHTML = '';
+            nextBtn.style.display = 'none';
+            currentQSpan.innerText = index + 1;
+
+            // Renderizar Pergunta (suporta ASCII/Código na string da pergunta, embora agora tenhamos caixa própria)
+            if (questionData.pergunta.includes('\n') || questionData.pergunta.includes('|')) {
+                qContainer.innerHTML = `<pre>${questionData.pergunta}</pre>`;
+            } else {
+                qContainer.innerText = questionData.pergunta;
+            }
+            // ----------------------------------
+
+            // Renderizar Opções
+            optContainer.innerHTML = '';
+            
+            // Lidar com opções em string ou array
+            let opcoesArray = [];
+            if (typeof questionData.opcoes === 'string') {
+                opcoesArray = questionData.opcoes.split('\n').filter(o => o.trim() !== '');
+            } else {
+                opcoesArray = questionData.opcoes;
+            }
+
+            opcoesArray.forEach(op => {
+                const btn = document.createElement('button');
+                btn.innerText = op;
+                btn.classList.add('option-btn');
+                btn.onclick = () => checkAnswer(btn, op, questionData.resposta, questionData.motivo);
+                optContainer.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(btnElement, selectedOption, correctOption, motivo) {
+            if (isAnswered) return;
+            isAnswered = true;
+
+            // Lógica de Comparação Robusta
+            // Remove espaços e converte para minúsculas
+            const cleanSelected = selectedOption.trim().toLowerCase();
+            const cleanCorrect = correctOption.trim().toLowerCase();
+            
+            let isCorrect = false;
+
+            // 1. Comparação direta (Ex: "Verdadeiro" == "Verdadeiro")
+            if (cleanSelected === cleanCorrect) isCorrect = true;
+            // 2. Início da string (Ex: "A" bate certo com "A) Opção")
+            else if (cleanSelected.startsWith(cleanCorrect + ")") || cleanSelected.startsWith(cleanCorrect + " ")) isCorrect = true;
+            // 3. Palavras-chave booleanas
+            else if (cleanCorrect === "verdadeiro" && cleanSelected.includes("verdadeiro")) isCorrect = true;
+            else if (cleanCorrect === "falso" && cleanSelected.includes("falso")) isCorrect = true;
+
+            if (isCorrect) {
+                // Acertou
+                btnElement.classList.add('correct');
+                score++;
+                scoreSpan.innerText = score;
+            } else {
+                // Errou
+                btnElement.classList.add('wrong');
+                
+                // Iluminar a correta
+                const buttons = optContainer.children;
+                for (let btn of buttons) {
+                    const btnText = btn.innerText.trim().toLowerCase();
+                    // Usar a mesma lógica para encontrar o botão certo
+                    let btnIsCorrect = false;
+                    if (btnText === cleanCorrect) btnIsCorrect = true;
+                    else if (btnText.startsWith(cleanCorrect + ")") || btnText.startsWith(cleanCorrect + " ")) btnIsCorrect = true;
+                    else if (cleanCorrect === "verdadeiro" && btnText.includes("verdadeiro")) btnIsCorrect = true;
+                    else if (cleanCorrect === "falso" && btnText.includes("falso")) btnIsCorrect = true;
+
+                    if (btnIsCorrect) btn.classList.add('correct');
+                }
+
+                // === AQUI ESTÁ O PEDIDO: ADICIONA MOTIVO APENAS QUANDO ERRO ===
+                if (motivo) {
+                    expContainer.innerHTML = `<strong>Explicação:</strong> ${motivo}`;
+                    expContainer.style.display = 'block';
+                }
+            }
+
+            // Mostrar botão próxima (ou ver resultado)
+            if (currentQuestionIndex === currentQuestions.length - 1) {
+                nextBtn.innerText = "Ver Resultados 🏁";
+            } else {
+                nextBtn.innerText = "Próxima Pergunta";
+            }
+            nextBtn.style.display = 'block';
+
+            // Bloquear botões
+            const buttons = optContainer.children;
+            for (let btn of buttons) {
+                btn.disabled = true;
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < currentQuestions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion(currentQuestionIndex);
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function finishQuiz() {
+            quizUi.style.display = 'none';
+            resultArea.style.display = 'block';
+            
+            const total = currentQuestions.length;
+            const percent = Math.round((score / total) * 100);
+            
+            document.getElementById('final-score').innerText = score;
+            
+            let msg = "";
+            if (percent >= 90) msg = `Excelente! (${percent}%)`;
+            else if (percent >= 70) msg = `Bom trabalho! (${percent}%)`;
+            else if (percent >= 50) msg = `Passou. (${percent}%)`;
+            else msg = `Precisa de estudar mais. (${percent}%)`;
+            
+            document.getElementById('final-percent').innerText = msg;
+
+            saveHistory(score, total, percent);
+            loadHistory();
+        }
+
+        // ==========================================
+        // GESTÃO DO HISTÓRICO
+        // ==========================================
+        function saveHistory(score, total, percent) {
+            const historyItem = {
+                date: new Date().toLocaleString('pt-PT'),
+                score: `${score}/${total}`,
+                percent: `${percent}%`
+            };
+            let history = JSON.parse(localStorage.getItem('quizHistory')) || [];
+            history.unshift(historyItem);
+            if (history.length > 5) history.pop();
+            localStorage.setItem('quizHistory', JSON.stringify(history));
+        }
+
+        function loadHistory() {
+            const history = JSON.parse(localStorage.getItem('quizHistory')) || [];
+            const tbody = document.getElementById('history-body');
+            tbody.innerHTML = '';
+            
+            if (history.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="3" style="text-align:center">Sem histórico.</td></tr>';
+                return;
+            }
+
+            history.forEach(item => {
+                const row = `<tr><td>${item.date}</td><td>${item.score}</td><td>${item.percent}</td></tr>`;
+                tbody.innerHTML += row;
+            });
+        }
+
+        function clearHistory() {
+            if(confirm("Tem a certeza que deseja limpar o histórico?")) {
+                localStorage.removeItem('quizHistory');
+                loadHistory();
+            }
+        }
+    </script>
+</body>
+</html>
