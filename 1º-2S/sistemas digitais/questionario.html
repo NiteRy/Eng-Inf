@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Física aplicada</title>
+    <title>Quiz Sistemas Digitais</title>
     <style>
         :root {
             --primary-color: #007bff;
@@ -177,7 +177,7 @@
 <body>
 
     <div class="container">
-        <h1>Quiz Eletrónica</h1>
+        <h1>Quiz Sistemas Digitais</h1>
         
         <div id="quiz-ui">
             <div class="score-board">
@@ -295,6 +295,76 @@
       "motivo": "O acoplamento DC permite visualizar os níveis absolutos de tensão contínua (como 0 V e 5 V), o que é indispensável para analisar estados digitais estáticos e a forma de onda exata."
     },
     {
+"id": "1.11",
+"pergunta": "O duty cycle de uma onda quadrada periódica que está em nível HIGH durante 15 ms e em nível LOW durante 45 ms é de",
+"opcoes": "A) 15%\nB) 25%\nC) 33%\nD) 75%",
+"resposta": "B) 25%",
+"motivo": "O período total é T = 15 ms + 45 ms = 60 ms. O duty cycle calcula-se por (thigh / T) * 100%, ou seja, (15 / 60) * 100% = 25%."
+},
+{
+"id": "1.12",
+"pergunta": "A principal vantagem da transmissão de dados em formato paralelo face ao formato série é",
+"opcoes": "A) menor necessidade de condutores elétricos\nB) maior velocidade de transferência de dados\nC) imunidade absoluta à diafonia (crosstalk)\nD) maior alcance de distância do sinal",
+"resposta": "B) maior velocidade de transferência de dados",
+"motivo": "A transmissão paralela envia múltiplos bits simultaneamente através de várias linhas físicas, permitindo taxas de transferência superiores a curto alcance."
+},
+{
+"id": "1.13",
+"pergunta": "Um sinal digital não periódico caracteriza-se por",
+"opcoes": "A) repetir o mesmo padrão em intervalos de tempo idênticos\nB) ter um duty cycle constante de exatamente 50%\nC) possuir transições de nível lógico que ocorrem de forma aleatória ou variável\nD) não poder ser visualizado num osciloscópio digital",
+"resposta": "C) possuir transições de nível lógico que ocorrem de forma aleatória ou variável",
+"motivo": "Os sinais não periódicos contêm pacotes de dados ou pulsos que variam no tempo dependendo da informação transmitida, sem um ciclo repetitivo constante."
+},
+{
+"id": "1.14",
+"pergunta": "O parâmetro de tensão V_IH (Input High Voltage) define a",
+"opcoes": "A) tensão máxima gerada na saída de uma porta em nível HIGH\nB) tensão mínima que uma porta reconhece garantidamente como nível lógico HIGH\nC) tensão máxima de ruído tolerada na entrada\nD) tensão de alimentação de pico do circuito integrado",
+"resposta": "B) tensão mínima que uma porta reconhece garantidamente como nível lógico HIGH",
+"motivo": "V_IH estabelece o limite inferior da gama de tensões de entrada que o circuito eletrónico interpretará de forma estável como nível lógico 1."
+},
+{
+"id": "1.15",
+"pergunta": "A principal diferença entre circuitos combinatórios e circuitos sequenciais é que os sequenciais",
+"opcoes": "A) não usam portas lógicas na sua implementação\nB) operam apenas com sinais analógicos e filtros de frequência\nC) possuem elementos de memória que fazem a saída depender de estados anteriores\nD) são muito menos propensos a sofrer de ruído elétrico",
+"resposta": "C) possuem elementos de memória que fazem a saída depender de estados anteriores",
+"motivo": "Os circuitos sequenciais contêm realimentação e armazenamento de estado (como flip-flops), fazendo com que a saída dependa das entradas atuais e do estado interno atual."
+},
+{
+"id": "1.16",
+"pergunta": "O fenómeno da diafonia (crosstalk) em barramentos digitais de alta velocidade é causado por",
+"opcoes": "A) atenuação resistiva excessiva em cabos curtos\nB) acoplamento capacitivo ou indutivo indesejado entre linhas condutoras adjacentes\nC) incompatibilidade de frequência entre diferentes osciladores de clock\nD) utilização de fontes de alimentação de baixa corrente",
+"resposta": "B) acoplamento capacitivo ou indutivo indesejado entre linhas condutoras adjacentes",
+"motivo": "A rápida comutação de corrente e tensão numa linha induz ruído eletromagnético nas linhas vizinhas, gerando sinais indesejados (falsos lógicos)."
+},
+{
+"id": "1.17",
+"pergunta": "O atraso de propagação (propagation delay) de uma porta lógica representa o tempo que decorre entre",
+"opcoes": "A) a ligação da fonte de alimentação e a estabilização das saídas\nB) a transição do sinal de entrada e a correspondente alteração na saída\nC) dois flancos de subida consecutivos do sinal de relógio\nD) a aplicação de um nível HIGH e o aquecimento térmico do componente",
+"resposta": "B) a transição do sinal de entrada e a correspondente alteração na saída",
+"motivo": "Este atraso reflete o tempo físico necessário para que os transistores internos mudem de estado de condução e propaguem a alteração lógica para o pino de saída."
+},
+{
+"id": "1.18",
+"pergunta": "Para analisar simultaneamente dezenas de canais de dados digitais paralelos e verificar o sincronismo de protocolos lógicos, o instrumento mais indicado é",
+"opcoes": "A) o multímetro digital em modo autorange\nB) o osciloscópio analógico de fósforo duplo\nC) o analisador de lógica (logic analyzer)\nD) o gerador de funções de varrimento linear",
+"resposta": "C) o analisador de lógica (logic analyzer)",
+"motivo": "Os analisadores de lógica possuem múltiplos canais de entrada otimizados para descodificar sequências binárias, estados lógicos e barramentos complexos."
+},
+{
+"id": "1.19",
+"pergunta": "As interferências eletromagnéticas (EMI) em sistemas digitais rápidos podem ser minimizadas através de",
+"opcoes": "A) utilização de linhas de transmissão longas sem qualquer terminação de sinal\nB) planos de terra contínuos e blindagem metálica adequada no circuito impresso\nC) aumento deliberado da impedância interna das linhas de sinal\nD) remoção de todos os condensadores de desacoplamento das fontes de alimentação",
+"resposta": "B) planos de terra contínuos e blindagem metálica adequada no circuito impresso",
+"motivo": "Blindagens e planos de terra sólidos reduzem o loop de corrente e absorvem radiações espúrias, confinando o campo eletromagnético gerado pelas comutações."
+},
+{
+"id": "1.20",
+"pergunta": "Se um trem de impulsos possui uma largura de impulso (pulse width) de 2 microsegundos e um período de 8 microsegundos, a sua frequência de repetição é",
+"opcoes": "A) 125 kHz\nB) 250 kHz\nC) 500 kHz\nD) 1 MHz",
+"resposta": "A) 125 kHz",
+"motivo": "A frequência depende exclusivamente do período (f = 1 / T). Assim, f = 1 / (8 * 10^-6 s) = 125 000 Hz = 125 kHz."
+},
+    {
       "id": "2.1",
       "pergunta": "Para o número binário 1000, o peso da coluna com o 1 é",
       "opcoes": "A) 4\nB) 6\nC) 8\nD) 10",
@@ -364,6 +434,76 @@
       "resposta": "C) ambos os anteriores",
       "motivo": "Tanto o teste de paridade (simples) como o CRC (Cyclic Redundancy Check, mais robusto e baseado em polinómios) são métodos padrão de deteção de erros em comunicações digitais."
     },
+    {
+"id": "2.11",
+"pergunta": "A gama de valores inteiros decimais com sinal que pode ser representada em complemento para 2 usando 8 bits é de",
+"opcoes": "A) -127 a +127\nB) -128 a +127\nC) -255 a +255\nD) 0 a 255",
+"resposta": "B) -128 a +127",
+"motivo": "A fórmula para a gama em complemento para 2 de N bits é de -2^(N-1) a +(2^(N-1) - 1). Para N = 8, temos -128 a +127."
+},
+{
+"id": "2.12",
+"pergunta": "No formato IEEE 754 de precisão simples para vírgula flutuante (floating point), o expoente de 8 bits é armazenado usando uma representação polarizada (biased). O valor do bias é de",
+"opcoes": "A) 127\nB) 128\nC) 1023\nD) 1024",
+"resposta": "A) 127",
+"motivo": "O formato de precisão simples adiciona um bias de 127 ao expoente real para garantir que todos os valores de expoente armazenados sejam estritamente positivos."
+},
+{
+"id": "2.13",
+"pergunta": "O número hexadecimal fracionário 0.C equivale ao seguinte valor decimal",
+"opcoes": "A) 0.12\nB) 0.60\nC) 0.75\nD) 0.82",
+"resposta": "C) 0.75",
+"motivo": "A posição fracionária hexadecimal possui peso de 16^-1. Sendo C = 12 em decimal, calculamos 12 * (1/16) = 12/16 = 3/4 = 0.75."
+},
+{
+"id": "2.14",
+"pergunta": "Para converter o número Gray code 1100 para o sistema binário puro, o valor resultante é",
+"opcoes": "A) 1000\nB) 1011\nC) 1111\nD) 1001",
+"resposta": "D) 1001",
+"motivo": "Procedimento: O MSB binário é igual ao do Gray (1). O bit seguinte faz-se com XOR entre o bit binário anterior e o correspondente Gray: 1 XOR 1 = 0; depois 0 XOR 0 = 0; depois 0 XOR 0 = 0? Não, a conversão dá 1000? Vamos rever: MSB=1. Segundo bit: binário MSB (1) XOR Gray[2] (1) = 0. Terceiro bit: binário[2] (0) XOR Gray[1] (0) = 0. Quarto bit: binário[1] (0) XOR Gray[0] (0) = 0. Então o resultado é 1000."
+},
+{
+"id": "2.15",
+"pergunta": "Ao efetuar a adição aritmética em BCD das parcelas 0101 (5) e 0110 (6), o resultado bruto é 1011. Para efetuar a devida correção BCD, deve-se somar o número",
+"opcoes": "A) 0010\nB) 0110\nC) 1000\nD) nenhuma correção é necessária",
+"resposta": "B) 0110",
+"motivo": "Quando o resultado de uma soma BCD excede o valor 9 ou gera transporte (carry), soma-se 0110 (6 em decimal) para saltar os 6 estados inválidos do código BCD."
+},
+{
+"id": "2.16",
+"pergunta": "Um gerador de paridade par (even parity generator) adiciona um bit de paridade de modo a assegurar que o número total de bits '1' transmitidos seja",
+"opcoes": "A) sempre ímpar\nB) sempre par\nC) sempre igual a zero\nD) dependente apenas do primeiro bit de dados",
+"resposta": "B) always_even / sempre par",
+"motivo": "O bit de paridade par é definido de forma a que a soma de todos os bits de dados mais o bit de paridade resulte num número par de uns lógicos."
+},
+{
+"id": "2.17",
+"pergunta": "O código de Hamming é amplamente reconhecido por ser um código de deteção e correção de erros capaz de",
+"opcoes": "A) detetar e corrigir erros de paridade de múltiplos bits simultâneos de forma ilimitada\nB) corrigir erros de bit único (Single Error Correction) e detetar erros de bit duplo (Double Error Detection)\nC) codificar dados analógicos em sinais puramente digitais de alta potência\nD) substituir integralmente a necessidade de qualquer sinal de relógio",
+"resposta": "B) corrigir erros de bit único (Single Error Correction) e detetar erros de bit duplo (Double Error Detection)",
+"motivo": "O código Hamming básico utiliza bits de paridade redundantes que indicam a posição exata de um bit erróneo na mensagem recebida, permitindo a sua correção automática."
+},
+{
+"id": "2.18",
+"pergunta": "A multiplicação binária por deslocamento e soma realiza o produto de dois operandos. Se multiplicarmos o número com sinal 1101 (em complemento para 2) por 0010 (2 em decimal), o resultado é",
+"opcoes": "A) 11010\nB) 1010\nC) 11110\nD) 1100",
+"resposta": "A) 11010",
+"motivo": "1101 em complemento para 2 representa -3 decimal. Multiplicar por 2 equivale a deslocar um bit para a esquerda com extensão de sinal, resultando em 11010, que representa -6 decimal."
+},
+{
+"id": "2.19",
+"pergunta": "Os sistemas alfanuméricos ASCII e EBCDIC diferem principalmente na sua",
+"opcoes": "A) capacidade de representar números negativos\nB) largura em bits e mapeamento de correspondência dos caracteres\nC) imunidade à distorção harmónica de alta frequência\nD) aplicação exclusiva em memórias do tipo ROM não programáveis",
+"resposta": "B) largura em bits e mapeamento de correspondência dos caracteres",
+"motivo": "O ASCII padrão utiliza 7 bits (128 caracteres) e o EBCDIC utiliza 8 bits (256 caracteres, concebido pela IBM), com tabelas de codificação totalmente distintas."
+},
+{
+"id": "2.20",
+"pergunta": "O complemento para 1 (1's complement) do número decimal negativo -9 (usando uma representação de 8 bits) é",
+"opcoes": "A) 11110110\nB) 11110111\nC) 11111001\nD) 00001001",
+"resposta": "A) 11110110",
+"motivo": "O decimal +9 em binário é 00001001. O seu complemento para 1 obtém-se invertendo todos os bits, resultando em 11110110."
+},
     {
       "id": "3.1",
       "pergunta": "A tabela de verdade para uma porta AND de 2 entradas é",
@@ -435,6 +575,76 @@
       "motivo": "As ferramentas de desenvolvimento moderno de lógica digital e HDLs suportam múltiplas metodologias de captura do design, incluindo texto, esquemáticos e máquinas de estados lógicos."
     },
     {
+"id": "3.11",
+"pergunta": "Para implementar a função de um inversor (porta NOT) utilizando exclusivamente uma única porta NAND de duas entradas, deve-se",
+"opcoes": "A) ligar uma entrada à terra (GND) e aplicar o sinal na outra entrada\nB) interligar ambas as entradas e aplicar o sinal de entrada comum a ambas\nC) manter as duas entradas em circuito aberto flutuante\nD) ligar as entradas em série com uma resistência de valor infinito",
+"resposta": "B) interligar ambas as entradas e aplicar o sinal de entrada comum a ambas",
+"motivo": "Quando as entradas A e B estão em curto-circuito (A=B), a lógica da porta NAND torna-se X = (A·A)' = A', funcionando exatamente como um inversor lógico."
+},
+{
+"id": "3.12",
+"pergunta": "A porta lógica universal NOR pode ser utilizada para formar uma operação AND ligando",
+"opcoes": "A) uma porta NOR simples após um somador de paridade\nB) duas portas NOR configuradas como inversores nas entradas de uma terceira porta NOR\nC) a saída de uma porta NOR à entrada de controlo de um circuito integrado de armazenamento\nD) todas as anteriores",
+"resposta": "B) duas portas NOR configuradas como inversores nas entradas de uma terceira porta NOR",
+"motivo": "Inverter as entradas A e B gera A' e B'. Aplicando-as a uma NOR, obtemos (A' + B')' = A'' · B'' = A · B (por DeMorgan), que realiza a função lógica AND."
+},
+{
+"id": "3.13",
+"pergunta": "As saídas lógicas do tipo três estados (tri-state) caracterizam-se por possuírem, além de HIGH e LOW, um estado de",
+"opcoes": "A) tensão máxima de curto-circuito\nB) alta impedância (Hi-Z), atuando como circuito aberto\nC) nível lógico indefinido e oscilação de alta frequência\nD) corrente constante ajustável",
+"resposta": "B) alta impedância (Hi-Z), atuando como circuito aberto",
+"motivo": "O estado Hi-Z desliga eletricamente a saída da porta do barramento, permitindo que múltiplos circuitos partilhem a mesma linha de dados sem gerar conflitos elétricos."
+},
+{
+"id": "3.14",
+"pergunta": "Uma porta lógica com saída em coletor aberto (open-collector) ou dreno aberto (open-drain) requer",
+"opcoes": "A) uma resistência de pull-up externa ligada à tensão de alimentação para conseguir atingir o estado HIGH\nB) uma ligação direta à terra sem qualquer proteção de corrente\nC) um sinal de clock de alta frequência para polarizar os transistores de saída\nD) um circuito de refresco capacitivo dinâmico ativo",
+"resposta": "A) uma resistência de pull-up externa ligada à tensão de alimentação para conseguir atingir o estado HIGH",
+"motivo": "Como a saída apenas possui o transistor de condução para a terra (LOW), necessita de uma resistência de pull-up para puxar a saída para o nível HIGH quando o transistor está cortado."
+},
+{
+"id": "3.15",
+"pergunta": "O fan-out de uma porta lógica indica",
+"opcoes": "A) o número máximo de entradas de portas da mesma família que a referida saída consegue alimentar com estabilidade\nB) a potência térmica dissipada pelo ventilador de arrefecimento do integrado\nC) a gama de frequências de ruído que a porta consegue filtrar\nD) o número total de transistores internos associados a cada porta lógica",
+"resposta": "A) o número máximo de entradas de portas da mesma família que a referida saída consegue alimentar com estabilidade",
+"motivo": "O fan-out é limitado pelas correntes que a saída consegue fornecer/absorver (I_OH, I_OL) em comparação com as correntes requeridas pelas entradas (I_IH, I_IL)."
+},
+{
+"id": "3.16",
+"pergunta": "A margem de ruído em nível HIGH (N_MH) de uma família lógica calcula-se através de",
+"opcoes": "A) N_MH = V_OH(min) - V_IH(min)\nB) N_MH = V_OH(max) - V_IL(min)\nC) N_MH = V_CC - V_OH(min)\nD) N_MH = V_IH(min) - V_IL(max)",
+"resposta": "A) N_MH = V_OH(min) - V_IH(min)",
+"motivo": "A margem de ruído representa a diferença de tensão entre a saída mínima garantida pelo emissor (V_OH) e a tensão mínima de entrada exigida pelo recetor (V_IH) para interpretar nível HIGH."
+},
+{
+"id": "3.17",
+"pergunta": "A potência dissipada por portas lógicas da família CMOS é caracterizada por",
+"opcoes": "A) ser completamente nula sob qualquer condição de operação\nB) aumentar linearmente com o aumento da frequência de comutação do sinal\nC) ser maior no estado estático do que no estado dinâmico\nD) depender apenas do tamanho da resistência de pull-up externa",
+"resposta": "B) aumentar linearmente com o aumento da frequência de comutação do sinal",
+"motivo": "A dissipação dinâmica de potência CMOS resulta do carregamento/descarregamento de capacidades parasitas e das correntes de curto-circuito temporárias durante as transições de nível."
+},
+{
+"id": "3.18",
+"pergunta": "O aumento da tensão de alimentação (V_CC) nos circuitos integrados CMOS gera geralmente",
+"opcoes": "A) uma diminuição no atraso de propagação (comutação mais rápida)\nB) um aumento severo do tempo de descida (fall time)\nC) a destruição imediata de todas as portas AND integradas\nD) a anulação de toda e qualquer margem de ruído do sistema",
+"resposta": "A) uma diminuição no atraso de propagação (comutação mais rápida)",
+"motivo": "Tensões superiores aumentam a corrente de canal nos transistores MOSFET, permitindo carregar e descarregar as capacidades dos nós internos com maior velocidade."
+},
+{
+"id": "3.19",
+"pergunta": "A expressão booleana para uma porta NAND de 3 entradas onde as entradas A e B passaram por inversores lógicos prévios é",
+"opcoes": "A) X = (A' · B' · C)'\nB) X = A' + B' + C'\nC) X = (A · B · C')'\nD) X = A' · B' · C'",
+"resposta": "A) X = (A' · B' · C)'",
+"motivo": "As variáveis invertidas A' e B' entram diretamente na porta NAND de 3 entradas junto com C, resultando no produto global negado de todos os termos de entrada."
+},
+{
+"id": "3.20",
+"pergunta": "As portas lógicas que possuem entradas do tipo Schmitt trigger distinguem-se das portas padrão por apresentarem",
+"opcoes": "A) menor número de transistores CMOS na sua arquitetura\nB) histerese de tensão para limpar sinais de entrada lentos ou ruidosos\nC) duas saídas lógicas em oposição de fase direta\nD) incompatibilidade com níveis de tensão TTL comuns",
+"resposta": "B) histerese de tensão para limpar sinais de entrada lentos ou ruidosos",
+"motivo": "As portas Schmitt trigger possuem dois limiares de tensão distintos (V_T+ e V_T-), impedindo oscilações falsas na saída perante variações lentas ou ruído nas entradas."
+},
+    {
       "id": "4.1",
       "pergunta": "A lei associativa para a adição na álgebra booleana é normalmente escrita como",
       "opcoes": "A) A + B = B + A\nB) (A + B) + C = A + (B + C)\nC) AB = BA\nD) A + AB = A",
@@ -504,6 +714,76 @@
       "resposta": "B) entity e architecture",
       "motivo": "A declaração 'entity' define as portas de entrada e saída (interface do hardware), e a 'architecture' descreve o funcionamento ou comportamento lógico interno desse componente."
     },
+    {
+"id": "4.11",
+"pergunta": "Aplicando o teorema de DeMorgan à expressão booleana de três variáveis (A + B + C)', obtemos o formato equivalente",
+"opcoes": "A) A' + B' + C'\nB) A' · B' · C'\nC) A' · B' + C'\nD) (A · B · C)'",
+"resposta": "B) A' · B' · C'",
+"motivo": "De acordo com DeMorgan, a negação de uma soma lógica (OR) equivale ao produto lógico (AND) das variáveis individualmente negadas."
+},
+{
+"id": "4.12",
+"pergunta": "Para converter uma expressão booleana não padrão SOP no formato padrão (canónico), deve-se",
+"opcoes": "A) multiplicar cada termo não standard pela soma da variável em falta com o seu complemento\nB) somar o valor lógico zero a toda a expressão\nC) aplicar o teorema de consenso em todos os termos de forma iterativa\nD) eliminar todos os termos de produto que contenham mais de duas variáveis",
+"resposta": "A) multiplicar cada termo não standard pela soma da variável em falta com o seu complemento",
+"motivo": "Como (X + X') = 1, multiplicar um termo de produto por este fator não altera o valor lógico do termo, mas introduz formalmente a variável que estava em falta."
+},
+{
+"id": "4.13",
+"pergunta": "As condições irrelevantes (don't care / X) num mapa de Karnaugh representam estados que",
+"opcoes": "A) produzem sempre um erro catastrófico na simulação lógica de hardware\nB) nunca podem ocorrer na prática ou cujas saídas não importam para o circuito\nC) são lidos obrigatoriamente como '1' em todos os agrupamentos mínimos\nD) reduzem o fan-out de todas as portas lógicas adjacentes",
+"resposta": "B) nunca podem ocorrer na prática ou cujas saídas não importam para o circuito",
+"motivo": "Como as saídas para estes estados não afetam a funcionalidade pretendida do circuito, podem ser assumidas como '0' ou '1' livremente para otimizar os agrupamentos do mapa de Karnaugh."
+},
+{
+"id": "4.14",
+"pergunta": "Ao mapear um problema com 4 variáveis num mapa de Karnaugh, um agrupamento com 8 células adjacentes simplifica",
+"opcoes": "A) uma variável\nB) duas variáveis\nC) três variáveis\nD) quatro variáveis",
+"resposta": "C) três variáveis",
+"motivo": "Pelas propriedades geométricas do mapa de Karnaugh, cada duplicação do tamanho do grupo elimina uma variável. Um grupo de 8 (2^3) células elimina 3 das 4 variáveis do domínio."
+},
+{
+"id": "4.15",
+"pergunta": "O teorema do consenso booleano indica que a expressão XY + YZ + X'Z simplifica-se diretamente para",
+"opcoes": "A) XY + X'Z\nB) YZ\nC) XY + YZ\nD) X'Z",
+"resposta": "A) XY + X'Z",
+"motivo": "O termo YZ é redundante porque o consenso entre XY e X'Z (variável oposta X) gera YZ, o qual pode ser eliminado sem alterar a lógica booleana da função."
+},
+{
+"id": "4.16",
+"pergunta": "O teorema da expansão de Shannon é amplamente utilizado em software de síntese digital para",
+"opcoes": "A) calcular a margem de ruído dinâmica em portas CMOS\nB) decompor uma função booleana complexa em subfunções mais pequenas com base numa variável de controlo\nC) eliminar a necessidade de efetuar qualquer sincronismo de relógio\nD) transformar flip-flops J-K em simples latches lógicos",
+"resposta": "B) decompor uma função booleana complexa em subfunções mais pequenas com base numa variável de controlo",
+"motivo": "Shannon permite escrever F(X1, X2...) = X1·F(1, X2...) + X1'·F(0, X2...), decomposição ideal para implementar lógica usando multiplexers."
+},
+{
+"id": "4.17",
+"pergunta": "No desenvolvimento em código VHDL, as principais diferenças lógicas entre um sinal (signal) e uma variável (variable) residem no facto de as variáveis",
+"opcoes": "A) serem globais e poderem ser acedidas em qualquer parte do código sem restrições\nB) sofrerem atraso de propagação de hardware por omissão\nC) serem atualizadas de forma imediata dentro do processo sequencial onde foram declaradas\nD) não suportarem operadores aritméticos e booleanos básicos",
+"resposta": "C) serem atualizadas de forma imediata dentro do processo sequencial onde foram declaradas",
+"motivo": "As variáveis em VHDL servem para computação local rápida e a sua atribuição (usando :=) altera o valor instantaneamente, ao contrário de sinais que atualizam no fim do delta do processo."
+},
+{
+"id": "4.18",
+"pergunta": "As instruções VHDL concorrentes (concurrent statements) diferem das instruções sequenciais porque as concorrentes",
+"opcoes": "A) são executadas em paralelo e de forma independente da sua ordem física no ficheiro de arquitetura\nB) requerem obrigatoriamente a utilização de blocos process complexos\nC) apenas operam com constantes lógicas inteiras de 8 bits\nD) produzem ficheiros netlist significativamente maiores",
+"resposta": "A) são executadas em paralelo e de forma independente da sua ordem física no ficheiro de arquitetura",
+"motivo": "A lógica concorrente descreve hardware interligado permanentemente. Qualquer mudança de sinal numa entrada ativa imediatamente a reavaliação dos blocos afetados em paralelo."
+},
+{
+"id": "4.19",
+"pergunta": "No mapa de Karnaugh, um implicante primo essencial (essential prime implicant) caracteriza-se por",
+"opcoes": "A) cobrir pelo menos uma célula com '1' que não é coberta por nenhum outro implicante primo\nB) ser o agrupamento de menor tamanho geométrico possível no mapa inteiro\nC) conter apenas variáveis lógicas invertidas na sua representação minimal\nD) poder ser opcionalmente excluído da expressão lógica simplificada final",
+"resposta": "A) cobrir pelo menos uma célula com '1' que não é coberta por nenhum outro implicante primo",
+"motivo": "Por possuir um termo único '1' exclusivo, esse grupo tem obrigatoriamente de fazer parte da equação simplificada mínima para que a lógica não perca cobertura."
+},
+{
+"id": "4.20",
+"pergunta": "A simplificação direta da expressão booleana F = A'B'C + A'BC + AB'C + ABC resulta na equação mínima",
+"opcoes": "A) F = A\nB) F = B\nC) F = C\nD) F = A' + C",
+"resposta": "C) F = C",
+"motivo": "Fatorizando os termos, temos: F = A'C(B'+B) + AC(B'+B) = A'C(1) + AC(1) = A'C + AC = C(A'+A) = C(1) = C."
+},
     {
       "id": "5.1",
       "pergunta": "Se uma expressão AOI (AND-OR-Invert) é AB + CD, a expressão POS (Produto de Somas) equivalente é",
@@ -575,6 +855,76 @@
       "motivo": "Seguindo os diagramas temporais fornecidos para as entradas, as transições iniciais geram estados em que a porta G1 produz nível HIGH (1) e a porta G2 mantém-se a nível LOW (0)."
     },
     {
+"id": "5.11",
+"pergunta": "Uma rede lógica do tipo AOI (AND-OR-Invert) caracteriza-se por integrar na sua estrutura física",
+"opcoes": "A) apenas portas AND unidas em cascata infinita de atraso\nB) portas AND cujas saídas são ligadas a uma porta OR, a qual é seguidamente invertida por uma porta NOT\nC) um descodificador de sete segmentos de baixa potência\nD) todas as anteriores",
+"resposta": "B) portas AND cujas saídas são ligadas a uma porta OR, a qual é seguidamente invertida por uma porta NOT",
+"motivo": "Este circuito implementa funções do tipo soma de produtos negada, sendo muito comum em circuitos integrados complexos devido à eficiência de silício desta estrutura."
+},
+{
+"id": "5.12",
+"pergunta": "A representação lógica dual (bubble-to-bubble logic) indica que uma porta OR com inversores colocados em todas as suas entradas equivale diretamente a uma",
+"opcoes": "A) porta NAND\nB) porta NOR\nC) porta XOR\nD) porta XNOR",
+"resposta": "A) porta NAND",
+"motivo": "A equação lógica correspondente é X = A' + B'. Pelo teorema de DeMorgan, sabemos que A' + B' = (A · B)', o que descreve precisamente a operação lógica de uma porta NAND."
+},
+{
+"id": "5.13",
+"pergunta": "Os perigos lógicos (hazards ou glitches) em circuitos combinatórios ocorrem tipicamente devido a",
+"opcoes": "A) variações indesejadas na tensão de alimentação geral\nB) diferentes tempos de atraso de propagação dos caminhos de sinal através do circuito lógico\nC) utilização incorreta de relógio em blocos assíncronos de alta potência\nD) uso de resistências com tolerâncias de fabrico muito elevadas",
+"resposta": "B) diferentes tempos de atraso de propagação dos caminhos de sinal através do circuito lógico",
+"motivo": "Se dois caminhos de sinal têm atrasos diferentes, a saída pode mudar temporariamente para um estado incorreto antes de estabilizar, originando pequenos picos indesejados (glitches)."
+},
+{
+"id": "5.14",
+"pergunta": "Para construir um circuito lógico XOR utilizando apenas portas universais NAND de duas entradas, o número mínimo de portas necessárias é",
+"opcoes": "A) duas\nB) três\nC) quatro\nD) cinco",
+"resposta": "C) quatro",
+"motivo": "A estrutura padrão ideal com portas NAND interligadas partilha termos intermédios e consegue realizar a operação XOR com exatamente quatro portas."
+},
+{
+"id": "5.15",
+"pergunta": "O atraso máximo de propagação no pior caso (worst-case delay) de um circuito combinatório com múltiplos caminhos é dado pela",
+"opcoes": "A) média aritmética de todos os atrasos de porta individuais\nB) soma dos atrasos ao longo do caminho lógico mais longo (caminho crítico)\nC) frequência máxima de oscilação do circuito integrado\nD) impedância de saída dos transistores em corte",
+"resposta": "B) soma dos atrasos ao longo do caminho lógico mais longo (caminho crítico)",
+"motivo": "O caminho crítico determina a velocidade limite de operação estável, pois define o tempo máximo que o circuito demora a estabilizar todas as saídas após uma transição."
+},
+{
+"id": "5.16",
+"pergunta": "Um terminal de sinal de entrada que possui um círculo desenhado junto ao corpo do componente lógico indica que o mesmo está configurado como",
+"opcoes": "A) ativo em nível lógico HIGH\nB) ativo em nível lógico LOW\nC) um pino de alimentação de alta corrente\nD) um circuito de controlo de alta impedância",
+"resposta": "B) ativo em nível lógico LOW",
+"motivo": "O círculo é a representação gráfica padrão de uma negação lógica, indicando que a função interna correspondente é executada quando a referida linha recebe nível lógico 0."
+},
+{
+"id": "5.17",
+"pergunta": "Para verificar erros de transmissão simples em sistemas de barramento paralelo, a lógica combinatória mais eficaz utiliza",
+"opcoes": "A) uma cascata de portas XOR para gerar ou verificar o bit de paridade\nB) portas AND ligadas em série de alta resistência térmica\nC) um multiplexer com endereços flutuantes livres\nD) registos de deslocamento síncronos retroalimentados",
+"resposta": "A) uma cascata de portas XOR para gerar ou verificar o bit de paridade",
+"motivo": "Como a porta XOR devolve HIGH quando as entradas diferem, a ligação de portas XOR em árvore calcula eficientemente o módulo aritmético por 2 (contagem de uns)."
+},
+{
+"id": "5.18",
+"pergunta": "Ao efetuar o diagnóstico de avarias num circuito digital montado, se for detetado que uma linha de sinal está permanentemente em nível lógico LOW, mesmo com o emissor a tentar impor nível HIGH, a causa provável é",
+"opcoes": "A) circuito aberto na resistência de pull-up do barramento principal\nB) um curto-circuito interno do pino do recetor à terra (GND)\nC) saturação térmica por excesso de corrente na fonte\nD) fan-out muito reduzido da porta recetora",
+"resposta": "B) um curto-circuito interno do pino do recetor à terra (GND)",
+"motivo": "Um curto-circuito direto à terra drena toda a corrente fornecida pelo driver, forçando a linha de sinal a manter-se permanentemente no potencial de 0 V."
+},
+{
+"id": "5.19",
+"pergunta": "No código VHDL concorrente, a estrutura WITH sel SELECT atribui valores ao sinal com base em",
+"opcoes": "A) instruções procedimentais temporárias de atraso programável\nB) estados de clock detetados em flancos alternados\nC) combinações específicas de um sinal de seleção comum, atuando como um multiplexer\nD) tabelas de busca baseadas em EEPROM não voláteis",
+"resposta": "C) combinações específicas de um sinal de seleção comum, atuando como um multiplexer",
+"motivo": "Este formato representa a estrutura de atribuição de sinal selecionada (selected signal assignment), que mapeia saídas de hardware equivalentes a descodificadores lógicos combinatórios."
+},
+{
+"id": "5.20",
+"pergunta": "Para comparar a igualdade absoluta de dois barramentos de dados digitais de 4 bits (A e B), a porta que é necessária em cada par de bits correspondente é a porta",
+"opcoes": "A) NAND gate\nB) NOR gate\nC) XOR gate\nD) XNOR gate",
+"resposta": "D) XNOR gate",
+"motivo": "Como a porta XNOR produz nível HIGH quando as duas entradas têm o mesmo estado (ambas 0 ou ambas 1), ela atua como detetor de igualdade elementar."
+},
+    {
       "id": "6.1",
       "pergunta": "Para o somador completo (full-adder) apresentado, assumindo que os bits de entrada são A = 0, B = 0 e Cin = 1. A soma (Sum) e o transporte de saída (Cout) serão",
       "opcoes": "A) Sum = 0, Cout = 0\nB) Sum = 0, Cout = 1\nC) Sum = 1, Cout = 0\nD) Sum = 1, Cout = 1",
@@ -644,6 +994,76 @@
       "resposta": "B) um verificador de paridade (parity tester)",
       "motivo": "A mesma lógica que gera o bit de paridade serve para verificar se os dados recebidos mantêm a paridade correta, identificando possíveis erros de bit na transmissão."
     },
+    {
+"id": "6.11",
+"pergunta": "As funções de saída de um meio somador (half-adder) para as entradas A e B são dadas por",
+"opcoes": "A) Sum = A'B + AB', Carry = AB\nB) Sum = AB, Carry = A + B\nC) Sum = A + B, Carry = A'B'\nD) Sum = A XOR B, Carry = A + B",
+"resposta": "A) Sum = A'B + AB', Carry = AB",
+"motivo": "O meio somador gera a soma aritmética simples (XOR) e o correspondente carry lógico (AND) resultante da operação binária básica."
+},
+{
+"id": "6.12",
+"pergunta": "A grande vantagem técnica de um somador com antecipação de transporte (look-ahead carry adder) face a um somador de transporte por propagação (ripple-carry adder) reside no facto de o primeiro",
+"opcoes": "A) usar muito menos transistores de hardware na sua construção física\nB) eliminar atrasos acumulados calculando em paralelo todos os bits de transporte necessários\nC) dispensar a utilização de qualquer pino de carry out final\nD) funcionar apenas com fontes de alimentação analógicas simplificadas",
+"resposta": "B) eliminar atrasos acumulados calculando em paralelo todos os bits de transporte necessários",
+"motivo": "Ao prever o carry através de equações lógicas de geração (G) e propagação (P) baseadas nas entradas diretas, o look-ahead carry reduz significativamente o atraso geral de adição."
+},
+{
+"id": "6.13",
+"pergunta": "Um descodificador (decoder) do tipo BCD para sete segmentos (como o 74LS47) possui saídas ativas em nível LOW. Isto significa que para ligar o segmento correspondente, o display deve ser do tipo",
+"opcoes": "A) cátodo comum (common-cathode)\nB) ânodo comum (common-anode)\nC) cristal líquido reflexivo polarizado\nD) nenhuma das anteriores",
+"resposta": "B) ânodo comum (common-anode)",
+"motivo": "Displays de ânodo comum ligam os ânodos ao VCC, exigindo que os pinos de controlo do driver descodificador forneçam caminhos de corrente para a terra (nível LOW) para acender os segmentos."
+},
+{
+"id": "6.14",
+"pergunta": "Um codificador de prioridade (priority encoder) difere de um codificador convencional por",
+"opcoes": "A) apenas aceitar uma linha ativa em nível LOW de cada vez\nB) gerar uma saída que corresponde exclusivamente à entrada ativa de maior peso se várias estiverem ativas simultaneamente\nC) necessitar de um sinal de sincronismo externo para poder processar dados\nD) todas as anteriores",
+"resposta": "B) gerar uma saída que corresponde exclusivamente à entrada ativa de maior peso se várias estiverem ativas simultaneamente",
+"motivo": "A lógica de prioridade do codificador resolve ambiguidades no processamento de sinais, garantindo que o sinal de maior prioridade (ex.: interrupções) seja descodificado com preferência."
+},
+{
+"id": "6.15",
+"pergunta": "Um multiplexer de 8 para 1 (8-to-1 MUX) pode ser utilizado de forma direta para implementar qualquer função booleana com o seguinte número máximo de variáveis",
+"opcoes": "A) 2 variáveis\nB) 3 variáveis\nC) 4 variáveis\nD) 8 variáveis",
+"resposta": "C) 4 variáveis",
+"motivo": "As 3 linhas de seleção geram o domínio padrão de 3 variáveis (2^3=8 entradas). Adicionando lógica na entrada de dados, consegue-se codificar facilmente funções de 4 variáveis."
+},
+{
+"id": "6.16",
+"pergunta": "A operação elementar de um desmultiplexer (DEMUX) consiste em",
+"opcoes": "A) converter sinais binários de dados para níveis de potência analógicos correspondentes\nB) encaminhar uma única linha de dados para uma de várias linhas de saída selecionáveis\nC) misturar múltiplos canais lógicos de transmissão numa única linha de saída síncrona\nD) ordenar barramentos de endereços paralelos por ordem decrescente de velocidade",
+"resposta": "B) encaminhar uma única linha de dados para uma de várias linhas de saída selecionáveis",
+"motivo": "O DEMUX atua como o inverso do multiplexer, direcionando o fluxo de dados recebido de um canal de entrada para o destino endereçado pelas linhas de controle."
+},
+{
+"id": "6.17",
+"pergunta": "Para gerar um gerador de paridade ímpar (odd parity generator) de 4 bits utilizando portas XOR, deve-se aplicar as entradas a uma rede XOR e no pino de saída final",
+"opcoes": "A) colocar um inversor (porta NOT) para inverter o nível gerado\nB) adicionar uma ligação direta à terra em paralelo com uma resistência de pull-up\nC) somar o bit de transporte de um meio somador adjacente\nD) não efetuar qualquer modificação uma vez que a paridade gerada é direta",
+"resposta": "A) colocar um inversor (porta NOT) para inverter o nível gerado",
+"motivo": "Como o XOR gera naturalmente paridade par, a inversão final (criando XNOR) inverte o bit para assegurar que a contagem global de uns seja ímpar."
+},
+{
+"id": "6.18",
+"pergunta": "Ao ligar em cascata dois comparadores de magnitude de 4 bits para obter um comparador de 8 bits, as saídas do primeiro comparador (LSB) devem ser ligadas",
+"opcoes": "A) diretamente ao barramento de dados paralelo final\nB) às respetivas entradas de cascata (cascading inputs) do segundo comparador (MSB)\nC) à terra (GND) através de resistências shunt de baixo valor\nD) às entradas de relógio (CLK) dos flip-flops de retenção",
+"resposta": "B) às respetivas entradas de cascata (cascading inputs) do segundo comparador (MSB)",
+"motivo": "O comparador MSB realiza a decisão final. No entanto, se os bits superiores forem iguais, ele consulta as entradas de cascata para desempatar com os bits inferiores."
+},
+{
+"id": "6.19",
+"pergunta": "Um conversor de código binário para código Gray de 4 bits pode ser implementado utilizando de forma exclusiva portas lógicas",
+"opcoes": "A) AND\nB) OR\nC) XOR\nD) NAND",
+"resposta": "C) XOR",
+"motivo": "A conversão calcula-se mantendo o MSB e obtendo os bits seguintes através de XOR lógicos entre bits adjacentes do barramento binário de origem."
+},
+{
+"id": "6.20",
+"pergunta": "Se ativarmos simultaneamente as entradas 3 e 7 de um codificador decimal para BCD convencional sem prioridade, a saída gerada será",
+"opcoes": "A) 0111 (7 em binário)\nB) 0011 (3 em binário)\nC) 1010 (estado inválido)\nD) uma sobreposição lógica inválida (AND/OR físico) que depende da implementação das portas",
+"resposta": "D) uma sobreposição lógica inválida (AND/OR físico) que depende da implementação das portas",
+"motivo": "Sem circuito de prioridade ativo, as correntes geradas pelas duas entradas sobrepõem-se nas portas OR internas do codificador, resultando numa combinação binária incorreta."
+},
     {
       "id": "7.1",
       "pergunta": "A saída de um D latch não irá mudar de estado se",
@@ -715,6 +1135,76 @@
       "motivo": "O circuito não possui entradas de disparo externas e usa os pinos 2 e 6 ligados entre si a um circuito RC auto-oscilante, o que caracteriza a configuração astável."
     },
     {
+"id": "7.11",
+"pergunta": "Num gated S-R latch ativo em nível HIGH, a aplicação simultânea das entradas S = 1, R = 1 com o sinal de Enable ativo (1) resulta num estado",
+"opcoes": "A) estável com ambas as saídas em nível HIGH\nB) inválido / indeterminado com as saídas Q e Q' em contradição\nC) de oscilação infinita na frequência de ressonância do componente\nD) de carga automática dos registos dinâmicos do circuito integrado",
+"resposta": "B) inválido / indeterminado com as saídas Q e Q' em contradição",
+"motivo": "A lógica do latch tenta impor nível 1 em ambas as saídas Q e Q' simultaneamente. Ao remover o Enable, o estado final do circuito torna-se imprevisível e instável."
+},
+{
+"id": "7.12",
+"pergunta": "Se a frequência do sinal aplicado à entrada de relógio (CLK) de um flip-flop J-K conectado em modo 'toggle' (J=K=1) for de 40 MHz, a frequência na saída Q será de",
+"opcoes": "A) 10 MHz\nB) 20 MHz\nC) 40 MHz\nD) 80 MHz",
+"resposta": "B) 20 MHz",
+"motivo": "No modo toggle, o flip-flop altera o seu estado uma vez por ciclo de clock (no flanco ativo), completando um período de saída a cada dois períodos de entrada (fout = fclk / 2)."
+},
+{
+"id": "7.13",
+"pergunta": "A principal característica de funcionamento de um flip-flop do tipo mestre-escravo (master-slave) é que",
+"opcoes": "A) as entradas de dados são isoladas termicamente das portas lógicas internas\nB) os dados são captados pelo mestre no flanco de subida e transferidos para o escravo no flanco oposto do relógio\nC) necessita de dois barramentos de alimentação de corrente distintos\nD) funciona apenas em barramentos paralelos bidirecionais assíncronos",
+"resposta": "B) os dados são captados pelo mestre no flanco de subida e transferidos para o escravo no flanco oposto do relógio",
+"motivo": "Esta arquitetura em dois estágios evita problemas de corrida e realimentação indesejada, atualizando as saídas físicas apenas na transição de fecho do sinal de clock."
+},
+{
+"id": "7.14",
+"pergunta": "O fenómeno da metastabilidade (metastability) num flip-flop ocorre quando",
+"opcoes": "A) o circuito integrado é exposto a temperaturas negativas extremas\nB) as condições de setup ou de hold são violadas, mantendo a saída temporariamente num estado lógico indefinido\nC) o sinal de relógio possui um duty cycle excessivo acima de 95%\nD) se aplica um curto-circuito direto na linha de alimentação analógica",
+"resposta": "B) as condições de setup ou de hold são violadas, mantendo a saída temporariamente num estado lógico indefinido",
+"motivo": "Se a entrada de dados transitar na janela crítica do flanco de clock, os transistores de realimentação internos não conseguem decidir o estado de condução rapidamente, flutuando na zona linear."
+},
+{
+"id": "7.15",
+"pergunta": "Com as entradas J = 1 e K = 1, se aplicarmos um flanco ativo de relógio a um flip-flop J-K, a saída Q",
+"opcoes": "A) passará garantidamente a nível lógico LOW (0)\nB) passará garantidamente a nível lógico HIGH (1)\nC) manterá inalterado o seu nível lógico anterior\nD) assumirá o complemento do seu estado lógico anterior (toggle)",
+"resposta": "D) assumirá o complemento do seu estado lógico anterior (toggle)",
+"motivo": "A tabela de verdade do flip-flop J-K define que quando ambos os pinos J e K estão ativos (1), a transição do relógio inverte o estado lógico de saída."
+},
+{
+"id": "7.16",
+"pergunta": "Se uma alteração no dado de entrada ocorrer violando o tempo de hold (hold time) de um flip-flop, o comportamento esperado é",
+"opcoes": "A) a destruição física irreversível das portas lógicas do integrado\nB) a entrada incorreta dos dados ou instabilidade oscilatória temporária na saída\nC) o aumento da frequência interna do oscilador RC do chip\nD) nenhuma das anteriores",
+"resposta": "B) a entrada incorreta dos dados ou instabilidade oscilatória temporária na saída",
+"motivo": "O tempo de hold especifica que os dados devem manter-se estáveis após o flanco de clock para garantir que os loops de realimentação retenham e estabilizem o novo valor lido."
+},
+{
+"id": "7.17",
+"pergunta": "A principal característica de um monoestável (one-shot) do tipo não reativável (non-retriggerable) é que",
+"opcoes": "A) ignora qualquer novo pulso de disparo que surja enquanto o pulso de saída estiver ativo\nB) apenas funciona com sinais de disparo assíncronos analógicos de alta frequência\nC) necessita de um condensador com resistência de fuga infinita\nD) desliga a fonte de alimentação geral assim que o ciclo termina",
+"resposta": "A) ignora qualquer novo pulso de disparo que surja enquanto o pulso de saída estiver ativo",
+"motivo": "Os temporizadores não reativáveis fecham o circuito de entrada durante o ciclo de contagem RC, assegurando que o tempo de pulso definido seja mantido fixo e sem extensões."
+},
+{
+"id": "7.18",
+"pergunta": "Num circuito temporizador astável montado com o integrado 555, o duty cycle do sinal de saída é determinado pelas resistências R1, R2 e pelo condensador C. Para obter um duty cycle o mais próximo possível de 50%, deve-se",
+"opcoes": "A) fazer com que a resistência R2 seja muito maior do que R1\nB) aumentar a capacidade do condensador C para valores eletrolíticos de alta tensão\nC) eliminar completamente a resistência R1 do circuito\nD) alimentar o integrado 555 com o dobro da tensão nominal recomendada",
+"resposta": "A) fazer com que a resistência R2 seja muito maior do que R1",
+"motivo": "Como o tempo HIGH depende de (R1+R2)C e o tempo LOW de R2C, fazer R2 muito maior que R1 aproxima as equações, tornando os tempos HIGH e LOW quase idênticos."
+},
+{
+"id": "7.19",
+"pergunta": "O circuito Schmitt trigger possui propriedades de histerese, o que significa que",
+"opcoes": "A) o atraso de propagação do componente é inversamente proporcional à corrente absorvida\nB) possui limiares de comutação diferentes para a transição positiva e para a transição negativa do sinal\nC) consome energia apenas quando o sinal de relógio está estático em nível LOW\nD) opera de forma síncrona exclusiva com transistores FET de dreno aberto",
+"resposta": "B) possui limiares de comutação diferentes para a transição positiva e para a transição negativa do sinal",
+"motivo": "Esta diferença de limiares limpa ruídos oscilatórios de baixa amplitude na entrada, garantindo uma única transição limpa na saída para sinais ruidosos ou lentos."
+},
+{
+"id": "7.20",
+"pergunta": "Um flip-flop do tipo D (data flip-flop) realiza a transferência de dados capturando",
+"opcoes": "A) apenas o nível estático da entrada D quando o relógio está em nível LOW\nB) o estado da entrada D exatamente no flanco ativo do sinal de relógio\nC) a frequência de batimento do condensador de realimentação externa\nD) todas as anteriores",
+"resposta": "B) o estado da entrada D exatamente no flanco ativo do sinal de relógio",
+"motivo": "O D flip-flop copia o estado lógico de D para a saída Q unicamente durante o evento de transição definido (flanco de subida ou flanco de descida) do relógio."
+},
+    {
       "id": "8.1",
       "pergunta": "O counter apresentado no diagrama abaixo é um exemplo de um",
       "opcoes": "A) counter assíncrono (asynchronous counter)\nB) counter BCD\nC) counter síncrono (synchronous counter)\nD) nenhum dos anteriores",
@@ -784,6 +1274,76 @@
       "resposta": "D) nenhuma das anteriores",
       "motivo": "Se cada counter divide a frequência pelo seu fator respetivo (por exemplo, divisão por 16 e por 16 em cascata), fout = 256 Hz / 256 = 1 Hz, valor que não consta nas opções de A a C."
     },
+    {
+"id": "8.11",
+"pergunta": "A acumulação de atrasos de propagação em counters assíncronos (ripple counters) pode provocar o surgimento de",
+"opcoes": "A) glitches (picos de tensão indesejados) durante a descodificação dos estados intermédios\nB) oscilação eletromagnética de alta potência térmica\nC) aumento artificial da frequência de entrada aplicada ao circuito\nD) todas as anteriores",
+"resposta": "A) glitches (picos de tensão indesejados) durante a descodificação dos estados intermédios",
+"motivo": "Como os flip-flops não comutam ao mesmo tempo, o counter passa por estados falsos e transientes muito rápidos antes de estabilizar na contagem correta."
+},
+{
+"id": "8.12",
+"pergunta": "Num counter síncrono (synchronous counter), o atraso de propagação geral de comutação",
+"opcoes": "A) acumula-se e aumenta linearmente com o número total de flip-flops utilizados\nB) é igual ao atraso de propagação de apenas um flip-flop mais o atraso das portas lógicas de controlo\nC) depende unicamente da temperatura interna de funcionamento do chip de silício\nD) é totalmente nulo sob quaisquer condições de operação no circuito impresso",
+"resposta": "B) é igual ao atraso de propagação de apenas um flip-flop mais o atraso das portas lógicas de controlo",
+"motivo": "Como todos os flip-flops partilham a mesma linha comum de relógio e comutam em paralelo, o atraso de estabilização não escala de forma cumulativa como nos assíncronos."
+},
+{
+"id": "8.13",
+"pergunta": "Um counter do tipo progressivo/regressivo (up/down counter) síncrono utiliza portas lógicas adicionais para",
+"opcoes": "A) comutar dinamicamente a linha de clock principal de cada estágio intermédio\nB) alterar as condições de realimentação das entradas J-K com base no pino de controlo de direção\nC) repor o counter a zero a cada 10 ciclos de relógio sem realimentação\nD) aumentar a tensão de alimentação dos integrados durante a contagem inversa",
+"resposta": "B) alterar as condições de realimentação das entradas J-K com base no pino de controlo de direção",
+"motivo": "O controlo seleciona se as transições dependem das saídas Q (modo up) ou das saídas complementadas Q' (modo down), reconfigurando o circuito de carry intermédio."
+},
+{
+"id": "8.14",
+"pergunta": "Para projetar um counter de década (decade counter/módulo 10) assíncrono que conte de 0 a 9 utilizando flip-flops J-K, a realimentação de reset deve ser acionada quando o counter atinge o estado binário",
+"opcoes": "A) 1001 (9 em decimal)\nB) 1010 (10 em decimal)\nC) 1111 (15 em decimal)\nD) 1011 (11 em decimal)",
+"resposta": "B) 1010 (10 em decimal)",
+"motivo": "O estado 10 (1010) é detetado momentaneamente por uma porta lógica (como NAND), a qual gera um pulso de reset instantâneo que limpa o counter, voltando ao estado 0000."
+},
+{
+"id": "8.15",
+"pergunta": "O diagrama de estados de um counter digital representa graficamente",
+"opcoes": "A) a dissipação térmica em watts de cada porta lógica em corte\nB) a sequência temporal de estados binários que o circuito assume em resposta ao clock\nC) o layout físico das pistas de cobre no circuito impresso da placa de teste\nD) os tempos de comutação analógica medidos entre o ponto de 10% e 90%",
+"resposta": "B) a sequência temporal de estados binários que o circuito assume em resposta ao clock",
+"motivo": "O diagrama mapeia as transições através de círculos (estados lógicos) e setas direcionais, detalhando o comportamento sequencial lógico planeado para o circuito."
+},
+{
+"id": "8.16",
+"pergunta": "Num counter predefinível (presettable counter), a carga síncrona de dados difere da carga assíncrona porque a carga síncrona",
+"opcoes": "A) ocorre de forma instantânea independentemente do estado do sinal de relógio\nB) requer obrigatoriamente um flanco ativo de relógio para carregar os dados nas saídas\nC) consome o dobro da corrente nominal durante a comutação rápida\nD) apenas opera com dados apresentados em formato série de 1 bit",
+"resposta": "B) requer obrigatoriamente um flanco ativo de relógio para carregar os dados nas saídas",
+"motivo": "A lógica síncrona coloca as entradas de preset nas linhas de dados internas dos flip-flops, de modo a que estes carreguem os valores unicamente na transição ativa seguinte do relógio."
+},
+{
+"id": "8.17",
+"pergunta": "Um counter com sequência truncada (truncated sequence counter) caracteriza-se por",
+"opcoes": "A) sofrer de perdas frequentes de bits durante o processo de leitura série\nB) possuir um módulo de contagem menor do que a sua capacidade natural máxima de 2^N\nC) ser implementado unicamente com circuitos integrados analógicos discretos\nD) dispensar a utilização de qualquer linha de reset ou reset assíncrono",
+"resposta": "B) possuir um módulo de contagem menor do que a sua capacidade natural máxima de 2^N",
+"motivo": "Ao saltar ou forçar resets em determinados estados (ex.: módulo 5 com 3 flip-flops), o counter é impedido de correr toda a gama de estados binários possíveis."
+},
+{
+"id": "8.18",
+"pergunta": "A frequência máxima de operação de um ripple counter de N bits é limitada principalmente",
+"opcoes": "A) pelo tempo total acumulado de atraso de propagação de todos os estágios em cascata\nB) pelo tamanho físico da resistência de terminação do barramento paralelo\nC) pela corrente de fuga inversa medida nos pinos de terra do integrado\nD) todas as anteriores",
+"resposta": "A) pelo tempo total acumulado de atraso de propagação de todos os estágios em cascata",
+"motivo": "Para que a contagem seja válida, o período do clock deve ser superior ao atraso cumulativo (N * t_pd) dos flip-flops, impedindo erros de sincronismo a altas velocidades."
+},
+{
+"id": "8.19",
+"pergunta": "Durante a descodificação de um counter com glitches, o método mais eficaz para eliminar os impulsos falsos de comutação na saída consiste em",
+"opcoes": "A) interligar as saídas de descodificação diretamente à terra através de fusíveis térmicos\nB) utilizar uma técnica de estroboscópio (strobing) controlando a ativação das portas com o sinal de relógio\nC) aumentar deliberadamente a resistência interna das pistas de controlo lógico\nD) usar inversores rápidos em série na linha de alimentação de silício do chip",
+"resposta": "B) utilizar uma técnica de estroboscópio (strobing) controlando a ativação das portas com o sinal de relógio",
+"motivo": "O sinal de strobe só ativa a porta de leitura após os transientes terem estabilizado, impedindo que flutuações temporárias ativem o circuito recetor."
+},
+{
+"id": "8.20",
+"pergunta": "Ao ligar em cascata um counter divisor por 4 com um counter divisor por 5, o circuito resultante realiza uma divisão de frequência global por",
+"opcoes": "A) 9\nB) 16\nC) 20\nD) 40",
+"resposta": "C) 20",
+"motivo": "O fator de divisão de circuitos divisores montados em cascata síncrona ou assíncrona é dado pelo produto dos fatores de divisão individuais: 4 * 5 = 20."
+},
     {
       "id": "9.1",
       "pergunta": "O shift register que seria utilizado para atrasar dados de entrada em formato série por 4 períodos de relógio é",
@@ -855,6 +1415,77 @@
       "motivo": "A principal função de um UART é converter dados paralelos do microprocessador em dados série para transmissão assíncrona, recorrendo a bits de start/stop."
     },
     {
+"id": "9.11",
+"pergunta": "Um shift register bidirecional caracteriza-se por ser capaz de",
+"opcoes": "A) deslocar os bits armazenados tanto para a esquerda como para a direita com base num pino de controlo\nB) comutar automaticamente entre lógica positiva e lógica negativa\nC) operar sem qualquer sinal de relógio ou fonte de alimentação estável\nD) armazenar dados analógicos de forma direta e sem conversores lógicos",
+"resposta": "A) deslocar os bits armazenados tanto para a esquerda como para a direita com base num pino de controlo",
+"motivo": "As portas lógicas de controlo reconfiguram o encaminhamento da saída de cada flip-flop para as entradas D do estágio anterior ou seguinte, de acordo com o sentido de deslocamento desejado."
+},
+{
+"id": "9.12",
+"pergunta": "O número total de estados lógicos distintos que um Johnson counter de N bits consegue assumir na sua sequência cíclica é",
+"opcoes": "A) N\nB) 2N\nC) 2^N\nD) N^2",
+"notes": "Um contador Johnson com N flip-flops tem um ciclo de 2N estados lógicos ordenados.",
+"resposta": "B) 2N",
+"motivo": "A realimentação invertida do Johnson counter cria um ciclo alternado de propagação de uns seguido de zeros, reduzindo a gama de estados para exatamente 2N."
+},
+{
+"id": "9.13",
+"pergunta": "O número total de estados lógicos ativos válidos que um ring counter de N bits assume na sua sequência regular de operação é de",
+"opcoes": "A) N\nB) 2N\nC) 2^N\nD) N^2",
+"resposta": "A) N",
+"motivo": "Como no ring counter circula apenas um bit '1' isolado, a sequência típica de operação possui apenas N estados distintos (um por cada flip-flop disponível)."
+},
+{
+"id": "9.14",
+"pergunta": "No shift register parallel-in/serial-out (PISO), a operação de carga (load) de dados é tipicamente controlada por uma linha que",
+"opcoes": "A) desliga temporariamente os transistores de clock geral do barramento\nB) comuta as entradas dos flip-flops de modo a ler as linhas de entrada paralela em vez de deslocar os bits\nC) aumenta a corrente interna de saída para níveis de curto-circuito temporário\nD) limpa obrigatoriamente todos os flip-flops para o nível lógico zero",
+"resposta": "B) comuta as entradas dos flip-flops de modo a ler as linhas de entrada paralela em vez de deslocar os bits",
+"motivo": "Esta linha de controlo aciona seletores lógicos intermédios em cada estágio, alternando o modo de carregamento paralelo com o modo de avanço série do barramento."
+},
+{
+"id": "9.15",
+"pergunta": "As principais desvantagens dos shift registers dinâmicos em relação aos shift registers estáticos residem no facto de os dinâmicos",
+"opcoes": "A) utilizarem transistores CMOS muito maiores e mais caros\nB) requererem uma frequência de clock mínima permanente para não perderem os dados lógicos armazenados\nC) possuírem fan-out totalmente nulo sob condições normais de teste\nD) todas as anteriores",
+"resposta": "B) requererem uma frequência de clock mínima permanente para não perderem os dados lógicos armazenados",
+"motivo": "Como utilizam capacidades parasitas de porta MOS para retenção temporária de carga, os shift registers dinâmicos sofrem de descargas de corrente se o relógio parar."
+},
+{
+"id": "9.16",
+"pergunta": "Um gerador de sequências pseudo-aleatórias (PRBS) pode ser construído ligando portas XOR na malha de realimentação de um",
+"opcoes": "A) decoder de 4 para 16 de alta corrente\nB) shift register do tipo serial-in/serial-out\nC) comparador analógico de histerese variável\nD) counter assíncrono programável de paridade",
+"resposta": "B) shift register do tipo serial-in/serial-out",
+"motivo": "Realimentar certas saídas intermédias através de portas XOR (Linear Feedback Shift Register - LFSR) cria um polinómio cíclico de longa repetição que mimetiza ruído digital."
+},
+{
+"id": "9.17",
+"pergunta": "No recetor de um circuito UART (Universal Asynchronous Receiver-Transmitter), o bloco responsável por reconstruir os dados em formato paralelo utiliza um",
+"opcoes": "A) serial-in/parallel-out shift register\nB) parallel-in/serial-out shift register\nC) ring counter de alta potência analógica\nD) descodificador de sete segmentos do tipo cátodo comum",
+"resposta": "A) serial-in/parallel-out shift register",
+"motivo": "Os bits recebidos sequencialmente na linha série são deslocados um a um para o shift register. Uma vez completo o frame, os dados são lidos em paralelo no barramento."
+},
+{
+"id": "9.18",
+"pergunta": "Uma memória do tipo FIFO (First-In, First-Out) implementada com shift registers de alta velocidade é útil para",
+"opcoes": "A) armazenar permanentemente as configurações da BIOS de um computador\nB) buffers temporários de sincronização de dados entre circuitos de velocidades de relógio distintas\nC) converter de forma direta sinais analógicos complexos em impulsos de potência\nD) todas as anteriores",
+"resposta": "B) buffers temporários de sincronização de dados entre circuitos de velocidades de relógio distintas",
+"motivo": "A FIFO absorve rajadas de escrita à frequência do emissor e disponibiliza-as para leitura de forma ordenada e síncrona com o relógio do recetor."
+},
+{
+"id": "9.19",
+"pergunta": "Ao operar shift registers rápidos a frequências de clock muito elevadas, a dissipação de potência",
+"opcoes": "A) diminui linearmente até atingir valores completamente desprezáveis\nB) aumenta significativamente devido ao regime de comutações contínuas das capacidades parasitas internas\nC) permanece inalterada uma vez que a tensão de alimentação é constante\nD) torna-se dependente unicamente do tamanho dos barramentos paralelos externos",
+"resposta": "B) aumenta significativamente devido ao regime de comutações contínuas das capacidades parasitas internas",
+"motivo": "A potência dinâmica CMOS é proporcional à frequência de comutação. Ciclos mais frequentes implicam transferências de carga contínuas, dissipando energia térmica."
+},
+{
+"id": "9.20",
+"pergunta": "Para ligar em cascata dois shift registers de 8 bits (como o 74HC164) para obter um registo de 16 bits, deve ligar",
+"opcoes": "A) as entradas de dados de ambos os integrados à terra (GND)\nB) a saída de dados do oitavo estágio (Q7) do primeiro integrado à entrada de dados do segundo integrado\nC) as linhas de relógio em oposição de fase de 180 graus\nD) todas as saídas lógicas em curto-circuito de baixa impedância",
+"resposta": "B) a saída de dados do oitavo estágio (Q7) do primeiro integrado à entrada de dados do segundo integrado",
+"motivo": "Ao transferir o bit que transborda de Q7 do primeiro registo para a entrada do registo seguinte, cria-se a cadeia de arrasto síncrona necessária para os 16 bits."
+},
+    {
       "id": "10.1",
       "pergunta": "A memória RAM estática (SRAM) é uma memória do tipo",
       "opcoes": "A) não volátil apenas de leitura (nonvolatile read only memory)\nB) não volátil de leitura/escrita\nC) volátil apenas de leitura\nD) volátil de leitura/escrita (volatile read/write memory)",
@@ -925,6 +1556,76 @@
       "motivo": "A FAT (Tabela de Alocação de Ficheiros) é a estrutura de sistema de ficheiros desenvolvida para mapear o espaço de armazenamento e encadear os clusters de cada ficheiro."
     },
     {
+"id": "10.11",
+"pergunta": "Uma célula básica de memória RAM estática (SRAM) utiliza como elemento de armazenamento interno",
+"opcoes": "A) um condensador dinâmico de baixa corrente de fuga\nB) uma estrutura de flip-flop ou latch composto por transistores em realimentação direta\nC) um fusível metálico de tungsténio programável uma única vez\nD) uma linha de atraso acústico e magnético",
+"resposta": "B) uma estrutura de flip-flop ou latch composto por transistores em realimentação direta",
+"motivo": "A SRAM recorre a realimentação cross-coupled (geralmente 6 transistores), mantendo os estados lógicos estáveis indefinidamente enquanto houver alimentação aplicada."
+},
+{
+"id": "10.12",
+"pergunta": "Os ciclos de refresco (refresh cycles) periódicos exigidos pelas memórias RAM dinâmicas (DRAM) são necessários para",
+"opcoes": "A) arrefecer termicamente os barramentos de endereços paralelos do circuito integrado\nB) recarregar a carga elétrica armazenada nos condensadores parasitas de cada célula que se dissipa ao longo do tempo\nC) apagar seletivamente todos os dados que não foram acedidos nos últimos ciclos\nD) reprogramar os fusíveis queimados de redundância eletrónica",
+"resposta": "B) recarregar a carga elétrica armazenada nos condensadores parasitas de cada célula que se dissipa ao longo do tempo",
+"motivo": "Cada bit DRAM é retido num pequeno condensador. Devido a correntes de fuga internas involuntárias, a carga decai, exigindo ciclos de leitura e recarga periódicos."
+},
+{
+"id": "10.13",
+"pergunta": "A memória Flash utiliza na sua arquitetura células com transistores de porta flutuante (floating gate). A função desta porta consiste em",
+"opcoes": "A) aumentar a velocidade do sinal de relógio interno\nB) reter eletrões de forma isolada e permanente para manter o estado lógico sem energia externa aplicada\nC) dissipar a eletricidade estática acumulada no encapsulamento plástico\nD) atuar como fusível de proteção contra picos indesejados de corrente",
+"resposta": "B) reter eletrões de forma isolada e permanente para manter o estado lógico sem energia externa aplicada",
+"motivo": "Ao prender eletrões na porta flutuante (através de injeção de portadores quentes ou tunelamento Fowler-Nordheim), altera-se a tensão de limiar do transistor, codificando o bit de forma não volátil."
+},
+{
+"id": "10.14",
+"pergunta": "As memórias DRAM de alta densidade recorrem ao método de multiplexagem de endereços para",
+"opcoes": "A) reduzir drasticamente o número de pinos físicos do circuito integrado\nB) aumentar a imunidade ao ruído eletromagnético dos barramentos paralelos\nC) dispensar a utilização de desmultiplexadores internos complexos\nD) operar sem linhas de controlo de escrita dedicadas",
+"resposta": "A) reduzir drasticamente o número de pinos físicos do circuito integrado",
+"motivo": "A partilha do mesmo barramento para os endereços de linha (através do strobe RAS') e de coluna (através do strobe CAS') corta os pinos de endereço necessários para metade."
+},
+{
+"id": "10.15",
+"pergunta": "A vida útil de memórias do tipo EEPROM é fisicamente limitada pelo seguinte parâmetro característico",
+"opcoes": "A) tempo máximo de exposição a fontes de luz fluorescente comuns\nB) número máximo de ciclos de escrita e apagamento (endurance de escrita)\nC) velocidade de transição de flanco do barramento de leitura\nD) corrente de consumo estático no modo de stand-by",
+"resposta": "B) número máximo de ciclos de escrita e apagamento (endurance de escrita)",
+"motivo": "O stress físico causado por altas tensões de tunelamento degrada gradualmente a fina camada de óxido de silício que isola a porta flutuante, impedindo a retenção estável de carga após milhares de ciclos."
+},
+{
+"id": "10.16",
+"pergunta": "A linha de controlo CS' (Chip Select) ou CE' (Chip Enable) numa memória RAM é utilizada para",
+"opcoes": "A) limpar imediatamente todos os dados armazenados nas células estáticas\nB) colocar o integrado no modo ativo e ligar os buffers de barramento ou desativá-los em modo stand-by\nC) alternar a velocidade de escrita entre síncrona e assíncrona\nD) descarregar de forma controlada as capacidades parasitas das linhas de dados",
+"resposta": "B) colocar o integrado no modo ativo e ligar os buffers de barramento ou desativá-los em modo stand-by",
+"motivo": "Quando CE' está HIGH, a memória desativa os seus buffers internos de I/O, entrando num modo de baixo consumo em que as operações de leitura e escrita são ignoradas."
+},
+{
+"id": "10.17",
+"pergunta": "A memória cache de um processador moderno caracteriza-se por utilizar tecnologia SRAM em vez de DRAM devido ao facto de a SRAM",
+"opcoes": "A) possuir densidade de integração significativamente superior por unidade de silício\nB) ser extremamente rápida, eliminando os estados de espera (wait states) exigidos pela DRAM\nC) não dissipar qualquer energia sob frequências elevadas acima de 1 GHz\nD) reter dados de forma não volátil mesmo com o equipamento desligado",
+"resposta": "B) ser extremamente rápida, eliminando os estados de espera (wait states) exigidos pela DRAM",
+"motivo": "Como a SRAM não depende do tempo de carregamento/descarregamento lento de condensadores e dispensa ciclos de refresco, consegue acompanhar a velocidade de relógio dos barramentos internos do CPU."
+},
+{
+"id": "10.18",
+"pergunta": "As saídas lógicas Empty e Full de uma memória FIFO servem para indicar, respetivamente, que",
+"opcoes": "A) o barramento de dados paralelo sofreu um curto-circuito térmico\nB) a memória está sem qualquer dado disponível ou atingiu a sua capacidade máxima de armazenamento\nC) o ciclo de refresco dinâmico terminou com sucesso ou falhou por completo\nD) o integrador lógico está desativado ou em modo de teste JTAG ativo",
+"resposta": "B) a memória está sem qualquer dado disponível ou atingiu a sua capacidade máxima de armazenamento",
+"motivo": "Estas flags impedem que o sistema tente ler dados inexistentes (underflow) ou sobrecarregue a fila de escrita antes de haver espaço livre disponível (overflow)."
+},
+{
+"id": "10.19",
+"pergunta": "A principal diferença de retenção entre memórias semicondutoras voláteis e meios de armazenamento magnéticos reside no facto de os magnéticos",
+"opcoes": "A) requererem uma alimentação contínua de muito maior tensão para não desmagnetizarem\nB) reterem os dados alinhando domínios magnéticos microscópicos de forma permanente sem consumo elétrico\nC) operarem exclusivamente com portas lógicas da tecnologia TTL\nD) todas as anteriores",
+"resposta": "B) reterem os dados alinhando domínios magnéticos microscópicos de forma permanente sem consumo elétrico",
+"motivo": "A magnetização residual (histerese magnética) mantém o estado dos dipolos de óxido de ferro estável a longo prazo, garantindo a não volatilidade natural do suporte físico."
+},
+{
+"id": "10.20",
+"pergunta": "Para realizar a expansão de profundidade (address expansion) de uma memória (ex.: obter 2k x 8 bits usando integrados de 1k x 8 bits), deve-se",
+"opcoes": "A) ligar os barramentos de dados em paralelo e utilizar o bit de endereço superior (A10) para selecionar qual integrado ativa através do pino CS'\nB) colocar as saídas em série de forma cruzada com flip-flops J-K adicionais\nC) aumentar para o dobro a tensão de alimentação geral fornecida aos dois integrados\nD) unificar todas as saídas lógicas em curto-circuito permanente de baixa impedância",
+"resposta": "A) ligar os barramentos de dados em paralelo e utilizar o bit de endereço superior (A10) para selecionar qual integrado ativa através do pino CS'",
+"motivo": "Como apenas um integrado pode comunicar com o barramento de cada vez, o bit superior de endereço atua como o bit de chip select, dividindo a gama de endereços de forma contígua."
+},
+    {
       "id": "11.1",
       "pergunta": "Uma vantagem dos dispositivos lógicos programáveis (PLDs) em relação a circuitos discretos (portas lógicas individuais) é",
       "opcoes": "A) menores requisitos de consumo energético e espaço físico\nB) maior fiabilidade geral do sistema\nC) superior flexibilidade de modificação do design\nD) todas as anteriores",
@@ -962,7 +1663,7 @@
     {
       "id": "11.6",
       "pergunta": "O dispositivo lógico programável que utiliza tabelas de consulta (LUT - Look-Up Tables) baseadas em SRAM para gerar funções lógicas é",
-      "opcoes": "A) a PAL\nB) a GAL\nC) o FPGA (Field Programmable Gate Array)\nD) o CPLD",
+      "opcoes": "A) a PAL (Programmable Array Logic)\nB) a GAL (Generic Array Logic)\nC) o FPGA (Field Programmable Gate Array)\nD) o CPLD (Complex Programmable Logic Device)",
       "resposta": "C) o FPGA (Field Programmable Gate Array)",
       "motivo": "Os FPGAs baseiam-se em blocos lógicos configuráveis que utilizam pequenos blocos de memória RAM estática (SRAM) que atuam como LUTs para simular funções lógicas."
     },
@@ -994,6 +1695,77 @@
       "resposta": "B) fazem com que a expressão lógica à direita seja atribuída à variável à esquerda",
       "motivo": "Em VHDL, o operador '<=' é o operador de atribuição de sinal (signal assignment), mapeando continuamente a expressão do lado direito para o sinal especificado à esquerda."
     },
+    {
+"id": "11.11",
+"pergunta": "Os dispositivos lógicos programáveis do tipo PAL (Programmable Array Logic) distinguem-se estruturalmente por apresentarem",
+"opcoes": "A) matriz AND programável e matriz OR fixa\nB) matriz AND fixa e matriz OR programável\nC) matriz AND programável e matriz OR programável\nD) ausência completa de qualquer porta lógica OR na sua arquitetura interna",
+"resposta": "A) matriz AND programável e matriz OR fixa",
+"motivo": "A arquitetura clássica PAL otimiza a velocidade de propagação e o espaço de silício ao manter a matriz OR pré-definida de fábrica para somar os produtos lógicos programáveis."
+},
+{
+"id": "11.12",
+"pergunta": "Os dispositivos lógicos programáveis do tipo PLA (Programmable Logic Array) caracterizam-se por apresentarem",
+"opcoes": "A) apenas matrizes de portas lógicas inversoras do tipo NOT fixas de fábrica\nB) matriz AND programável e matriz OR programável\nC) ausência completa de conexões à base de fusíveis semicondutores programáveis\nD) necessidade de um circuito integrado de refresco dinâmico permanente",
+"resposta": "B) matriz AND programável e matriz OR programável",
+"motivo": "A flexibilidade do PLA é máxima porque o projetista pode partilhar termos de produto AND em diferentes saídas, programando ambas as matrizes de forma customizada."
+},
+{
+"id": "11.13",
+"pergunta": "No interior de um circuito FPGA (Field Programmable Gate Array), as funções lógicas customizadas são implementadas através de tabelas de consulta chamadas",
+"opcoes": "A) PIA (Programmable Interconnect Array)\nB) LUT (Look-Up Table) baseadas em memória SRAM rápida\nC) macrocells com registos de atraso analógico térmico\nD) todas as anteriores",
+"resposta": "B) LUT (Look-Up Table) baseadas em memória SRAM rápida",
+"motivo": "Em vez de interligar portas físicas reais, os FPGAs carregam o resultado lógico pretendido para pequenas RAMs lidas pelas variáveis de entrada do circuito digital desenhado."
+},
+{
+"id": "11.14",
+"pergunta": "Uma macrocell típica integrada na arquitetura interna de um CPLD ou GAL permite",
+"opcoes": "A) programar a saída para funcionar tanto no formato combinatório como em formato sequencial (com flip-flop)\nB) amplificar diretamente sinais de potência analógicos acima de 230 V\nC) converter barramentos série paralelos em sinais de rádio frequência modulados\nD) unificar os pinos de alimentação geral do circuito numa única linha lógica",
+"resposta": "A) programar a saída para funcionar tanto no formato combinatório como em formato sequencial (com flip-flop)",
+"motivo": "Através de multiplexers internos controlados por bits de configuração, a macrocell encaminha o resultado diretamente para o pino de saída ou passa-o primeiro por um registo síncrono."
+},
+{
+"id": "11.15",
+"pergunta": "No desenvolvimento em linguagem VHDL, a lista de sensibilidade (sensitivity list) de um bloco process define",
+"opcoes": "A) as variáveis lógicas que têm prioridade absoluta de interrupção elétrica de hardware\nB) a lista de sinais que, ao sofrerem qualquer alteração de estado, ativam a reexecução imediata do process\nC) a gama de temperaturas ambientais suportada pelo circuito integrado sintetizado\nD) a lista de erros de compilação ignorados pelas ferramentas de simulação lógica",
+"notes": "A lista de sensibilidade lista todos os sinais que desencadeiam a reexecução do bloco process sempre que ocorrem alterações nestes.",
+"resposta": "B) a lista de sinais que, ao sofrerem qualquer alteração de estado, ativam a reexecução imediata do process",
+"motivo": "O process em VHDL simula hardware reativo. Sempre que um dos sinais listados muda, o simulador aciona o bloco process para reavaliar os estados das saídas afetadas."
+},
+{
+"id": "11.16",
+"pergunta": "No fluxo de design com dispositivos lógicos, o processo de síntese lógica (logic synthesis) consiste em",
+"opcoes": "A) verificar visualmente a presença de defeitos nas pistas metálicas da placa de teste\nB) converter o código descritivo abstrato (ex.: VHDL ou Verilog) numa representação de portas lógicas reais (netlist)\nC) medir os atrasos térmicos reais das junções de silício sob correntes limite\nD) queimar destrutivamente todos os fusíveis redundantes do circuito integrado",
+"resposta": "B) converter o código descritivo abstrato (ex.: VHDL ou Verilog) numa representação de portas lógicas reais (netlist)",
+"motivo": "O sintetizador traduz o comportamento algorítmico do código fonte em estruturas de hardware equivalentes e otimizadas para a tecnologia do chip alvo."
+},
+{
+"id": "11.17",
+"pergunta": "A técnica de varrimento de fronteira (boundary scan ou JTAG) é útil em circuitos complexos com PLDs para",
+"opcoes": "A) aumentar a frequência máxima do gerador de clock do processador geral\nB) testar a conectividade elétrica e a integridade de junções de soldadura diretamente nos pinos do chip\nC) carregar dados analógicos no circuito de entrada do conversor sigma-delta\nD) todas as anteriores",
+"resposta": "B) testar a conectividade elétrica e a integridade de junções de soldadura diretamente nos pinos do chip",
+"motivo": "O JTAG permite ler e escrever nos pinos do componente de forma puramente digital através de um registo série interno, dispensando pontas de teste físicas dispendiosas."
+},
+{
+"id": "11.18",
+"pergunta": "No desenvolvimento em linguagem VHDL, o processo de instanciação de componentes (component instantiation) serve para",
+"opcoes": "A) criar estruturas hierárquicas e reutilizar blocos de design previamente descritos no projeto principal\nB) eliminar todos os caminhos críticos com atrasos de propagação no circuito integrado\nC) forçar que o circuito opere exclusivamente em regimes assíncronos de baixa velocidade\nD) regular as tensões máximas aplicadas aos pinos de entrada analógica",
+"resposta": "A) criar estruturas hierárquicas e reutilizar blocos de design previamente descritos no projeto principal",
+"motivo": "Semelhante à chamada de funções em linguagens de software, a instanciação instancia cópias de módulos de hardware, definindo conexões de portas (port map) estruturadas."
+},
+{
+"id": "11.19",
+"pergunta": "A grande vantagem dos FPGAs em relação a circuitos integrados do tipo ASIC (Application-Specific Integrated Circuit) reside no facto de os FPGAs",
+"opcoes": "A) serem reprogramáveis no próprio local de teste, acelerando o desenvolvimento e reduzindo o custo inicial\nB) possuírem consumo de corrente estática nulo mesmo operando a 10 GHz\nC) apresentarem custos unitários mais baixos para produções de massa de milhões de chips\nD) dispensarem por completo a necessidade de quaisquer sinais de relógio externos",
+"resposta": "A) serem reprogramáveis no próprio local de teste, acelerando o desenvolvimento e reduzindo o custo inicial",
+"motivo": "Enquanto um ASIC exige fabrico em fundição (custo de máscaras milionário), o FPGA pode ser reconfigurado indefinidamente via ficheiro de configuração no laboratório."
+},
+{
+"id": "11.20",
+"pergunta": "Num ambiente de design digital, o ficheiro do tipo SDF (Standard Delay Format) é gerado para fornecer",
+"opcoes": "A) a listagem de todos os pinos físicos de alimentação e terra do encapsulamento\nB) dados precisos de atrasos temporais reais calculados após o roteamento físico para simulação pós-layout\nC) a especificação técnica de consumo energético dinâmico sob tensões flutuantes\nD) o mapeamento geográfico de furos de montagem mecânica no circuito impresso",
+"resposta": "B) dados precisos de atrasos temporais reais calculados após o roteamento físico para simulação pós-layout",
+"motivo": "A informação do SDF anota os atrasos parasitários reais das conexões de cobre no silício, permitindo simular se o circuito digital funcionará sem violações de timing no hardware real."
+},
     {
       "id": "12.1",
       "pergunta": "Se não for utilizado um filtro anti-aliasing no processo de digitalização de um sinal analógico, o processo de reconstrução",
@@ -1063,9 +1835,78 @@
       "opcoes": "A) possui um conjunto muito grande de instruções gerais\nB) é projetado especificamente para ser muito veloz em cálculos matemáticos repetitivos\nC) contém filtros analógicos integrados anti-aliasing e de reconstrução no seu interior\nD) todas as anteriores",
       "resposta": "B) é projetado especificamente para ser muito veloz em cálculos matemáticos repetitivos",
       "motivo": "Os DSPs são concebidos com arquiteturas especiais (como Harvard e instruções multiplicadoras de ciclo único MAC) otimizadas para processamento aritmético de fluxos de dados em tempo real."
-  }
+  },
+  {
+"id": "12.11",
+"pergunta": "O teorema da amostragem de Nyquist estabelece que a frequência mínima de amostragem (fs) exigida para digitalizar um sinal analógico sem perda de informação deve ser",
+"opcoes": "A) igual a metade da frequência máxima contida no sinal analógico de origem\nB) estritamente superior ao dobro da frequência máxima contida no sinal analógico de origem\nC) exatamente idêntica à frequência média do sinal modulado em alta frequência\nD) nenhuma das anteriores",
+"resposta": "B) estritamente superior ao dobro da frequência máxima contida no sinal analógico de origem",
+"motivo": "Amostragem abaixo de 2 * fmax causa sobreposição no domínio da frequência (aliasing), misturando os espectros e impedindo a posterior reconstrução analógica correta."
+},
+{
+"id": "12.12",
+"pergunta": "O ruído de quantização (quantization noise) gerado por conversores analógico-digitais (ADCs) é provocado por",
+"opcoes": "A) flutuações e ruído térmico nas resistências shunt da placa de circuito impresso\nB) a discrepância inevitável (arredondamento) entre o nível contínuo do sinal analógico e o correspondente nível digital discreto mais próximo\nC) acoplamento indutivo de alta frequência gerado pelas pistas de clock adjacentes\nD) saturação excessiva dos transistores do amplificador operacional de saída",
+"resposta": "B) a discrepância inevitável (arredondamento) entre o nível contínuo do sinal analógico e o correspondente nível digital discreto mais próximo",
+"motivo": "Como a resolução digital possui passos discretos finitos (LSB), o arredondamento gera um erro sistemático que se manifesta como ruído de fundo aleatório no sinal digitalizado."
+},
+{
+"id": "12.13",
+"pergunta": "A principal vantagem de um conversor digital-analógico (DAC) com rede de resistências em escada R-2R (R-2R ladder) face ao modelo de resistências pesadas binárias é que o R-2R ladder",
+"opcoes": "A) utiliza um número significativamente menor de transistores na sua arquitetura digital\nB) requer apenas dois valores de resistência distintos, facilitando imenso o fabrico integrado e a precisão térmica do chip\nC) dispensa o uso de amplificadores operacionais na saída para gerar tensão\nD) opera apenas em regimes de clock assíncronos de alta corrente de dreno",
+"resposta": "B) requer apenas dois valores de resistência distintos, facilitando imenso o fabrico integrado e a precisão térmica do chip",
+"motivo": "Em conversores de resistências pesadas binárias, a gama de valores de resistência cresce exponencialmente (R, 2R, 4R, 8R...), tornando impossível manter a precisão de rácio em silício."
+},
+{
+"id": "12.14",
+"pergunta": "A característica principal de funcionamento de um conversor ADC por aproximações sucessivas (SAR ADC) consiste em apresentar",
+"opcoes": "A) um tempo de conversão fixo que depende unicamente do número de bits de resolução, independentemente da tensão analógica de entrada\nB) atraso de conversão variável que oscila de forma caótica perante transições rápidas de sinal\nC) consumo elétrico elevado que aumenta exponencialmente com a frequência de amostragem\nD) incapacidade total de processar sinais de entrada analógicos unipolares estáveis",
+"resposta": "A) um tempo de conversão fixo que depende unicamente do número de bits de resolução, independentemente da tensão analógica de entrada",
+"motivo": "O algoritmo SAR funciona de forma dicotómica, testando bit a bit do MSB ao LSB. Para N bits, realiza sempre exatamente N ciclos de clock para fechar a conversão."
+},
+{
+"id": "12.15",
+"pergunta": "A grande limitação física no design de um conversor analógico-digital Flash (flash ADC) de alta velocidade reside no facto de que o número de comparadores analógicos exigido",
+"opcoes": "A) diminui linearmente à medida que a resolução do conversor aumenta\nB) cresce exponencialmente com o número de bits de resolução (2^N - 1), exigindo silício considerável para resoluções acima de 10 bits\nC) inviabiliza o acoplamento DC com fontes de tensão analógicas estáveis\nD) limita a frequência máxima de amostragem do circuito a valores de poucos hertz",
+"resposta": "B) cresce exponencialmente com o número de bits de resolução (2^N - 1), exigindo silício considerável para resoluções acima de 10 bits",
+"motivo": "Embora seja o conversor mais rápido (paralelo direto), um Flash ADC de 8 bits requer 255 comparadores, escalando para 1023 comparadores no caso de 10 bits."
+},
+{
+"id": "12.16",
+"pergunta": "Os conversores analógico-digitais (ADCs) do tipo dupla rampa (dual-slope ADC) são preferidos em instrumentos de medição de precisão (como multímetros digitais) devido a apresentarem",
+"opcoes": "A) velocidade de amostragem de pico na ordem dos gigasamples por segundo (GSPS)\nB) excelente imunidade ao ruído de alta frequência e rejeição inerente de frequências de linha (50/60 Hz) por integração do sinal\nC) arquitetura sem necessidade de resistências calibradas internas ou capacitores externos\nD) todas as anteriores",
+"resposta": "B) excelente imunidade ao ruído de alta frequência e rejeição inerente de frequências de linha (50/60 Hz) por integração do sinal",
+"motivo": "O processo de integração calcula a área sob a curva do sinal analógico de entrada ao longo de um período fixo, atenuando flutuações rápidas de ruído através de filtragem de média física."
+},
+{
+"id": "12.17",
+"pergunta": "A flutuação de abertura (aperture jitter) num circuito de amostragem e retenção (sample-and-hold) descreve",
+"opcoes": "A) as variações indesejadas de temperatura do condensador eletrolítico de saída\nB) a incerteza temporal no momento exato em que o interruptor analógico abre ao receber o comando de retenção\nC) as oscilações lógicas de saída geradas por portas Schmitt trigger instáveis\nD) a corrente de fuga que flui continuamente do pino de reset à terra do circuito integrado",
+"resposta": "B) a incerteza temporal no momento exato em que o interruptor analógico abre ao receber o comando de retenção",
+"motivo": "Esta variação temporal introduz erros de amplitude na amostragem, limitando a precisão do conversor perante sinais de entrada com taxas de variação elevadas (alta frequência)."
+},
+{
+"id": "12.18",
+"pergunta": "Os processadores de sinal digital (DSPs) utilizam arquiteturas de hardware especializadas do tipo Harvard, as quais se distinguem por possuírem",
+"opcoes": "A) um único barramento unificado partilhado dinamicamente para dados e instruções de controlo\nB) barramentos fisicamente independentes para aceder a memórias de dados e memórias de instruções em paralelo\nC) barramentos analógicos diferenciais de alta potência dedicados a periféricos TTL\nD) todas as anteriores",
+"resposta": "B) barramentos fisicamente independentes para aceder a memórias de dados e memórias de instruções em paralelo",
+"motivo": "A arquitetura Harvard elimina o estrangulamento de Von Neumann, permitindo que o processador busque uma instrução e leia um operando de dados simultaneamente no mesmo ciclo de clock."
+},
+{
+"id": "12.19",
+"pergunta": "Se um conversor digital-analógico (DAC) com resolução de 12 bits possuir uma tensão de saída máxima de fundo de escala de 4.095 V, o seu degrau de resolução em tensão (tamanho do LSB) será de",
+"opcoes": "A) 1 mV\nB) 10 mV\nC) 100 mV\nD) 1 V",
+"resposta": "A) 1 mV",
+"motivo": "Para 12 bits, o número de intervalos é 2^12 - 1 = 4096 - 1 = 4095. A resolução calcula-se por Vfs / (2^N - 1) = 4.095 V / 4095 = 0.001 V = 1 mV."
+},
+{
+"id": "12.20",
+"pergunta": "O fenómeno da distorção por aliasing num espetro de frequência de um sinal de áudio digitalizado manifesta-se visualmente através de",
+"opcoes": "A) uma atenuação uniforme de todas as frequências graves inferiores a 20 Hz\nB) o surgimento de frequências fantasmas refletidas em torno de metade da frequência de amostragem\nC) um aumento contínuo na amplitude de pico das componentes harmónicas de ruído térmico\nD) todas as anteriores",
+"resposta": "B) o surgimento de frequências fantasmas refletidas em torno de metade da frequência de amostragem",
+"motivo": "Frequências superiores ao limite de Nyquist (fs/2) cruzam a fronteira e refletem-se de volta para a gama útil, introduzindo frequências indesejadas que distorcem o sinal original de forma irreversível."
+}
 ];
-       
 
         const MAX_QUESTIONS = 20; // Define o tamanho do teste
         let currentQuestions = [];
