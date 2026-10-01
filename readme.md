@@ -10,6 +10,8 @@
 
 |Data|Frequência|
 |---|---|
+|7-1|Teste Prático POO|
+|21-1|Trabalho de Grupo POO|
 
 # Aulas Teams
 
