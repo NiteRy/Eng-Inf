@@ -10,7 +10,7 @@
 
 |Data|Frequência/Trabalho|
 |---|---|
-|26/10|Exercício estatística|
+|26/10|Exercício estatística (individual)|
 |9/11|Teste Estatística (individual)|
 |16/11|Exercício estatística (em grupo)|
 |07/12|Exercício estatística (individual)|
