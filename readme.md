@@ -25,4 +25,6 @@
 
 23/11 a 27/11
 
+[link](https://teams.microsoft.com/meet/3640502572462961?p=kY0ioxhqxDv72kuD4D)
+
 # Notas
