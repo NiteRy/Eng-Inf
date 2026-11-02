@@ -1,0 +1,46 @@
+:root{--ink:#172421;--muted:#67756f;--paper:#f5f4ef;--line:#dfe4dd;--green:#176b52;--pale:#e8f2ec;--orange:#d67b3f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 "Segoe UI",system-ui,sans-serif}
+header{background:#102b26;color:#f8f6ef;padding:30px max(22px,calc((100vw - 1080px)/2))}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:#9fc6b1;font-weight:700}
+h1{font:500 clamp(1.7rem,4vw,2.7rem)/1.1 Georgia,serif;margin:8px 0 5px}
+.subtitle{margin:0;color:#c6d5cd}
+.wrap{max-width:1080px;margin:28px auto;padding:0 20px 50px}
+.toolbar{display:grid;grid-template-columns:1fr 1fr auto auto;gap:10px;align-items:end;margin-bottom:16px}
+.field label{display:block;font-size:.75rem;color:var(--muted);font-weight:700;margin:0 0 5px}
+.field select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:9px;background:white;color:var(--ink);font:inherit}
+button{font:600 .9rem "Segoe UI",system-ui,sans-serif;border:0;border-radius:9px;padding:12px 16px;cursor:pointer}
+.primary{background:var(--green);color:white}
+.soft{background:#e8ece6;color:#34433d}
+.progress{height:5px;background:#e0e4de;border-radius:8px;overflow:hidden;margin:14px 0 20px}
+.progress span{display:block;height:100%;background:var(--orange)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:18px;align-items:start}
+.card,.side{background:white;border:1px solid var(--line);border-radius:14px;box-shadow:0 6px 22px #152c2310}
+.card{padding:clamp(20px,4vw,34px);min-height:400px}
+.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:.82rem}
+.tag{background:var(--pale);color:var(--green);padding:4px 9px;border-radius:30px;font-weight:700}
+.prompt{font-size:1.03rem;margin:22px 0 24px;line-height:1.72}.prompt p,.solution p{margin:0 0 12px}
+.answer-label{font-weight:700;font-size:.87rem}
+.card textarea{margin-top:8px;width:100%;min-height:150px;resize:vertical;border:1px solid var(--line);border-radius:10px;padding:13px;font:inherit;line-height:1.55}
+.actions{display:flex;justify-content:space-between;gap:10px;margin-top:14px}
+.actions div{display:flex;gap:8px}
+.side{padding:19px;position:sticky;top:16px}
+.side h2{font:600 1.05rem Georgia,serif;margin:0 0 9px}
+.side p,.notice,.footer{color:var(--muted);font-size:.85rem}
+.count{font-size:1.55rem;font-weight:700;color:var(--green)}
+.solution{margin-top:18px;background:#f2f6f1;border-left:3px solid var(--green);padding:16px;border-radius:0 9px 9px 0;line-height:1.7}
+.solution h3{font-size:.9rem;margin:0 0 8px;color:var(--green)}
+.exercise-parts{display:grid;gap:8px;margin:10px 0 16px}.exercise-part{display:grid;grid-template-columns:2.1rem minmax(0,1fr);align-items:start;gap:7px}.part-label{font-weight:700;color:var(--green);font-variant-numeric:tabular-nums}
+.table-scroll{max-width:100%;overflow-x:auto;margin:14px 0 18px;border:1px solid var(--line);border-radius:10px;background:#fff}.table-scroll table{width:100%;border-collapse:collapse;font-size:.91rem;line-height:1.45}.table-scroll caption{text-align:left;padding:11px 13px;background:#eef4ef;color:var(--green);font-weight:700}.table-scroll th,.table-scroll td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.table-scroll thead th{background:#f7f8f5;color:#34433d;font-size:.82rem;white-space:nowrap}.table-scroll tbody th{font-weight:600}.table-scroll tr:last-child>*{border-bottom:0}.table-scroll tbody tr:nth-child(even){background:#fbfcfa}
+.table-answer{width:100%;min-width:4.5rem;padding:7px 8px;border:1px solid #cbd7cd;border-radius:6px;background:#fff;color:var(--ink);font:inherit}.table-answer:focus{outline:2px solid #7eb398;outline-offset:1px}.math-sum{white-space:nowrap}.math-sum sup,.math-sum sub{font-size:.72em;line-height:0;position:relative;vertical-align:baseline}.math-sum sup{top:-.65em}.math-sum sub{bottom:-.25em}
+.hidden{display:none}
+.footer{margin-top:20px;font-size:.77rem}
+
+@media(max-width:760px)
+{
+    .toolbar{grid-template-columns:1fr 1fr}
+    .layout{grid-template-columns:1fr}
+    .side{position:static;order:-1}
+    .actions{flex-wrap:wrap}
+    .exercise-part{grid-template-columns:1.8rem minmax(0,1fr)}
+}
