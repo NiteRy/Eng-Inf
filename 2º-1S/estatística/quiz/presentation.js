@@ -185,16 +185,64 @@ function renderQuizTable(target, table, storageKey = "") {
     target.append(wrapper);
 }
 
-function renderQuizProse(target, text) {
+function renderAlineaTable(target, items, editable, storageKey) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "table-scroll alinea-table-scroll";
+    const table = document.createElement("table");
+    table.className = "alinea-table";
+    if (!editable) table.classList.add("solution-alinea-table");
+    const thead = document.createElement("thead");
+    const heading = document.createElement("tr");
+    ["Alínea", "Resposta"].forEach(text => {
+        const th = document.createElement("th");
+        th.scope = "col";
+        th.textContent = text;
+        heading.append(th);
+    });
+    thead.append(heading);
+    const tbody = document.createElement("tbody");
+    items.forEach(item => {
+        const row = document.createElement("tr");
+        const prompt = document.createElement("td");
+        const marker = document.createElement("span");
+        marker.className = "alinea-marker";
+        marker.textContent = `${item.label})`;
+        prompt.append(marker);
+        const response = document.createElement("td");
+        if (editable) {
+            prompt.append(document.createTextNode(" "));
+            appendMathText(prompt, item.text);
+            const input = document.createElement("input");
+            input.type = "text";
+            input.className = "table-answer alinea-answer";
+            input.setAttribute("aria-label", `Resposta à alínea ${item.label}: ${item.text.slice(0, 140)}`);
+            const inputKey = `${storageKey}:${item.label}`;
+            input.value = localStorage.getItem(inputKey) || "";
+            input.addEventListener("input", () => {
+                if (input.value.trim()) localStorage.setItem(inputKey, input.value);
+                else localStorage.removeItem(inputKey);
+                document.dispatchEvent(new Event("quiz:progress"));
+            });
+            response.append(input);
+        } else appendMathText(response, item.text);
+        row.append(prompt, response);
+        tbody.append(row);
+    });
+    table.append(thead, tbody);
+    wrapper.append(table);
+    target.append(wrapper);
+}
+
+function renderQuizProse(target, text, field, storageKey, segment) {
     const normalized = text.replace(/(?<![A-Za-z])\d+([a-z]\))/g, "$1").replace(/\s+/g, " ").trim();
-    if (!normalized) return;
+    if (!normalized) return false;
     const markerPattern = /(?:^|\s)(?:\(([a-z])\)|([a-z])\))\s+/g;
     const matches = [...normalized.matchAll(markerPattern)];
     if (!matches.length) {
         const p = document.createElement("p");
         appendMathText(p, normalized);
         target.append(p);
-        return;
+        return false;
     }
     const first = matches[0];
     const preamble = normalized.slice(0, first.index).trim();
@@ -203,38 +251,30 @@ function renderQuizProse(target, text) {
         appendMathText(p, preamble);
         target.append(p);
     }
-    const list = document.createElement("div");
-    list.className = "exercise-parts";
-    matches.forEach((match, index) => {
+    const items = matches.map((match, index) => {
         const markerText = match[1] || match[2];
         const end = index + 1 < matches.length ? matches[index + 1].index : normalized.length;
-        const row = document.createElement("div");
-        row.className = "exercise-part";
-        const label = document.createElement("span");
-        label.className = "part-label";
-        label.textContent = markerText + ")";
-        const body = document.createElement("span");
-        appendMathText(body, normalized.slice(match.index + match[0].length, end).trim());
-        row.append(label, body);
-        list.append(row);
+        return { label: markerText, text: normalized.slice(match.index + match[0].length, end).trim() };
     });
-    target.append(list);
+    renderAlineaTable(target, items, field === "prompt", `${storageKey}:alinea:${field}:${segment}`);
+    return true;
 }
 
 function renderQuizText(target, text, filename, number, field, storageKey = "") {
     target.replaceChildren();
-    if (field === "prompt") {
-        const tableOnly = filename === "ex-aula2.pdf" && number === 3;
-        document.getElementById("answer").classList.toggle("hidden", tableOnly);
-        document.getElementById("answerLabel").classList.toggle("hidden", tableOnly);
-    }
     const table = QUIZ_TABLES[`${filename}:${number}:${field}`];
+    let hasAlineaAnswers = false;
     if (!table || !text.includes(table.marker)) {
-        renderQuizProse(target, text);
-        return;
+        hasAlineaAnswers = renderQuizProse(target, text, field, storageKey, "whole");
+    } else {
+        const [before, after] = text.split(table.marker, 2);
+        hasAlineaAnswers = renderQuizProse(target, before, field, storageKey, "before");
+        renderQuizTable(target, table, storageKey);
+        hasAlineaAnswers = renderQuizProse(target, after, field, storageKey, "after") || hasAlineaAnswers;
     }
-    const [before, after] = text.split(table.marker, 2);
-    renderQuizProse(target, before);
-    renderQuizTable(target, table, storageKey);
-    renderQuizProse(target, after);
+    if (field === "prompt") {
+        const structuredAnswers = hasAlineaAnswers || Boolean(table && table.editable);
+        document.getElementById("answer").classList.toggle("hidden", structuredAnswers);
+        document.getElementById("answerLabel").classList.toggle("hidden", structuredAnswers);
+    }
 }
