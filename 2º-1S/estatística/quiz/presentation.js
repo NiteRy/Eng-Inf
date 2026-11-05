@@ -79,8 +79,9 @@ const QUIZ_TABLES = {
     },
     "Miniteste1.pdf:1:prompt": {
         marker: "Número de erros por módulo Amostra A: 2, 3, 1, 4, 2, 0, 3, 2, 5, 1, 3, 4, 2, 1, 3, 0, 2, 4, 1, 2 Amostra B: 0, 1, 2, 3, 5, 5, 4, 2, 3, 1, 0, 4, 1, 2, 2, 1, 0, 3, 1, 5",
-        caption: "Número de erros observado em cada amostra", columns: ["Módulo", "Amostra A", "Amostra B"],
-        rows: [["1", "2", "0"], ["2", "3", "1"], ["3", "1", "2"], ["4", "4", "3"], ["5", "2", "5"], ["6", "0", "5"], ["7", "3", "4"], ["8", "2", "2"], ["9", "5", "3"], ["10", "1", "1"], ["11", "3", "0"], ["12", "4", "4"], ["13", "2", "1"], ["14", "1", "2"], ["15", "3", "2"], ["16", "0", "1"], ["17", "2", "0"], ["18", "4", "3"], ["19", "1", "1"], ["20", "2", "5"]]
+        caption: "Número de erros por módulo — amostras A e B", className: "sample-table-horizontal",
+        columns: ["Amostra", ...Array.from({ length: 20 }, (_, index) => String(index + 1))],
+        rows: [["Amostra A", "2", "3", "1", "4", "2", "0", "3", "2", "5", "1", "3", "4", "2", "1", "3", "0", "2", "4", "1", "2"], ["Amostra B", "0", "1", "2", "3", "5", "5", "4", "2", "3", "1", "0", "4", "1", "2", "2", "1", "0", "3", "1", "5"]]
     },
     "Miniteste1.pdf:1:solution": {
         marker: "Tabela (x: FiA, fiA, FaA, faA | FiB, fiB, FaB, fab): 0: 2,.10,2,.10 | 3,.15,3,.15; 1: 4,.20,6,.30 | 5,.25,8,.40; 2: 6,.30,12,.60 | 4,.20,12,.60; 3: 4,.20,16,.80 | 3,.15,15,.75; 4: 3,.15,19,.95 | 2,.10,17,.85; 5: 1,.05,20,1 | 3,.15,20,1.",
@@ -144,6 +145,7 @@ function renderQuizTable(target, table, storageKey = "") {
     const wrapper = document.createElement("div");
     wrapper.className = "table-scroll";
     const element = document.createElement("table");
+    if (table.className) element.classList.add(table.className);
     const caption = document.createElement("caption");
     caption.textContent = table.caption;
     element.append(caption);
